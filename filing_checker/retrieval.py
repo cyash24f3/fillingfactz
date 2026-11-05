@@ -104,6 +104,27 @@ def read_passage(passage_id: str) -> Passage:
     return Passage.model_validate_json(row[0])
 
 
+def read_page_text(filing_id: str, pdf_page: int) -> str:
+    """Reassemble one canonical page from its overlapping stored chunks."""
+    require_database()
+    with closing(sqlite3.connect(DATABASE_PATH)) as database:
+        rows = database.execute(
+            "SELECT payload FROM passages WHERE filing_id = ? "
+            "AND CAST(json_extract(payload, '$.pdf_page') AS INTEGER) = ? "
+            "ORDER BY CAST(json_extract(payload, '$.page_start') AS INTEGER)",
+            (filing_id, pdf_page),
+        ).fetchall()
+    if not rows:
+        raise ValueError("The requested page has no indexed text")
+    text = ""
+    for (payload,) in rows:
+        passage = Passage.model_validate_json(payload)
+        if passage.page_start > len(text):
+            raise ValueError("The page index contains a text gap")
+        text += passage.text[max(0, len(text) - passage.page_start):]
+    return text
+
+
 def read_page_context(filing_id: str, pdf_page: int) -> dict:
     """Read the first chunk of this page and its neighbours; list remaining IDs.
 

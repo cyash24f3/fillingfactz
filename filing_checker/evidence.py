@@ -7,7 +7,8 @@ from filing_checker.models import (
     VerdictCandidate,
     Evidence,
 )
-from filing_checker.retrieval import read_passage
+from filing_checker.retrieval import read_passage, read_page_text
+from filing_checker.periods import fiscal_year, reporting_date, table_column, future_annual_period
 
 
 MONEY_PATTERN = re.compile(
@@ -158,32 +159,55 @@ def check_financial_amount(
         r"|most\s+recent(?:ly)?(?:\s+reported)?)\b",
         statement, re.IGNORECASE,
     ))
+    balance_metric = not re.search(r"\brevenues?\b|\bprofessional\s+services\b", statement, re.I)
     sources = [(read_passage(item.passage_id), item.quote) for item in evidence]
-    if candidate.verdict == "CONTRADICTED" and current:
+    if candidate.verdict == "CONTRADICTED" and current and balance_metric:
         cited_ids = {item.passage_id for item in evidence}
         for pid in sorted((read_passage_ids or set()) - cited_ids):
             passage = read_passage(pid)
             sources.append((passage, passage.text))
     observations = []
+    pages = {}
     for passage, text in sources:
-        if years and passage.period_end.year not in years:
+        if years and fiscal_year(statement) is None and reporting_date(statement) is None and passage.period_end.year not in years:
             continue
-        unit_names = set(re.findall(
-            r"\bin\s+(thousands|millions|billions)\b",
-            passage.page_context, re.IGNORECASE,
-        ))
-        unit_names = {value.casefold() for value in unit_names}
-        if len(unit_names) != 1:
-            continue
-        source_scale = scales[next(iter(unit_names)).removesuffix("s")]
+        if all(hasattr(passage, name) for name in ("filing_id", "pdf_page", "page_start")):
+            key = (passage.filing_id, passage.pdf_page)
+            if key not in pages:
+                pages[key] = read_page_text(*key)
+            page = pages[key]
+            offset = passage.page_start
+        else:
+            page = passage.text
+            offset = 0
         for row in text.splitlines():
+            if not re.search(metrics[0], row, re.I):
+                continue
+            position = passage.text.find(row.strip())
+            if position == -1:
+                continue
+            position += offset
+            start = page.rfind("\n", 0, position) + 1
+            end = page.find("\n", position)
+            full_row = page[start:end if end != -1 else len(page)]
             match = re.fullmatch(
                 r"\s*" + metrics[0] + r"\s+\$?\s*"
                 r"(\d[\d,]*(?:\.\d+)?)([\s\d,$.()%\-]*)",
-                row, re.IGNORECASE,
+                full_row, re.IGNORECASE,
             )
             if match and not match.group(2).lstrip().startswith("%"):
-                value = Decimal(match.group(1).replace(",", "")) * source_scale
+                prefix = page[:start]
+                unit_names = re.findall(r"\bin\s+(thousands|millions|billions)\b", prefix, re.I)
+                if not unit_names:
+                    unit_names = list(set(re.findall(r"\bin\s+(thousands|millions|billions)\b", passage.page_context, re.I)))
+                    if len(unit_names) != 1:
+                        continue
+                source_scale = scales[unit_names[-1].casefold().removesuffix("s")]
+                column = table_column(statement, prefix, passage.period_end, getattr(passage, "form", "10-K"))
+                values = re.findall(r"\d[\d,]*(?:\.\d+)?", full_row[match.start(1):])
+                if column is None or column >= len(values):
+                    continue
+                value = Decimal(values[column].replace(",", "")) * source_scale
                 observations.append((passage.filed_at, value))
     if not observations:
         return
@@ -207,7 +231,7 @@ def check_financial_amount(
             "rounding. These rows do not contradict the amount. Recheck the "
             "metric and reporting period, then submit the warranted verdict."
         )
-    if candidate.verdict == "CONTRADICTED" and current and any(
+    if candidate.verdict == "CONTRADICTED" and current and balance_metric and any(
         matches(older_value) and newer_date > older_date and not matches(newer_value)
         for older_date, older_value in observations
         for newer_date, newer_value in observations
@@ -400,7 +424,8 @@ def validate_candidate(
     statement: str = "",
 ) -> list[Evidence]:
     check_verdict_consistency(candidate)
-    required_filings = {filing.filing_id for filing in load_filings()}
+    filings = load_filings()
+    required_filings = {filing.filing_id for filing in filings}
 
     if not required_filings.issubset(searched_filings):
         raise ValueError(
@@ -409,6 +434,17 @@ def validate_candidate(
 
     if candidate.verdict != "NOT_ENOUGH_INFO" and not candidate.evidence:
         raise ValueError("This verdict requires supporting citations")
+
+    if candidate.verdict != "NOT_ENOUGH_INFO" and simple_monetary_claim(statement) and len(list(MONEY_PATTERN.finditer(statement))) == 1:
+        unavailable = future_annual_period(statement, filings)
+        if unavailable:
+            target, cutoff = unavailable
+            raise ValueError(
+                f"The claimed annual actual ends {target}, after the latest supplied "
+                f"filing date {cutoff}. Earlier actuals and interim figures cannot "
+                "establish or refute the later full-year actual. Use NOT_ENOUGH_INFO "
+                "for this missing completed-period disclosure; guidance is a different claim."
+            )
 
     evidence = []
     seen = set()

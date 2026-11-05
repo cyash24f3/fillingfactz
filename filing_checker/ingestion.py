@@ -28,8 +28,10 @@ def page_context(text: str) -> str:
     """Retain page headings and unit disclosures for chunks below a table header."""
     lines = compact_text(text).splitlines()
     headings = lines[:5]
-    units = [line for line in lines if re.search(
-        r"\bin\s+(?:thousands|millions|billions)\b", line, re.IGNORECASE,
+    # A unit disclosure may wrap after 'in'; retain the entire parenthetical.
+    units = [" ".join(match.split()) for match in re.findall(
+        r"\([^)]*\bin\s+(?:thousands|millions|billions)\b[^)]*\)",
+        compact_text(text), re.IGNORECASE,
     )]
     return "\n".join(dict.fromkeys([*headings, *units]))[:1200]
 
