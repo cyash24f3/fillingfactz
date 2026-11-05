@@ -1,0 +1,149 @@
+{
+  "source_run": "20261105T163921Z_96e9b031",
+  "configuration": "full",
+  "examples": [
+    {
+      "id": "T03",
+      "configuration": "full",
+      "statement": "CrowdStrike had 7,925 full-time employees as of January 31, 2024.",
+      "expected_verdict": "SUPPORTED",
+      "system_verdict": "SUPPORTED",
+      "status": "complete",
+      "correct": true,
+      "evidence": [
+        {
+          "passage_id": "10k_2024_01_31:p22:c1",
+          "quote": "As of January 31, 2024, we had 7,925 full-time employees.",
+          "filing_id": "10k_2024_01_31",
+          "form": "10-K",
+          "period_end": "2024-01-31",
+          "filed_at": "2024-03-07",
+          "pdf_page": 22,
+          "source_url": "https://www.sec.gov/Archives/edgar/data/1535527/000153552724000007/crwd-20240131.htm",
+          "pdf_sha256": "50dab0e16bc6ca06a34fbb03d965e701ac65c57d1992984e90f684ca0707364c"
+        }
+      ],
+      "explanation": "The statement is directly supported by the 10-K filing for the period ended January 31, 2024, which explicitly states that CrowdStrike had 7,925 full-time employees as of that date.",
+      "stop_reason": "validated_submission",
+      "usage": {
+        "model_calls": 2,
+        "tool_calls": 3,
+        "input_tokens": 4180,
+        "output_tokens": 327,
+        "memory_reads": 1,
+        "memory_writes": 1,
+        "elapsed_seconds": 17.811
+      }
+    },
+    {
+      "id": "T04",
+      "configuration": "full",
+      "statement": "CrowdStrike had 9,000 full-time employees as of January 31, 2024.",
+      "expected_verdict": "CONTRADICTED",
+      "system_verdict": "CONTRADICTED",
+      "status": "complete",
+      "correct": true,
+      "evidence": [
+        {
+          "passage_id": "10k_2024_01_31:p22:c1",
+          "quote": "As of January 31, 2024, we had 7,925 full-time employees.",
+          "filing_id": "10k_2024_01_31",
+          "form": "10-K",
+          "period_end": "2024-01-31",
+          "filed_at": "2024-03-07",
+          "pdf_page": 22,
+          "source_url": "https://www.sec.gov/Archives/edgar/data/1535527/000153552724000007/crwd-20240131.htm",
+          "pdf_sha256": "50dab0e16bc6ca06a34fbb03d965e701ac65c57d1992984e90f684ca0707364c"
+        }
+      ],
+      "explanation": "The claim that CrowdStrike had 9,000 full-time employees as of January 31, 2024 is contradicted by the 10-K filing for the period ended January 31, 2024, which states the company had 7,925 full-time employees.",
+      "stop_reason": "validated_submission",
+      "usage": {
+        "model_calls": 2,
+        "tool_calls": 3,
+        "input_tokens": 4584,
+        "output_tokens": 361,
+        "memory_reads": 1,
+        "memory_writes": 1,
+        "elapsed_seconds": 21.955
+      }
+    },
+    {
+      "id": "T15",
+      "configuration": "full",
+      "statement": "CrowdStrike's most recently reported cash and cash equivalents are USD 4,038,536,000.",
+      "expected_verdict": "OUTDATED",
+      "system_verdict": "OUTDATED",
+      "status": "complete",
+      "correct": true,
+      "evidence": [
+        {
+          "passage_id": "10q_2024_07_31:p6:c0",
+          "quote": "Cash and cash equivalents                                                                                $          4,038,536",
+          "filing_id": "10q_2024_07_31",
+          "form": "10-Q",
+          "period_end": "2024-07-31",
+          "filed_at": "2024-08-29",
+          "pdf_page": 6,
+          "source_url": "https://ir.crowdstrike.com/static-files/fd6d4b22-9d2d-4e32-a3c6-e1f103248037",
+          "pdf_sha256": "347a00cfa0b5093498da2fb6e58098cd7a420373575757bec2deb5da1294b47a"
+        },
+        {
+          "passage_id": "10q_2024_10_31:p9:c0",
+          "quote": "Cash and cash equivalents                                                                $       4,260,324",
+          "filing_id": "10q_2024_10_31",
+          "form": "10-Q",
+          "period_end": "2024-10-31",
+          "filed_at": "2024-11-27",
+          "pdf_page": 9,
+          "source_url": "https://www.sec.gov/Archives/edgar/data/1535527/000153552724000026/crwd-20241031.htm",
+          "pdf_sha256": "5d63ae707036effc2b9caed440663e7ae209c9c11a1effc6e80db1e88670adc3"
+        }
+      ],
+      "explanation": "The most recently reported filing (10-Q for the period ended October 31, 2024) shows cash and cash equivalents of $4,260,324,000. The statement cites $4,038,536,000, which corresponds to the earlier quarter ended July 31, 2024.",
+      "stop_reason": "validated_submission",
+      "usage": {
+        "model_calls": 2,
+        "tool_calls": 3,
+        "input_tokens": 5054,
+        "output_tokens": 845,
+        "memory_reads": 1,
+        "memory_writes": 1,
+        "elapsed_seconds": 48.495
+      }
+    },
+    {
+      "id": "T18",
+      "configuration": "full",
+      "statement": "CrowdStrike had exactly 5,000 US-based full-time employees as of January 31, 2024.",
+      "expected_verdict": "NOT_ENOUGH_INFO",
+      "system_verdict": "NOT_ENOUGH_INFO",
+      "status": "complete",
+      "correct": true,
+      "evidence": [
+        {
+          "passage_id": "10k_2024_01_31:p22:c1",
+          "quote": "As of January 31, 2024, we had 7,925 full-time employees.",
+          "filing_id": "10k_2024_01_31",
+          "form": "10-K",
+          "period_end": "2024-01-31",
+          "filed_at": "2024-03-07",
+          "pdf_page": 22,
+          "source_url": "https://www.sec.gov/Archives/edgar/data/1535527/000153552724000007/crwd-20240131.htm",
+          "pdf_sha256": "50dab0e16bc6ca06a34fbb03d965e701ac65c57d1992984e90f684ca0707364c"
+        }
+      ],
+      "explanation": "The evidence shows CrowdStrike had 7,925 total full-time employees as of January 31, 2024, but does not provide a breakdown by geographic location. The claim about exactly 5,000 US-based employees cannot be verified from the available information.",
+      "stop_reason": "validated_submission",
+      "usage": {
+        "model_calls": 3,
+        "tool_calls": 4,
+        "input_tokens": 9744,
+        "output_tokens": 699,
+        "memory_reads": 1,
+        "memory_writes": 1,
+        "elapsed_seconds": 51.127
+      }
+    }
+  ]
+}

@@ -145,5 +145,6 @@ not merely a change to memory settings.
 Keyword retrieval, text extraction, and model judgments have practical limits.
 Exact citations establish provenance; they do not alone prove semantic entailment
 or corpus-wide absence. Optional semantic reranking, OCR, and independent compound-
-claim splitting are outside the current implementation. The presentation/demo is
-deferred.
+claim splitting are outside the current implementation. The
+[presentation and demo guide](demo/README.md) explain the implementation and
+recorded results.

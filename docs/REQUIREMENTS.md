@@ -1,7 +1,7 @@
 # Requirements and verification
 
 The application implements the filing-verification requirements of the technical
-assignment. The presentation/demo is intentionally deferred.
+assignment. The presentation includes recorded examples and a live-demo guide.
 
 | Requirement | Implementation | Verification |
 |---|---|---|
@@ -23,6 +23,7 @@ assignment. The presentation/demo is intentionally deferred.
 | Similar metrics/populations | Row-label and employee-population checks | Revenue mix-up and regional/global scope tests |
 | PDF quirks | Page-aware chunks, TOC filtering, compact headers, bounded neighbouring-page reads | Page-boundary navigation and unit-context tests |
 | Repository and documentation | Public GitHub repository, run instructions, design, architecture, results | Clean-checkout tests and GitHub verification |
+| Presentation/demo | [Twenty-slide PowerPoint, PDF and presenter guide](demo/README.md) | Source-backed examples covering all verdicts and measured evaluation |
 
 ## Interpretation
 

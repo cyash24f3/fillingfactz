@@ -23,6 +23,7 @@ reviewer interface.
 | Baseline comparison | `results/baseline/` |
 | Live API validation | `results/api_validation/`, [Validation](docs/VALIDATION.md) |
 | Requirements map | [Requirements](docs/REQUIREMENTS.md) |
+| Presentation and demo | [Twenty-slide deck, PDF and presenter guide](docs/demo/README.md) |
 | Focused diagnostic predictions and metrics | `results/diagnostic/` |
 | Automated tests | `tests/` |
 | Dependencies | `pyproject.toml`, `requirements-lock.txt` |
@@ -43,5 +44,6 @@ The [evaluation report](docs/EVALUATION.md) compares accuracy, calls, tokens,
 elapsed time, memory operations, and the unchanged original baseline. Results
 identify the evaluated source hashes and local model environment.
 
-The presentation/demo remains deferred; the runnable application, architecture,
-documentation, test statements, and measured results are included.
+The [presentation](docs/demo/README.md) includes the architecture, implementation
+walkthrough, recorded examples for all four verdicts, measured evaluation, and
+instructions for a live demonstration.
