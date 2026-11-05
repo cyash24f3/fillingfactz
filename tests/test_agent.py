@@ -161,6 +161,16 @@ class ExecutorFailureTests(unittest.TestCase):
         self.assertEqual(result.tool_calls, 3)
         self.assertEqual(result.status, "complete")
 
+    def test_two_searches_without_new_evidence_reserve_next_request_for_submission(self):
+        self.model.side_effect = [response("search_and_read", {"query": "first gap"}),
+                                  response("search_and_read", {"query": "alternate gap"}),
+                                  insufficient_evidence()]
+        result = self.run_claim(max_model_calls=8)
+        offered = self.model.call_args_list[2].args[1]
+        self.assertEqual([t["function"]["name"] for t in offered], ["submit_verdict"])
+        self.assertEqual(result.model_calls, 3)
+        self.assertEqual(result.status, "complete")
+
 
 if __name__ == "__main__":
     unittest.main()

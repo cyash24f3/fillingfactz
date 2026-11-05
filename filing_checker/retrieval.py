@@ -102,3 +102,43 @@ def read_passage(passage_id: str) -> Passage:
         raise ValueError("Unknown passage ID: " + passage_id)
 
     return Passage.model_validate_json(row[0])
+
+
+def read_page_context(filing_id: str, pdf_page: int) -> dict:
+    """Read the first chunk of this page and its neighbours; list remaining IDs.
+
+    At most three complete chunks enter model context. Additional row chunks
+    can be requested explicitly using the returned navigation IDs.
+    """
+    require_database()
+    if pdf_page < 1:
+        raise ValueError("PDF page must be positive")
+    known_ids = {filing.filing_id for filing in load_filings()}
+    if filing_id not in known_ids:
+        raise ValueError("Unknown filing ID: " + filing_id)
+    with closing(sqlite3.connect(DATABASE_PATH)) as database:
+        rows = database.execute(
+            "SELECT payload FROM passages WHERE filing_id = ? "
+            "AND CAST(json_extract(payload, '$.pdf_page') AS INTEGER) BETWEEN ? AND ? "
+            "ORDER BY CAST(json_extract(payload, '$.pdf_page') AS INTEGER), "
+            "CAST(json_extract(payload, '$.page_start') AS INTEGER)",
+            (filing_id, max(1, pdf_page - 1), pdf_page + 1),
+        ).fetchall()
+    passages = [Passage.model_validate_json(row[0]) for row in rows]
+    if not any(p.pdf_page == pdf_page for p in passages):
+        raise ValueError("The requested PDF page does not exist")
+    headers = {}
+    for passage in passages:
+        headers.setdefault(passage.pdf_page, passage)
+    from filing_checker.context_views import compact_passage
+    selected = list(headers.values())
+    return {
+        "filing_id": filing_id,
+        "requested_page": pdf_page,
+        "passages": [compact_passage(p) for p in selected],
+        "read_passage_ids": [p.passage_id for p in selected],
+        "navigation": [{"pdf_page": p.pdf_page, "passage_id": p.passage_id}
+                       for p in passages],
+        "instruction": "First chunks of adjacent pages expose table headings and units. "
+                       "Navigation-only IDs must be read with read_passage before citing.",
+    }

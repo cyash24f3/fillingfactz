@@ -5,6 +5,7 @@ from filing_checker.models import VerdictCandidate
 from filing_checker.retrieval import (
     search_filings,
     read_passage,
+    read_page_context,
 )
 import re
 
@@ -31,6 +32,11 @@ class SearchAndReadArguments(SearchArguments):
 
 class ReadArguments(ToolArguments):
     passage_id: str = Field(min_length=1)
+
+
+class PageContextArguments(ToolArguments):
+    filing_id: str = Field(min_length=1)
+    pdf_page: int = Field(ge=1)
 
 
 def list_filing_records():
@@ -156,6 +162,16 @@ TOOLS["search_and_read"] = {
     ),
     "arguments": SearchAndReadArguments,
     "handler": search_and_read,
+}
+
+TOOLS["read_page_context"] = {
+    "description": (
+        "Read page-heading chunks from a PDF page and its neighbours to resolve "
+        "table units, column dates, and tables continued across pages. Returns "
+        "other passage IDs for navigation; read those separately before citing."
+    ),
+    "arguments": PageContextArguments,
+    "handler": read_page_context,
 }
 
 

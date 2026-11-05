@@ -1,6 +1,6 @@
 import json
 import unittest
-from unittest.mock import patch
+from unittest.mock import patch, AsyncMock
 
 from fastapi.testclient import TestClient
 
@@ -62,6 +62,37 @@ def parse_events(text):
 
 
 class APITests(unittest.TestCase):
+    def test_swagger_and_openapi_expose_verification_post_operations(self):
+        with TestClient(app) as client:
+            self.assertEqual(client.get("/docs").status_code, 200)
+            schema = client.get("/openapi.json").json()
+            self.assertIn("post", schema["paths"]["/verify"])
+            self.assertIn("post", schema["paths"]["/verify/stream"])
+            self.assertEqual(client.get("/verify").status_code, 405)
+            self.assertEqual(client.get("/health").status_code, 200)
+
+    def test_json_endpoint_returns_a_valid_report_and_forwards_settings(self):
+        with patch("filing_checker.api.verify_once", new_callable=AsyncMock,
+                   return_value=VerificationResult.model_validate(fake_result())) as verifier:
+            with TestClient(app) as client:
+                response = client.post("/verify", json={"statement": "  A test statement.  ",
+                    "use_memory": False, "use_decomposer": False, "memory_namespace": "api-test",
+                    "max_model_calls": 3, "max_tool_calls": 5})
+        self.assertEqual(response.status_code, 200)
+        VerificationResult.model_validate(response.json())
+        payload = verifier.await_args.args[0]
+        self.assertEqual(payload.statement, "A test statement.")
+        self.assertFalse(payload.use_memory)
+        self.assertFalse(payload.use_decomposer)
+        self.assertEqual(payload.max_model_calls, 3)
+
+    def test_invalid_budget_fails_validation_before_workflow_execution(self):
+        with patch("filing_checker.api.verify_once", new_callable=AsyncMock) as verifier:
+            with TestClient(app) as client:
+                response = client.post("/verify", json={"statement": "A claim.", "max_model_calls": 1})
+        self.assertEqual(response.status_code, 422)
+        verifier.assert_not_awaited()
+
     def test_blank_statement_is_rejected(self):
         with TestClient(app) as client:
             response = client.post(

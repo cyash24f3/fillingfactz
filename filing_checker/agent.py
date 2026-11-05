@@ -97,6 +97,7 @@ class ExecutorState(TypedDict):
     output_tokens: int | None
 
     format_reminders: int
+    stagnant_searches: int
     result: dict | None
 
 
@@ -318,7 +319,8 @@ def build_executor_graph(
 
         remaining_tool_calls = max_tool_calls - work["tool_calls"]
 
-        finalizing = remaining_model_calls == 1 or remaining_tool_calls == 1
+        finalizing = (remaining_model_calls == 1 or remaining_tool_calls == 1
+                      or work["stagnant_searches"] >= 2)
 
         request_schemas = schemas
 
@@ -485,7 +487,7 @@ def build_executor_graph(
 
         finalizing = work["model_calls"] >= max_model_calls or (
             max_tool_calls - work["tool_calls"] <= 1
-        )
+        ) or work["stagnant_searches"] >= 2
 
         for call in calls:
             if work["tool_calls"] >= max_tool_calls:
@@ -578,12 +580,16 @@ def build_executor_graph(
                         "already_loaded_passage_ids": repeated_ids,
                     }
                     if not result["passages"]:
+                        if name == "search_and_read":
+                            work["stagnant_searches"] += 1
                         result["instruction"] = (
                             "No new passages were found. Previously loaded text "
                             "remains in this conversation. Search only for a "
                             "specific new gap, or submit the warranted verdict. "
                             "Missing disclosure is NOT_ENOUGH_INFO, not a contradiction."
                         )
+                    elif name == "search_and_read":
+                        work["stagnant_searches"] = 0
 
                 work["searched_filings"] = sorted(
                     set(work["searched_filings"])
@@ -777,6 +783,7 @@ def run_verifier(
         "input_tokens": 0,
         "output_tokens": 0,
         "format_reminders": 0,
+        "stagnant_searches": 0,
         "result": None,
     }
 
