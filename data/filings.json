@@ -1,0 +1,26 @@
+[
+  {
+    "filing_id": "10k_2024_01_31",
+    "form": "10-K",
+    "period_end": "2024-01-31",
+    "filed_at": "2024-03-07",
+    "filename": "10k_2024_01_31.pdf",
+    "source_url": "https://www.sec.gov/Archives/edgar/data/1535527/000153552724000007/crwd-20240131.htm"
+  },
+  {
+    "filing_id": "10q_2024_07_31",
+    "form": "10-Q",
+    "period_end": "2024-07-31",
+    "filed_at": "2024-08-29",
+    "filename": "10q_2024_07_31.pdf",
+    "source_url": "https://ir.crowdstrike.com/static-files/fd6d4b22-9d2d-4e32-a3c6-e1f103248037"
+  },
+  {
+    "filing_id": "10q_2024_10_31",
+    "form": "10-Q",
+    "period_end": "2024-10-31",
+    "filed_at": "2024-11-27",
+    "filename": "10q_2024_10_31.pdf",
+    "source_url": "https://www.sec.gov/Archives/edgar/data/1535527/000153552724000026/crwd-20241031.htm"
+  }
+]

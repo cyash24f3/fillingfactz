@@ -1,0 +1,282 @@
+{
+  "references": {
+    "fy": {
+      "passage_id": "10q_2024_07_31:p12:c1",
+      "pdf_page": 12,
+      "quote": "for the year ending January 31, 2025"
+    },
+    "employees": {
+      "passage_id": "10k_2024_01_31:p22:c1",
+      "pdf_page": 22,
+      "quote": "As of January 31, 2024, we had 7,925 full-time employees."
+    },
+    "total": {
+      "passage_id": "10k_2024_01_31:p87:c0",
+      "pdf_page": 87,
+      "quote": "Total revenue 3,055,555 2,241,236 1,451,594"
+    },
+    "subscription": {
+      "passage_id": "10k_2024_01_31:p87:c0",
+      "pdf_page": 87,
+      "quote": "Subscription $ 2,870,557 $ 2,111,660 $ 1,359,537"
+    },
+    "subshare": {
+      "passage_id": "10k_2024_01_31:p70:c2",
+      "pdf_page": 70,
+      "quote": "Subscription revenue accounted for 94% of our total revenue in both fiscal 2024 and fiscal 2023."
+    },
+    "proshare": {
+      "passage_id": "10k_2024_01_31:p70:c2",
+      "pdf_page": 70,
+      "quote": "Professional services revenue accounted for 6% of our total revenue in both fiscal 2024 and fiscal 2023."
+    },
+    "incident": {
+      "passage_id": "10q_2024_10_31:p33:c0",
+      "pdf_page": 33,
+      "quote": "On July 19, 2024, the Company released a content configuration update for its Falcon sensor that resulted in system crashes for certain Windows systems (the \"July 19 Incident\")."
+    },
+    "customer": {
+      "passage_id": "10k_2024_01_31:p92:c2",
+      "pdf_page": 92,
+      "quote": "There were no channel partners or direct customers who represented 10% or more of the Company's total revenue during the fiscal years ended January 31, 2024, January 31, 2023, and January 31, 2022."
+    },
+    "receivables": {
+      "passage_id": "10k_2024_01_31:p92:c2",
+      "pdf_page": 92,
+      "quote": "There were no channel partners or direct customers who represented 10% or more of the Company's accounts receivable as of January 31, 2024 and January 31, 2023."
+    },
+    "cash_oct": {
+      "passage_id": "10q_2024_10_31:p9:c0",
+      "pdf_page": 9,
+      "quote": "Cash and cash equivalents $ 4,260,324 $ 3,375,069"
+    },
+    "cash_july": {
+      "passage_id": "10q_2024_07_31:p6:c0",
+      "pdf_page": 6,
+      "quote": "Cash and cash equivalents $ 4,038,536 $ 3,375,069"
+    },
+    "assets_annual": {
+      "passage_id": "10k_2024_01_31:p86:c1",
+      "pdf_page": 86,
+      "quote": "Total assets $ 6,646,520 $ 5,026,540"
+    },
+    "assets_oct": {
+      "passage_id": "10q_2024_10_31:p9:c1",
+      "pdf_page": 9,
+      "quote": "Total assets $ 7,782,958 $ 6,646,520"
+    },
+    "liab_july": {
+      "passage_id": "10q_2024_07_31:p6:c2",
+      "pdf_page": 6,
+      "quote": "Total current liabilities 2,728,319 2,697,279"
+    },
+    "liab_oct": {
+      "passage_id": "10q_2024_10_31:p9:c2",
+      "pdf_page": 9,
+      "quote": "Total current liabilities 3,000,380 2,697,279"
+    },
+    "retention": {
+      "passage_id": "10k_2024_01_31:p22:c1",
+      "pdf_page": 22,
+      "quote": "Supporting our people is a foundational value for CrowdStrike. We believe the company's success depends on our ability to attract, retain and develop employees."
+    },
+    "history": {
+      "passage_id": "10k_2024_01_31:p15:c0",
+      "pdf_page": 15,
+      "quote": "We have experienced significant growth, with revenue increasing from $2.2 billion in fiscal 2023 to $3.1 billion in fiscal 2024, representing year-over-year growth of 36%"
+    }
+  },
+  "statements": [
+    {
+      "id": "T01",
+      "statement": "CrowdStrike's fiscal year ends on January 31.",
+      "expected_verdict": "SUPPORTED",
+      "reference_ids": [
+        "fy"
+      ],
+      "rationale": "The quarterly financial-statement note refers to the year ending January 31, 2025."
+    },
+    {
+      "id": "T02",
+      "statement": "CrowdStrike's fiscal year ends on December 31.",
+      "expected_verdict": "CONTRADICTED",
+      "reference_ids": [
+        "fy"
+      ],
+      "rationale": "The filings identify January 31 as the fiscal year end."
+    },
+    {
+      "id": "T03",
+      "statement": "CrowdStrike had 7,925 full-time employees as of January 31, 2024.",
+      "expected_verdict": "SUPPORTED",
+      "reference_ids": [
+        "employees"
+      ],
+      "rationale": "The Human Capital Resources disclosure states the headcount and date explicitly."
+    },
+    {
+      "id": "T04",
+      "statement": "CrowdStrike had 9,000 full-time employees as of January 31, 2024.",
+      "expected_verdict": "CONTRADICTED",
+      "reference_ids": [
+        "employees"
+      ],
+      "rationale": "The reported full-time headcount was 7,925 for this date."
+    },
+    {
+      "id": "T05",
+      "statement": "CrowdStrike's total revenue for fiscal 2024 was approximately USD 3.06 billion.",
+      "expected_verdict": "SUPPORTED",
+      "reference_ids": [
+        "total"
+      ],
+      "rationale": "The 2024 column reports 3,055,555 in thousands of dollars, or USD 3.055555 billion, which rounds to USD 3.06 billion."
+    },
+    {
+      "id": "T06",
+      "statement": "CrowdStrike's subscription revenue for fiscal 2024 was USD 3,055,555,000.",
+      "expected_verdict": "CONTRADICTED",
+      "reference_ids": [
+        "subscription",
+        "total"
+      ],
+      "rationale": "USD 3,055,555,000 is total revenue. Subscription revenue was USD 2,870,557,000; the table is in thousands."
+    },
+    {
+      "id": "T07",
+      "statement": "Subscription revenue accounted for 94% of CrowdStrike's total revenue in fiscal 2024.",
+      "expected_verdict": "SUPPORTED",
+      "reference_ids": [
+        "subshare"
+      ],
+      "rationale": "The fiscal 2024 revenue discussion states the subscription share explicitly."
+    },
+    {
+      "id": "T08",
+      "statement": "Professional services accounted for 94% of CrowdStrike's total revenue in fiscal 2024.",
+      "expected_verdict": "CONTRADICTED",
+      "reference_ids": [
+        "proshare",
+        "subshare"
+      ],
+      "rationale": "Professional services accounted for 6%; 94% is the subscription share."
+    },
+    {
+      "id": "T09",
+      "statement": "The July 19, 2024 Falcon content configuration update caused system crashes for certain Windows systems.",
+      "expected_verdict": "SUPPORTED",
+      "reference_ids": [
+        "incident"
+      ],
+      "rationale": "The October report describes the incident explicitly."
+    },
+    {
+      "id": "T10",
+      "statement": "The July 19, 2024 Falcon content configuration update did not cause Windows system crashes.",
+      "expected_verdict": "CONTRADICTED",
+      "reference_ids": [
+        "incident"
+      ],
+      "rationale": "The incident disclosure explicitly reports system crashes for certain Windows systems."
+    },
+    {
+      "id": "T11",
+      "statement": "No channel partner or direct customer represented 10% or more of CrowdStrike's total revenue in fiscal 2024.",
+      "expected_verdict": "SUPPORTED",
+      "reference_ids": [
+        "customer"
+      ],
+      "rationale": "The concentration disclosure covers the fiscal year ended January 31, 2024."
+    },
+    {
+      "id": "T12",
+      "statement": "At least one channel partner or direct customer represented 10% or more of CrowdStrike's accounts receivable as of January 31, 2024.",
+      "expected_verdict": "CONTRADICTED",
+      "reference_ids": [
+        "receivables"
+      ],
+      "rationale": "The accounts-receivable concentration disclosure says none did."
+    },
+    {
+      "id": "T13",
+      "statement": "CrowdStrike's cash and cash equivalents were USD 4,260,324,000 as of October 31, 2024.",
+      "expected_verdict": "SUPPORTED",
+      "reference_ids": [
+        "cash_oct"
+      ],
+      "rationale": "The October 31 column reports 4,260,324 in thousands of dollars."
+    },
+    {
+      "id": "T14",
+      "statement": "CrowdStrike's cash and cash equivalents were USD 4,260,324 as of October 31, 2024.",
+      "expected_verdict": "CONTRADICTED",
+      "reference_ids": [
+        "cash_oct"
+      ],
+      "rationale": "The balance sheet is in thousands: the amount is USD 4,260,324,000, not USD 4,260,324."
+    },
+    {
+      "id": "T15",
+      "statement": "CrowdStrike's most recently reported cash and cash equivalents are USD 4,038,536,000.",
+      "expected_verdict": "OUTDATED",
+      "reference_ids": [
+        "cash_july",
+        "cash_oct"
+      ],
+      "rationale": "The July balance sheet supports this earlier amount; the October balance sheet updates it to USD 4,260,324,000. Latest means latest within the supplied filings.",
+      "earlier_reference": "cash_july",
+      "later_reference": "cash_oct"
+    },
+    {
+      "id": "T16",
+      "statement": "CrowdStrike's most recently reported total assets are USD 6,646,520,000.",
+      "expected_verdict": "OUTDATED",
+      "reference_ids": [
+        "assets_annual",
+        "assets_oct"
+      ],
+      "rationale": "The January balance sheet supports this earlier amount; the October 31 balance is USD 7,782,958,000. Read the current column rather than January comparative figures.",
+      "earlier_reference": "assets_annual",
+      "later_reference": "assets_oct"
+    },
+    {
+      "id": "T17",
+      "statement": "CrowdStrike's most recently reported total current liabilities are USD 2,728,319,000.",
+      "expected_verdict": "OUTDATED",
+      "reference_ids": [
+        "liab_july",
+        "liab_oct"
+      ],
+      "rationale": "The July balance sheet supports this earlier amount; the October balance sheet updates it to USD 3,000,380,000.",
+      "earlier_reference": "liab_july",
+      "later_reference": "liab_oct"
+    },
+    {
+      "id": "T18",
+      "statement": "CrowdStrike had exactly 5,000 US-based full-time employees as of January 31, 2024.",
+      "expected_verdict": "NOT_ENOUGH_INFO",
+      "reference_ids": [
+        "employees"
+      ],
+      "rationale": "The headcount disclosure gives a global total, not this US-specific count. The reference is context, not proof of absence; review Human Capital Resources and the supplied filings for country-specific headcounts."
+    },
+    {
+      "id": "T19",
+      "statement": "CrowdStrike's voluntary employee attrition rate was 5% in fiscal 2024.",
+      "expected_verdict": "NOT_ENOUGH_INFO",
+      "reference_ids": [
+        "retention"
+      ],
+      "rationale": "The employee discussion covers attraction and retention but does not establish this numerical voluntary attrition rate. Related context is cited; absence is assessed across the supplied filings."
+    },
+    {
+      "id": "T20",
+      "statement": "CrowdStrike forecasts total revenue of USD 20 billion for fiscal 2030.",
+      "expected_verdict": "NOT_ENOUGH_INFO",
+      "reference_ids": [
+        "history"
+      ],
+      "rationale": "The supplied reports do not establish this fiscal 2030 forecast. The reference is historical revenue context, not proof that a forecast cannot exist elsewhere."
+    }
+  ]
+}
