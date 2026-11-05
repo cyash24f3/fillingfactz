@@ -167,6 +167,7 @@ def check_financial_amount(
             passage = read_passage(pid)
             sources.append((passage, passage.text))
     observations = []
+    resolved_rows = []
     pages = {}
     for passage, text in sources:
         if years and fiscal_year(statement) is None and reporting_date(statement) is None and passage.period_end.year not in years:
@@ -209,6 +210,11 @@ def check_financial_amount(
                     continue
                 value = Decimal(values[column].replace(",", "")) * source_scale
                 observations.append((passage.filed_at, value))
+                resolved_rows.append(
+                    f"USD {value:,.0f} (filing {getattr(passage, 'filing_id', 'cited source')}, "
+                    f"PDF page {getattr(passage, 'pdf_page', 'cited page')}, "
+                    f"numeric column {column + 1})"
+                )
     if not observations:
         return
 
@@ -222,8 +228,11 @@ def check_financial_amount(
     if candidate.verdict == "SUPPORTED" and not any(matches(value) for _, value in relevant):
         raise ValueError(
             "The cited numeric row, after applying the page's table units, "
-            "does not match the claimed dollar amount. Recheck the row, "
-            "reporting period and scale before submitting a verdict."
+            f"does not match the claimed dollar amount USD {claimed:,.0f}. "
+            "For the statement's requested period, the source table resolves to: "
+            + "; ".join(dict.fromkeys(resolved_rows))
+            + ". Use the column for the requested year/date, not an adjacent "
+            "comparative year or change column. Recheck the row, period and scale."
         )
     if candidate.verdict == "CONTRADICTED" and all(matches(value) for _, value in relevant):
         raise ValueError(

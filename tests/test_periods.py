@@ -60,7 +60,7 @@ class ReportingPeriodTests(unittest.TestCase):
         candidate = VerdictCandidate(verdict="SUPPORTED", explanation="The statement matches this row.")
         with patch("filing_checker.evidence.read_passage", return_value=passage), \
                 patch("filing_checker.evidence.read_page_text", return_value=page):
-            with self.assertRaisesRegex(ValueError, "table units"):
+            with self.assertRaisesRegex(ValueError, "USD 3,055,555,000.*numeric column 1"):
                 check_financial_amount("Total revenue in fiscal 2024 was USD 2,241,236,000.", candidate, evidence)
             check_financial_amount("Total revenue in fiscal 2023 was USD 2,241,236,000.", candidate, evidence)
 
