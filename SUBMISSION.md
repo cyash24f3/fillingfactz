@@ -19,7 +19,8 @@ reviewer interface.
 | Three reference PDFs and source metadata | `data/raw/`, `data/filings.json` |
 | Twenty labelled statements and references | `data/test_statements.json` |
 | Benchmark protocol | [Evaluation](docs/EVALUATION.md) |
-| Completed diagnostic predictions and metrics | `results/diagnostic/` |
+| Complete benchmark predictions and metrics | `results/benchmark/` |
+| Focused diagnostic predictions and metrics | `results/diagnostic/` |
 | Automated tests | `tests/` |
 | Dependencies | `pyproject.toml`, `requirements-lock.txt` |
 
@@ -30,8 +31,9 @@ reviewer interface.
   the included PDFs.
 - The checked-in four-case diagnostic completes with all four verdicts matching
   the expected labels.
-- The full benchmark evaluates 20 statements across three configurations, for
-  60 runs. That comparison is being generated separately from this repository snapshot.
+- The complete 60-run benchmark is included: full 85%, memory-off 100%, and
+  Decomposer-off 100%, with completion, usage, evidence, and per-case traces.
 
-The diagnostic report is explicitly scoped to its selected cases. Final benchmark
-accuracy, usage, and memory savings will be reported from the complete comparison.
+The full comparison records the evaluated source snapshot. Focused diagnostics
+and follow-up changes are documented separately; no memory savings are claimed
+for this baseline run.

@@ -69,9 +69,32 @@ three temporal claims and one regional-headcount claim. It completed **4/4** wit
 matching verdicts. This is a **four-statement subset**, not a full-dataset accuracy
 claim or a three-configuration comparison.
 
-The full 60-run comparison is in progress and will be published after completion.
-Generated benchmark output and local experiment history remain outside the curated
-repository report until that update.
+## Complete 60-run comparison
+
+The [benchmark report](../results/benchmark/summary.md) contains all three
+20-statement configurations from run `20261105T132118Z_6c5a757e`.
+
+| Configuration | Accuracy | Completed | Model calls | Tool calls | Tokens | Seconds |
+|---|---:|---:|---:|---:|---:|---:|
+| Full | 85% | 18/20 | 61 | 81 | 266,260 | 1,017.1 |
+| Memory disabled | 100% | 20/20 | 59 | 79 | 240,716 | 1,086.8 |
+| Decomposer disabled | 100% | 20/20 | 38 | 58 | 228,157 | 708.9 |
+
+The full configuration got 17 labels correct with complete status. T09 and T20
+exhausted the model-call budget; T18 incorrectly contradicted a regional-headcount
+claim using company-wide headcount evidence. T20's fallback label matches its
+expected label but is scored incorrect because the run is incomplete.
+
+Memory-on used two additional model calls, two additional tool calls, and 10.6%
+more tokens than memory-off. The single-agent configuration used 37.7% fewer model
+calls and took 30.3% less elapsed time than the full configuration. This small
+single-run comparison supports keeping the simpler configuration available; it
+does not establish universal superiority or a memory-efficiency gain.
+
+The three observed failure paths are quotation styling, insufficient population-
+scope checks, and repeated retrieval inflating message history. Source hashes in
+`run.json` preserve the evaluated implementation. Follow-up code changes and
+regression checks are separate; these baseline predictions remain unchanged.
 
 ## Interpretation
 

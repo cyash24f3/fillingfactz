@@ -85,9 +85,19 @@ The benchmark contains **20 labelled statements evaluated in three configuration
 and Decomposer disabled. Results include predictions, accuracy, calls, tokens, and
 elapsed time.
 
-[Evaluation](docs/EVALUATION.md) documents the protocol and saved results.
-The checked-in report is a completed **four-statement diagnostic**; the full
-60-run comparison is being generated separately.
+[The complete 60-run benchmark](results/benchmark/summary.md) is included, with
+predictions and evidence for all three configurations.
+
+| Configuration | Accuracy | Completed | Model calls | Tokens |
+|---|---:|---:|---:|---:|
+| Full | 85% | 18/20 | 61 | 266,260 |
+| Memory disabled | 100% | 20/20 | 59 | 240,716 |
+| Decomposer disabled | 100% | 20/20 | 38 | 228,157 |
+
+These are development-benchmark results for the recorded code snapshot. This run
+favours the single-agent configuration; memory did not reduce calls or tokens.
+[Evaluation](docs/EVALUATION.md) covers the protocol and analysis. Follow-up fixes
+and diagnostic runs are reported separately from this unchanged baseline.
 
 ## Project guide
 

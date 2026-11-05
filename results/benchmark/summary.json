@@ -1,0 +1,53 @@
+{
+  "full": {
+    "cases": 20,
+    "dataset_size": 20,
+    "full_dataset": true,
+    "accuracy": 0.85,
+    "completed": 18,
+    "incomplete": 2,
+    "errors": 0,
+    "model_calls": 61,
+    "tool_calls": 81,
+    "input_tokens": 253785,
+    "output_tokens": 12475,
+    "total_tokens": 266260,
+    "elapsed_seconds": 1017.074,
+    "memory_reads": 20,
+    "memory_writes": 17
+  },
+  "no_memory": {
+    "cases": 20,
+    "dataset_size": 20,
+    "full_dataset": true,
+    "accuracy": 1.0,
+    "completed": 20,
+    "incomplete": 0,
+    "errors": 0,
+    "model_calls": 59,
+    "tool_calls": 79,
+    "input_tokens": 227685,
+    "output_tokens": 13031,
+    "total_tokens": 240716,
+    "elapsed_seconds": 1086.8,
+    "memory_reads": 0,
+    "memory_writes": 0
+  },
+  "single_agent": {
+    "cases": 20,
+    "dataset_size": 20,
+    "full_dataset": true,
+    "accuracy": 1.0,
+    "completed": 20,
+    "incomplete": 0,
+    "errors": 0,
+    "model_calls": 38,
+    "tool_calls": 58,
+    "input_tokens": 220226,
+    "output_tokens": 7931,
+    "total_tokens": 228157,
+    "elapsed_seconds": 708.919,
+    "memory_reads": 20,
+    "memory_writes": 18
+  }
+}
