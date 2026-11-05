@@ -112,7 +112,6 @@ protocol, ablations, and practical limits. The benchmark environment is Apple M5
 
 ## Project guide
 
-- [Complete technical reference: implementation, decisions, failures and efficiency](docs/PROJECT_TECHNICAL_REFERENCE.md)
 - [Project demonstration: PowerPoint, PDF and presenter guide](docs/demo/README.md)
 - [Submission overview](SUBMISSION.md)
 - [Architecture and module map](docs/ARCHITECTURE.md)
