@@ -565,6 +565,26 @@ def build_executor_graph(
                     arguments,
                 )
 
+                # Keep the first complete passage in history; repeated search
+                # hits need only point to it, not append the same text again.
+                if "passages" in result:
+                    previous_ids = set(work["read_passage_ids"])
+                    repeated_ids = [p["passage_id"] for p in result["passages"]
+                                    if p["passage_id"] in previous_ids]
+                    result = {
+                        **result,
+                        "passages": [p for p in result["passages"]
+                                     if p["passage_id"] not in previous_ids],
+                        "already_loaded_passage_ids": repeated_ids,
+                    }
+                    if not result["passages"]:
+                        result["instruction"] = (
+                            "No new passages were found. Previously loaded text "
+                            "remains in this conversation. Search only for a "
+                            "specific new gap, or submit the warranted verdict. "
+                            "Missing disclosure is NOT_ENOUGH_INFO, not a contradiction."
+                        )
+
                 work["searched_filings"] = sorted(
                     set(work["searched_filings"])
                     | set(

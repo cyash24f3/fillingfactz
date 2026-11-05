@@ -139,6 +139,28 @@ class ExecutorFailureTests(unittest.TestCase):
         self.assertEqual(len(errors), 1)
         self.assertIn("final explanation concludes CONTRADICTED", errors[0]["error"])
 
+    def test_repeated_search_results_reference_existing_text_without_duplicating_it(self):
+        passage = {"passage_id": "annual:p1:c0", "filing_id": "annual", "pdf_page": 1,
+                   "period_end": "2024-01-31", "filed_at": "2024-03-07",
+                   "text": "A reusable source paragraph.", "page_context": ""}
+        found = {**self.bootstrap, "read_passage_ids": [passage["passage_id"]],
+                 "passages": [passage]}
+        self.tools.return_value = found
+        self.model.side_effect = [response("search_and_read", {"query": "more detail"}),
+                                  insufficient_evidence()]
+        result = self.run_claim(max_model_calls=3)
+        history = self.model.call_args_list[1].args[0]
+        observation = json.loads(next(item["content"] for item in history
+                                      if item["role"] == "tool"))
+        self.assertEqual(observation["passages"], [])
+        self.assertEqual(observation["already_loaded_passage_ids"], ["annual:p1:c0"])
+        initial = [item for item in history if item["role"] == "user"
+                   and "initial_evidence" in item["content"]]
+        self.assertIn("A reusable source paragraph.", initial[0]["content"])
+        self.assertEqual(result.read_passage_ids, ["annual:p1:c0"])
+        self.assertEqual(result.tool_calls, 3)
+        self.assertEqual(result.status, "complete")
+
 
 if __name__ == "__main__":
     unittest.main()

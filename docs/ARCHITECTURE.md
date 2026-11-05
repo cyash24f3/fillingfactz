@@ -38,7 +38,9 @@ The outer LangGraph runs initialize → decompose → recall → verify → reme
 The Executor is a nested graph with bootstrap, model, and tools nodes. Its state
 holds the statement, messages, pending calls, searched filings, loaded passage IDs,
 usage counters, and trace events. Tool results and validation errors are appended
-to the message history before the next model request.
+to the message history before the next model request. Search results retain each
+complete passage once; repeated hits refer to its already-loaded ID rather than
+appending the same text again. Explicit passage reads remain available.
 
 Working state lasts for one invocation. SQLite evidence memory persists across
 runs and is isolated by namespace. It stores source passages and quotations rather

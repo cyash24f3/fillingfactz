@@ -60,6 +60,22 @@ class MetricGroundingTests(unittest.TestCase):
 
 
 class QuoteRecoveryTests(unittest.TestCase):
+    def test_external_quote_style_recovers_original_source_punctuation(self):
+        source = 'The update caused crashes (the “Sensor Incident”).'
+        self.assertEqual(find_original_quote(source,
+            "The update caused crashes (the 'Sensor Incident')."), source)
+
+    def test_internal_apostrophes_are_preserved(self):
+        source = "Acme’s headquarters is in Pune."
+        self.assertEqual(find_original_quote(source, "Acme's headquarters is in Pune."), source)
+        with self.assertRaises(ValueError):
+            find_original_quote(source, 'Acme"s headquarters is in Pune.')
+
+    def test_punctuation_normalization_does_not_allow_changed_words(self):
+        with self.assertRaises(ValueError):
+            find_original_quote('The update caused crashes (the “Sensor Incident”).',
+                                "The update prevented crashes (the 'Sensor Incident').")
+
     def test_nonadjacent_header_and_row_get_a_literal_continuous_alternative(self):
         source = "(in thousands)\nOther table headers\nCash and cash equivalents $ 8,123,456 $ 7,000,000"
         requested = "(in thousands)\nCash and cash equivalents $ 8,123,456"

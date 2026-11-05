@@ -24,7 +24,10 @@ retrieval combines the first planning query with the original statement using
 reciprocal rank fusion. This preserves specific metrics, amounts, and qualifiers
 while reading only the selected passages.
 
-Memory reuses evidence rather than caching answers. Stored entries are checked
+Memory recall excludes date-only, numeric, and generic unit tokens and requires
+agreement on up to three topical terms using FTS stemming. This reduces unrelated
+passages sharing only a year or amount. Memory reuses evidence rather than caching
+answers. Stored entries are checked
 against the current source before reuse, and all filings remain part of fresh
 retrieval. Memory hits are measured separately from model/tool calls; a hit alone
 does not establish an efficiency improvement.
@@ -49,7 +52,7 @@ budgets, schema validation, and quotation authentication.
 
 Additional checks cover named metric labels, simple dollar amounts in explicitly
 scaled numeric rows, earlier matching balances already loaded into state, selected
-employee-scope comparisons, and disagreement between a verdict and an explicit
+employee-scope comparisons requiring a direct quantitative relationship, and disagreement between a verdict and an explicit
 conclusion in its explanation. Rejected submissions produce feedback; the model
 must resubmit a consistent result within the remaining budget.
 
@@ -69,7 +72,8 @@ specific stop reason. An incomplete result is not credited as a completed
 
 The included PDFs preserve benchmark pagination. Page context carries headings
 and table-unit disclosures into later chunks. Source matching tolerates whitespace
-and typographic quotation differences without joining nonadjacent text.
+and external quotation-style differences while preserving internal apostrophes
+and without joining nonadjacent text. The report restores the original source punctuation.
 
 The system uses lexical retrieval and text extraction, with no OCR or dedicated
 cross-page table reconstruction. Numeric checks apply to supported simple formats

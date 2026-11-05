@@ -220,7 +220,18 @@ def check_employee_scope(statement: str, candidate: VerdictCandidate, evidence: 
                "uk": r"(?:UK|U\.K\.|United Kingdom)"}
     scope_pattern = r"(?<!\w)" + aliases.get(scope, re.escape(scope)) + r"(?!\w)"
     quotes = "\n".join(item.quote for item in evidence)
-    if re.search(scope_pattern, quotes, re.IGNORECASE):
+    # A location mention in another sentence (e.g. union representation)
+    # does not scope the numeric headcount. Require a direct count relation.
+    number = r"\b\d[\d,]*"
+    full_time = r"(?:full[ -]time\s+)?"
+    location = scope_pattern + r"(?:[ -]based)?"
+    scoped_count = (
+        number + r"\s+" + full_time + location + r"\s+" + full_time + r"employees\b"
+        + "|" + number + r"\s+" + full_time
+        + r"employees\s+(?:based\s+in|in)\s+(?:the\s+)?" + scope_pattern
+        + "|" + location + r"\s+(?:employee\s+)?headcount\s*(?:of|was|is|:)\s*" + number
+    )
+    if re.search(scoped_count, quotes, re.IGNORECASE):
         return
     totals = [int(value.replace(",", "")) for value in re.findall(
         r"\b(\d[\d,]*)\s+(?:full[ -]time\s+)?employees\b", quotes, re.IGNORECASE,
@@ -256,6 +267,14 @@ def normalise_with_positions(text):
             character,
             character,
         )
+        if character in {"'", '"'}:
+            # Preserve internal apostrophes while matching external quote
+            # styles consistently. Reports still recover original source text.
+            internal_apostrophe = (
+                character == "'" and position > 0 and position + 1 < len(text)
+                and text[position - 1].isalnum() and text[position + 1].isalnum()
+            )
+            character = "'" if internal_apostrophe else '"'
 
         if character.isspace():
             if characters and characters[-1] != " ":

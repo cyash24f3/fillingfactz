@@ -17,6 +17,11 @@ STOP_WORDS = set(
     it its this that these those as than
     do does did not no
     crowdstrike holdings inc company corporation
+    january february march april may june july august september october november december
+    jan feb mar apr jun jul aug sep sept oct nov dec
+    fiscal year years ended ending date period quarter quarterly
+    usd dollar dollars thousand thousands million millions billion billions
+    latest most recent recently reported approximately exactly total
     """.split()
 )
 
@@ -55,14 +60,19 @@ def source_key(passage: Passage) -> str:
     return hashlib.sha256(text.encode("utf-8")).hexdigest()
 
 
-def search_expression(statement: str) -> str:
+def memory_terms(statement: str) -> list[str]:
     words = re.findall(
-        r"[A-Za-z0-9]+",
+        r"[A-Za-z]+",
         statement.casefold(),
     )
 
     # Preserve order while removing duplicates and common words.
-    terms = list(dict.fromkeys(word for word in words if word not in STOP_WORDS))[:24]
+    return list(dict.fromkeys(word for word in words
+                              if len(word) > 1 and word not in STOP_WORDS))[:24]
+
+
+def search_expression(statement: str) -> str:
+    terms = memory_terms(statement)
 
     return " OR ".join(f'"{term}"' for term in terms)
 
@@ -83,7 +93,7 @@ def recall_evidence(
     with memory_database() as database:
         rows = database.execute(
             """
-            SELECT passage_id, source_key, quote
+            SELECT rowid, passage_id, source_key, quote
             FROM evidence_memory
             WHERE evidence_memory MATCH ?
               AND namespace = ?
@@ -97,10 +107,28 @@ def recall_evidence(
             ),
         ).fetchall()
 
+        # Require topical agreement rather than incidental dates or quantities.
+        # FTS handles stemming consistently for these term-level matches.
+        counts = {row[0]: 0 for row in rows}
+        if counts:
+            placeholders = ",".join("?" for _ in counts)
+            for term in memory_terms(statement):
+                matching = database.execute(
+                    "SELECT rowid FROM evidence_memory "
+                    "WHERE evidence_memory MATCH ? AND namespace = ? "
+                    f"AND rowid IN ({placeholders})",
+                    (f'"{term}"', namespace, *counts),
+                ).fetchall()
+                for (rowid,) in matching:
+                    counts[rowid] += 1
+
     recalled = []
     seen = set()
 
-    for passage_id, saved_key, saved_quote in rows:
+    required_terms = min(3, len(memory_terms(statement)))
+    for rowid, passage_id, saved_key, saved_quote in rows:
+        if counts[rowid] < required_terms:
+            continue
         if passage_id in seen:
             continue
 

@@ -38,6 +38,26 @@ class EmployeeScopeTests(unittest.TestCase):
         self.check("There were 4,000 employees globally.",
                    "We had 8,000 employees globally.")
 
+    def test_unionization_location_does_not_scope_the_headcount(self):
+        with self.assertRaises(ValueError):
+            self.check("There were 4,000 US-based full-time employees.",
+                       "We had 8,000 full-time employees. None of our employees "
+                       "in the United States are represented by a labor union.")
+
+    def test_same_sentence_location_mention_is_not_a_regional_count(self):
+        with self.assertRaises(ValueError):
+            self.check("There were 4,000 US-based employees.",
+                       "We had 8,000 employees, and our United States "
+                       "employees are not represented by a labor union.")
+
+    def test_direct_regional_count_before_employee_label_is_accepted(self):
+        self.check("There were 4,000 US-based employees.",
+                   "We had 2,000 US-based full-time employees.")
+
+    def test_direct_regional_headcount_relation_is_accepted(self):
+        self.check("There were 4,000 UK-based employees.",
+                   "Our United Kingdom employee headcount was 2,000.")
+
 
 if __name__ == "__main__":
     unittest.main()

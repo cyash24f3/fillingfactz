@@ -26,7 +26,7 @@ reviewer interface.
 
 ## Verification status
 
-- 44 automated code checks pass without model inference.
+- 59 automated code checks pass without model inference.
 - All 20 labelled cases and their 17 shared source references validate against
   the included PDFs.
 - The checked-in four-case diagnostic completes with all four verdicts matching
