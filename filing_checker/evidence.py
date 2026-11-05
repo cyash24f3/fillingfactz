@@ -10,6 +10,23 @@ from filing_checker.models import (
 from filing_checker.retrieval import read_passage
 
 
+MONEY_PATTERN = re.compile(
+    r"(?:\bUSD\b|US\$|\$)\s*(\d[\d,]*(?:\.\d+)?)"
+    r"(?:\s*(thousand|million|billion|bn|mn|[kmb])\b)?", re.IGNORECASE,
+)
+MONEY_SCALES = {None: Decimal(1), "thousand": Decimal(1000), "k": Decimal(1000),
+                "million": Decimal(1000000), "mn": Decimal(1000000), "m": Decimal(1000000),
+                "billion": Decimal(1000000000), "bn": Decimal(1000000000), "b": Decimal(1000000000)}
+
+
+def simple_monetary_claim(statement: str) -> bool:
+    return not re.search(
+        r"\b(?:not|never|no)\b|n't|[<>]|\b(?:at\s+(?:least|most)|"
+        r"(?:more|less|greater|lower|higher)\s+than|above|below|over|under|exceeds?)\b",
+        statement, re.IGNORECASE,
+    )
+
+
 METRIC_PATTERNS = {
     "subscription revenue": (
         r"\bsubscription\s+revenues?\b",
@@ -117,20 +134,15 @@ def check_financial_amount(
     row, and an unambiguous page unit. Other claims remain model judgments.
     First-column comparisons are limited to the filing's reporting year.
     """
-    if candidate.verdict not in {"SUPPORTED", "CONTRADICTED"}:
+    if candidate.verdict not in {"SUPPORTED", "CONTRADICTED"} or not simple_monetary_claim(statement):
         return
-    amounts = list(re.finditer(
-        r"(?:\bUSD\b|US\$|\$)\s*(\d[\d,]*(?:\.\d+)?)"
-        r"(?:\s*(thousand|million|billion)\b)?",
-        statement, re.IGNORECASE,
-    ))
+    amounts = list(MONEY_PATTERN.finditer(statement))
     metrics = [source for claim, source in METRIC_PATTERNS.values()
                if re.search(claim, statement, re.IGNORECASE)]
     if len(amounts) != 1 or len(metrics) != 1:
         return
 
-    scales = {None: Decimal(1), "thousand": Decimal(1000),
-              "million": Decimal(1000000), "billion": Decimal(1000000000)}
+    scales = MONEY_SCALES
     number, suffix = amounts[0].groups()
     scale = scales[suffix.casefold() if suffix else None]
     claimed = Decimal(number.replace(",", "")) * scale
@@ -189,6 +201,12 @@ def check_financial_amount(
             "does not match the claimed dollar amount. Recheck the row, "
             "reporting period and scale before submitting a verdict."
         )
+    if candidate.verdict == "CONTRADICTED" and all(matches(value) for _, value in relevant):
+        raise ValueError(
+            "The cited numeric rows match the claimed amount after units and "
+            "rounding. These rows do not contradict the amount. Recheck the "
+            "metric and reporting period, then submit the warranted verdict."
+        )
     if candidate.verdict == "CONTRADICTED" and current and any(
         matches(older_value) and newer_date > older_date and not matches(newer_value)
         for older_date, older_value in observations
@@ -200,6 +218,54 @@ def check_financial_amount(
             "the verdict policy calls for OUTDATED rather than CONTRADICTED. "
             "Verify the periods, cite both filings, and submit a consistent classification."
         )
+
+
+def check_rounding_contradiction(statement: str, candidate: VerdictCandidate,
+                                 evidence: list[Evidence]) -> None:
+    """A coarse rounded disclosure cannot disprove an overlapping finer amount."""
+    if candidate.verdict != "CONTRADICTED" or not simple_monetary_claim(statement):
+        return
+    claimed_amounts = list(MONEY_PATTERN.finditer(statement))
+    matching_metrics = [claim for claim, _ in METRIC_PATTERNS.values()
+                        if re.search(claim, statement, re.I)]
+    if len(claimed_amounts) != 1 or len(matching_metrics) != 1:
+        return
+
+    def interval(match, exact=False):
+        number, suffix = match.groups()
+        scale = MONEY_SCALES[suffix.casefold() if suffix else None]
+        value = Decimal(number.replace(",", "")) * scale
+        precision = len(number.partition(".")[2])
+        tolerance = scale * Decimal(10) ** -precision / 2 if suffix and not exact else Decimal(0)
+        return value - tolerance, value + tolerance
+
+    lower, upper = interval(claimed_amounts[0], bool(re.search(r"\bexact(?:ly)?\b", statement, re.I)))
+    claim_years = set(re.findall(r"\b(?:19|20)\d{2}\b", statement))
+    for item in evidence:
+        if not re.search(matching_metrics[0].replace(r"total\s+", ""), item.quote, re.I):
+            continue
+        source_amounts = list(MONEY_PATTERN.finditer(item.quote))
+        quote_years = set(re.findall(r"\b(?:19|20)\d{2}\b", item.quote))
+        for index, amount in enumerate(source_amounts):
+            if not amount.group(2):
+                continue
+            end = source_amounts[index + 1].start() if index + 1 < len(source_amounts) else len(item.quote)
+            following = item.quote[amount.end():end]
+            explicit_year = re.match(r"\s+(?:in|for)\s+(?:the\s+)?(?:fiscal\s+)?(?:year\s+)?((?:19|20)\d{2})\b", following, re.I)
+            source_years = ({explicit_year.group(1)} if explicit_year else
+                            quote_years or {str(item.period_end.year)})
+            if claim_years and (len(source_years) > 1 or not claim_years.intersection(source_years)):
+                continue
+            prefix = item.quote[max(0, amount.start() - 25):amount.start()]
+            source_lower, source_upper = interval(amount, bool(re.search(r"\bexact(?:ly)?\b", prefix, re.I)))
+            if max(lower, source_lower) <= min(upper, source_upper):
+                raise ValueError(
+                    "The rounded monetary disclosure overlaps the claimed amount's "
+                    "precision range, so this quotation alone does not contradict it. "
+                    f"Claim range: {lower} to {upper} dollars; source range: "
+                    f"{source_lower} to {source_upper} dollars. Read the exact metric "
+                    "in the financial statement table for the stated period before deciding."
+                )
 
 
 def check_employee_scope(statement: str, candidate: VerdictCandidate, evidence: list[Evidence]) -> None:
@@ -401,6 +467,7 @@ def validate_candidate(
         )
 
     check_financial_amount(statement, candidate, evidence, read_passage_ids)
+    check_rounding_contradiction(statement, candidate, evidence)
     check_employee_scope(statement, candidate, evidence)
 
     if candidate.verdict == "OUTDATED":

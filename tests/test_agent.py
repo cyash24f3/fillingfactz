@@ -122,6 +122,13 @@ class ExecutorFailureTests(unittest.TestCase):
         self.assertEqual(result.model_calls, 0)
         self.model.assert_not_called()
 
+    def test_reporting_coverage_is_taken_from_supplied_filings(self):
+        self.model.return_value = insufficient_evidence()
+        self.run_claim()
+        initial = json.loads(self.model.call_args.args[0][1]["content"])
+        self.assertEqual(initial["reporting_coverage"], {
+            "latest_filing_date": "2024-03-07", "latest_annual_period_end": "2024-01-31"})
+
     def test_inconsistent_verdict_is_rejected_then_retried(self):
         self.model.side_effect = [
             response("submit_verdict", {

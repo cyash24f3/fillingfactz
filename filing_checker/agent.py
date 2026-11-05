@@ -69,6 +69,8 @@ The page_context field preserves page headings and table units for later chunks.
 Apply those units to numeric rows; a table in thousands requires multiplying
 monetary figures by 1,000. Do not combine page_context and text into one quote.
 Latest means latest within the supplied filings.
+Use the supplied reporting coverage. Interim results and guidance do not
+establish later full-year actuals. A forecast and an actual result are different claims.
 
 Use the smallest sufficient set of citations.
 For one simple fact, one clear citation is usually sufficient.
@@ -770,6 +772,13 @@ def run_verifier(
                         "statement": statement,
                         "research_plan": research_plan,
                         "filings": filings,
+                        "reporting_coverage": {
+                            "latest_filing_date": max(f["filed_at"] for f in filings),
+                            "latest_annual_period_end": max(
+                                (f["period_end"] for f in filings if f["form"] == "10-K"),
+                                default=None,
+                            ),
+                        },
                     }
                 ),
             },

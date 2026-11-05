@@ -80,3 +80,16 @@ cross-page table reconstruction. Numeric checks apply to supported simple format
 and assume the first numeric table column is the reported period. Compound claims
 are not independently split. Exact citations establish provenance; semantic and
 financial interpretation still require model judgment and reviewer inspection.
+
+## Precision and reporting coverage
+
+Monetary checks use decimal arithmetic and recognize thousand/million/billion
+scales, including common compact suffixes. A coarsely rounded disclosure cannot
+refute a finer approximation when their precision intervals overlap; the agent
+must obtain a more precise table row. Matching table values likewise cannot
+support a numerical contradiction. Inequalities and negated monetary claims are
+left to semantic judgment rather than treated as equality comparisons.
+
+The model receives the latest filing date and latest annual reporting period
+from the supplied manifest. Interim results and future guidance are distinguished
+from completed annual actuals.

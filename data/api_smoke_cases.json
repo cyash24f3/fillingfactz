@@ -1,0 +1,98 @@
+{
+  "description": "Additional API paraphrase, units, population, and period-scope checks. Separate from the twenty-statement main benchmark; labels are used only by the test harness.",
+  "statements": [
+    {
+      "id": "A01",
+      "statement": "CrowdStrike earned USD 184.998 million in professional services revenue for fiscal 2024.",
+      "expected_verdict": "SUPPORTED",
+      "reference_passage_ids": [
+        "10k_2024_01_31:p87:c0"
+      ],
+      "rationale": "Professional services revenue is 184,998 in thousands, or USD 184.998 million."
+    },
+    {
+      "id": "A02",
+      "statement": "CrowdStrike earned USD 184.998 million in subscription revenue for fiscal 2024.",
+      "expected_verdict": "CONTRADICTED",
+      "reference_passage_ids": [
+        "10k_2024_01_31:p87:c0"
+      ],
+      "rationale": "184,998 thousand is professional services; subscription revenue is 2,870,557 thousand."
+    },
+    {
+      "id": "A03",
+      "statement": "The Falcon sensor content update released on July 19, 2024 led to crashes on some Windows systems.",
+      "expected_verdict": "SUPPORTED",
+      "reference_passage_ids": [
+        "10q_2024_10_31:p33:c0"
+      ],
+      "rationale": "The incident disclosure explicitly describes crashes for certain Windows systems."
+    },
+    {
+      "id": "A04",
+      "statement": "As of October 31, 2024, CrowdStrike had USD 4.260324 million in cash and cash equivalents.",
+      "expected_verdict": "CONTRADICTED",
+      "reference_passage_ids": [
+        "10q_2024_10_31:p9:c0"
+      ],
+      "rationale": "The table is in thousands, so 4,260,324 represents USD 4.260324 billion."
+    },
+    {
+      "id": "A05",
+      "statement": "CrowdStrike's latest reported cash and cash equivalents are approximately USD 4.04 billion.",
+      "expected_verdict": "OUTDATED",
+      "reference_passage_ids": [
+        "10q_2024_07_31:p6:c0",
+        "10q_2024_10_31:p9:c0"
+      ],
+      "rationale": "The July balance rounds to 4.04 billion; the later October balance is 4.260324 billion."
+    },
+    {
+      "id": "A06",
+      "statement": "CrowdStrike had exactly 1,000 India-based full-time employees as of January 31, 2024.",
+      "expected_verdict": "NOT_ENOUGH_INFO",
+      "reference_passage_ids": [
+        "10k_2024_01_31:p22:c1",
+        "10k_2024_01_31:p19:c2"
+      ],
+      "rationale": "Global headcount and an Indian research presence do not disclose an India-specific employee count."
+    },
+    {
+      "id": "A07",
+      "statement": "CrowdStrike forecasts total revenue of USD 25 billion for fiscal 2032.",
+      "expected_verdict": "NOT_ENOUGH_INFO",
+      "reference_passage_ids": [
+        "10k_2024_01_31:p15:c0"
+      ],
+      "rationale": "Historical revenue context does not establish a forecast for fiscal 2032; no such forecast is disclosed in the supplied reports."
+    },
+    {
+      "id": "A08",
+      "statement": "CrowdStrike held USD 4,038,536,000 in cash and cash equivalents on July 31, 2024.",
+      "expected_verdict": "SUPPORTED",
+      "reference_passage_ids": [
+        "10q_2024_07_31:p6:c0"
+      ],
+      "rationale": "The explicitly historical statement matches the July balance despite the later change."
+    },
+    {
+      "id": "A09",
+      "statement": "CrowdStrike's full-year revenue for the fiscal year ended January 31, 2025 was USD 3,055,555,000.",
+      "expected_verdict": "NOT_ENOUGH_INFO",
+      "reference_passage_ids": [
+        "10k_2024_01_31:p87:c0",
+        "10q_2024_10_31:p51:c2"
+      ],
+      "rationale": "The annual report covers fiscal 2024 and the later filings cover interim fiscal 2025 periods, not the completed fiscal 2025 annual result."
+    },
+    {
+      "id": "A10",
+      "statement": "CrowdStrike's total revenue in fiscal 2024 was USD 2,241,236,000.",
+      "expected_verdict": "CONTRADICTED",
+      "reference_passage_ids": [
+        "10k_2024_01_31:p87:c0"
+      ],
+      "rationale": "2,241,236 thousand is the fiscal 2023 comparative value; fiscal 2024 is 3,055,555 thousand."
+    }
+  ]
+}

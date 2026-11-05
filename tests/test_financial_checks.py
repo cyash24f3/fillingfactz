@@ -3,7 +3,7 @@ from datetime import date
 from types import SimpleNamespace
 from unittest.mock import patch
 
-from filing_checker.evidence import check_financial_amount
+from filing_checker.evidence import check_financial_amount, check_rounding_contradiction
 from filing_checker.models import VerdictCandidate
 
 
@@ -16,7 +16,7 @@ class FinancialAmountTests(unittest.TestCase):
     def row(self, pid, text, period, context="Balance Sheets (in thousands)"):
         self.sources[pid] = SimpleNamespace(period_end=period, page_context=context,
                                             filed_at=period, text=text)
-        return SimpleNamespace(passage_id=pid, quote=text, filed_at=period)
+        return SimpleNamespace(passage_id=pid, quote=text, filed_at=period, period_end=period)
 
     def check(self, statement, evidence, verdict="SUPPORTED"):
         candidate = VerdictCandidate(verdict=verdict,
@@ -75,6 +75,50 @@ class FinancialAmountTests(unittest.TestCase):
     def test_percentage_row_is_not_a_monetary_amount(self):
         row = self.row("new", "Subscription 94 % 94 %", date(2024, 1, 31))
         self.check("Subscription revenue was USD 1 billion in fiscal 2024.", [row])
+
+    def test_matching_rounded_table_value_does_not_support_contradiction(self):
+        row = self.row("new", "Total revenue $ 3,055,555", date(2024, 1, 31))
+        with self.assertRaisesRegex(ValueError, "do not contradict"):
+            self.check("Total revenue was approximately USD 3.06 billion in fiscal 2024.",
+                       [row], verdict="CONTRADICTED")
+
+    def test_compact_scale_suffix_is_recognized(self):
+        row = self.row("new", "Total revenue $ 3,055,555", date(2024, 1, 31))
+        self.check("Total revenue was approximately USD 3.06bn in fiscal 2024.", [row])
+
+    def test_range_and_negated_claims_are_left_to_semantic_judgment(self):
+        row = self.row("new", "Total revenue $ 3,055,555", date(2024, 1, 31))
+        self.check("Total revenue was more than USD 2 billion in fiscal 2024.", [row])
+        self.check("Total revenue was not USD 3,055,555,000 in fiscal 2024.",
+                   [row], verdict="CONTRADICTED")
+
+    def test_coarser_narrative_rounding_cannot_refute_a_finer_approximation(self):
+        row = self.row("new", "Revenue increased from $1.7 billion in fiscal 2023 "
+                       "to $2.8 billion in fiscal 2024.", date(2024, 1, 31))
+        candidate = VerdictCandidate(verdict="CONTRADICTED", explanation="The disclosed value is rounded.")
+        with self.assertRaisesRegex(ValueError, "precision range"):
+            check_rounding_contradiction("Total revenue was approximately USD 2.76 billion in fiscal 2024.",
+                                         candidate, [row])
+
+    def test_comparative_year_value_is_not_applied_to_the_claim_year(self):
+        row = self.row("new", "Revenue increased from $1.7 billion in fiscal 2023 "
+                       "to $2.8 billion in fiscal 2024.", date(2024, 1, 31))
+        candidate = VerdictCandidate(verdict="CONTRADICTED", explanation="The earlier year has a different amount.")
+        check_rounding_contradiction("Total revenue was approximately USD 1.7 billion in fiscal 2024.",
+                                     candidate, [row])
+
+    def test_an_explicitly_exact_source_does_not_get_coarse_rounding(self):
+        row = self.row("new", "Revenue was exactly $2.8 billion in fiscal 2024.", date(2024, 1, 31))
+        candidate = VerdictCandidate(verdict="CONTRADICTED", explanation="The source gives an exact figure.")
+        check_rounding_contradiction("Total revenue was approximately USD 2.76 billion in fiscal 2024.",
+                                     candidate, [row])
+
+    def test_undated_rounded_quote_uses_its_filing_period(self):
+        row = self.row("new", "Revenue was $2.8 billion.", date(2024, 1, 31))
+        candidate = VerdictCandidate(verdict="CONTRADICTED", explanation="The source is rounded.")
+        with self.assertRaisesRegex(ValueError, "precision range"):
+            check_rounding_contradiction("Total revenue was approximately USD 2.76 billion in fiscal 2024.",
+                                         candidate, [row])
 
 
 if __name__ == "__main__":
