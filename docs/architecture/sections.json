@@ -1,0 +1,47 @@
+[
+  {
+    "name": "01 | Filing Fact-Checker | complete system",
+    "svg": "section-01.svg",
+    "png": "section-01.png"
+  },
+  {
+    "name": "02 | Corpus preparation and local retrieval",
+    "svg": "section-02.svg",
+    "png": "section-02.png"
+  },
+  {
+    "name": "03 | Agents, tool selection and bounded execution",
+    "svg": "section-03.svg",
+    "png": "section-03.png"
+  },
+  {
+    "name": "04 | Temporary working state and persistent evidence memory",
+    "svg": "section-04.svg",
+    "png": "section-04.png"
+  },
+  {
+    "name": "05 | Evidence gate and verdict semantics",
+    "svg": "section-05.svg",
+    "png": "section-05.png"
+  },
+  {
+    "name": "06 | FastAPI, live events and reviewer experience",
+    "svg": "section-06.svg",
+    "png": "section-06.png"
+  },
+  {
+    "name": "07 | Contracts and an end-to-end example",
+    "svg": "section-07.svg",
+    "png": "section-07.png"
+  },
+  {
+    "name": "08 | Evaluation, measured efficiency and verification",
+    "svg": "section-08.svg",
+    "png": "section-08.png"
+  },
+  {
+    "name": "09 | Local deployment, responsibilities and design boundaries",
+    "svg": "section-09.svg",
+    "png": "section-09.png"
+  }
+]

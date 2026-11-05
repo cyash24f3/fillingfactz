@@ -48,6 +48,10 @@ interactive API. Verification runs locally without an API key.
 
 ## Architecture
 
+[Editable Excalidraw system design](docs/architecture/README.md): nine self-contained
+sections covering the complete workflow, agents, memory, evidence checks, interfaces,
+contracts, evaluation and deployment.
+
 ![System architecture](docs/architecture.svg)
 
 The workflow plans the research, recalls relevant evidence, searches the supplied

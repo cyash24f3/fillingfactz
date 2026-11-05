@@ -1,5 +1,10 @@
 # Architecture
 
+The [editable Excalidraw board](architecture/README.md) provides an exhaustive,
+black-and-white presentation view in nine numbered sections. Download the
+[native Excalidraw file](architecture/system-design.excalidraw), the
+[complete SVG](architecture/system-design.svg), or the individual section images.
+
 ![System architecture](architecture.svg)
 
 ## Verification workflow

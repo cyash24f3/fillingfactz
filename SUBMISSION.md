@@ -14,7 +14,7 @@ reviewer interface.
 | Application and CLI | `filing_checker/`, `main.py`, `workflow.py` |
 | Reviewer interface | `streamlit_app.py` |
 | Setup and run instructions | [README](README.md) |
-| Architecture diagram and module map | [Architecture](docs/ARCHITECTURE.md) |
+| Architecture diagram and module map | [Architecture](docs/ARCHITECTURE.md), [editable Excalidraw board](docs/architecture/README.md) |
 | MERMAID adaptation and design rationale | [Design](docs/DESIGN.md) |
 | Three reference PDFs and source metadata | `data/raw/`, `data/filings.json` |
 | Twenty labelled statements and references | `data/test_statements.json` |
