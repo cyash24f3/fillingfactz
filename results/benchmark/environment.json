@@ -1,0 +1,28 @@
+{
+  "python": "3.12.13",
+  "os": "Darwin",
+  "os_release": "27.0.0",
+  "architecture": "arm64",
+  "cpu": "Apple M5",
+  "memory_bytes": 25769803776,
+  "ollama": {
+    "version": "0.40.14"
+  },
+  "loaded_models": [
+    {
+      "name": "qwen3.5:9b",
+      "digest": "d63f830f28d515fefea546f213fca7a75e9dd5176ef51a6deabc952d1c99a911",
+      "details": {
+        "parent_model": "",
+        "format": "safetensors",
+        "family": "",
+        "families": null,
+        "parameter_size": "",
+        "quantization_level": ""
+      },
+      "context_length": 8192,
+      "size": 16637831636,
+      "size_vram": 16637831636
+    }
+  ]
+}

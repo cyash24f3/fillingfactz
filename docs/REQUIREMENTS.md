@@ -19,7 +19,7 @@ assignment. The presentation/demo is intentionally deferred.
 | Reviewer UI | Single and batch review, live steps, evidence, usage, downloads | Streamlit application tests and live browser checks |
 | Whole-set evaluation | 20 statements × full / memory-off / Decomposer-off | 60-run predictions and measured comparison table |
 | Missing disclosures | NOT_ENOUGH_INFO policy; search coverage and trace retained | Regional headcount, attrition, and future-forecast cases |
-| Units and rounding | Page unit context and numeric consistency checks | Rounded billion, thousands-to-dollars, and exactness tests |
+| Units, rounding, and periods | Wrapped unit context, Decimal checks, year/date column binding | Rounded billion, thousands-to-dollars, comparative columns, exactness, and missing annual-period tests |
 | Similar metrics/populations | Row-label and employee-population checks | Revenue mix-up and regional/global scope tests |
 | PDF quirks | Page-aware chunks, TOC filtering, compact headers, bounded neighbouring-page reads | Page-boundary navigation and unit-context tests |
 | Repository and documentation | Public GitHub repository, run instructions, design, architecture, results | Clean-checkout tests and GitHub verification |

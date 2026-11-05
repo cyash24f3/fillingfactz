@@ -9,13 +9,13 @@
     "correct": true,
     "evidence": [
       {
-        "passage_id": "10k_2024_01_31:p111:c0",
-        "quote": "Cash paid for amounts included in the measurement of operating lease liabilities were $15.4 million, $12.0 million, and\n  $11.8 million for the fiscal years ended January 31, 2024, January 31, 2023, and January 31, 2022, respectively.",
+        "passage_id": "10k_2024_01_31:p112:c1",
+        "quote": "Stock options granted during both fiscal years ended January 31, 2024 and January 31, 2023 were immaterial.",
         "filing_id": "10k_2024_01_31",
         "form": "10-K",
         "period_end": "2024-01-31",
         "filed_at": "2024-03-07",
-        "pdf_page": 111,
+        "pdf_page": 112,
         "source_url": "https://www.sec.gov/Archives/edgar/data/1535527/000153552724000007/crwd-20240131.htm",
         "pdf_sha256": "50dab0e16bc6ca06a34fbb03d965e701ac65c57d1992984e90f684ca0707364c"
       },
@@ -29,29 +29,18 @@
         "pdf_page": 12,
         "source_url": "https://ir.crowdstrike.com/static-files/fd6d4b22-9d2d-4e32-a3c6-e1f103248037",
         "pdf_sha256": "347a00cfa0b5093498da2fb6e58098cd7a420373575757bec2deb5da1294b47a"
-      },
-      {
-        "passage_id": "10q_2024_10_31:p16:c1",
-        "quote": "The results of operations for the three and nine months ended October 31, 2024 are\n  not necessarily indicative of the results to be expected for the year ending January 31, 2025 or for any other interim period or for\n  any other future year.",
-        "filing_id": "10q_2024_10_31",
-        "form": "10-Q",
-        "period_end": "2024-10-31",
-        "filed_at": "2024-11-27",
-        "pdf_page": 16,
-        "source_url": "https://www.sec.gov/Archives/edgar/data/1535527/000153552724000026/crwd-20241031.htm",
-        "pdf_sha256": "5d63ae707036effc2b9caed440663e7ae209c9c11a1effc6e80db1e88670adc3"
       }
     ],
-    "explanation": "The evidence confirms that CrowdStrike's fiscal year ends on January 31. Multiple passages reference \"fiscal years ended January 31, 2024\" and \"the year ending January 31, 2025,\" which directly supports the statement.",
+    "explanation": "The evidence confirms that CrowdStrike's fiscal year ends on January 31. The 10-K filing explicitly references \"fiscal years ended January 31, 2024 and January 31, 2023,\" and the 10-Q filing refers to the \"year ending January 31, 2025.\"",
     "stop_reason": "validated_submission",
     "usage": {
-      "model_calls": 3,
-      "tool_calls": 4,
-      "input_tokens": 8471,
-      "output_tokens": 566,
+      "model_calls": 2,
+      "tool_calls": 3,
+      "input_tokens": 3756,
+      "output_tokens": 418,
       "memory_reads": 0,
       "memory_writes": 0,
-      "elapsed_seconds": 45.663
+      "elapsed_seconds": 30.263
     },
     "memory": {
       "enabled": false,
@@ -82,14 +71,14 @@
       {
         "event": "model_completed",
         "number": 1,
-        "wall_seconds": 8.784,
-        "server_seconds": 8.7807,
-        "load_seconds": 0.0009,
-        "prompt_seconds": 0.2467,
-        "generation_seconds": 8.5245,
+        "wall_seconds": 8.019,
+        "server_seconds": 8.0171,
+        "load_seconds": 0.0005,
+        "prompt_seconds": 0.5823,
+        "generation_seconds": 7.4253,
         "input_tokens": 591,
         "output_tokens": 136,
-        "output_tokens_per_second": 15.95,
+        "output_tokens_per_second": 18.32,
         "stage": "decomposer"
       },
       {
@@ -140,45 +129,14 @@
       {
         "event": "model_completed",
         "number": 1,
-        "wall_seconds": 8.02,
-        "server_seconds": 8.0174,
+        "wall_seconds": 22.157,
+        "server_seconds": 22.1543,
         "load_seconds": 0.0006,
-        "prompt_seconds": 5.9765,
-        "generation_seconds": 2.03,
-        "input_tokens": 3038,
-        "output_tokens": 35,
-        "output_tokens_per_second": 17.24,
-        "stage": "executor"
-      },
-      {
-        "event": "tool_requested",
-        "name": "search_and_read",
-        "arguments": {
-          "query": "CrowdStrike fiscal year end date January 31"
-        },
-        "stage": "executor"
-      },
-      {
-        "event": "tool_completed",
-        "name": "search_and_read",
-        "stage": "executor"
-      },
-      {
-        "event": "model_call",
-        "number": 2,
-        "stage": "executor"
-      },
-      {
-        "event": "model_completed",
-        "number": 2,
-        "wall_seconds": 28.737,
-        "server_seconds": 28.7348,
-        "load_seconds": 0.0013,
-        "prompt_seconds": 7.4349,
-        "generation_seconds": 21.2901,
-        "input_tokens": 4842,
-        "output_tokens": 395,
-        "output_tokens_per_second": 18.55,
+        "prompt_seconds": 6.781,
+        "generation_seconds": 15.369,
+        "input_tokens": 3165,
+        "output_tokens": 282,
+        "output_tokens_per_second": 18.35,
         "stage": "executor"
       },
       {
@@ -187,20 +145,16 @@
         "arguments": {
           "evidence": [
             {
-              "passage_id": "10k_2024_01_31:p111:c0",
-              "quote": "Cash paid for amounts included in the measurement of operating lease liabilities were $15.4 million, $12.0 million, and $11.8 million for the fiscal years ended January 31, 2024, January 31, 2023, and January 31, 2022, respectively."
+              "passage_id": "10k_2024_01_31:p112:c1",
+              "quote": "Stock options granted during both fiscal years ended January 31, 2024 and January 31, 2023 were immaterial."
             },
             {
               "passage_id": "10q_2024_07_31:p12:c1",
               "quote": "The results of operations for the three and six months ended July 31, 2024 are not necessarily indicative of the results to be expected for the year ending January 31, 2025 or for any other interim period or for any other future year."
-            },
-            {
-              "passage_id": "10q_2024_10_31:p16:c1",
-              "quote": "The results of operations for the three and nine months ended October 31, 2024 are not necessarily indicative of the results to be expected for the year ending January 31, 2025 or for any other interim period or for any other future year."
             }
           ],
           "verdict": "SUPPORTED",
-          "explanation": "The evidence confirms that CrowdStrike's fiscal year ends on January 31. Multiple passages reference \"fiscal years ended January 31, 2024\" and \"the year ending January 31, 2025,\" which directly supports the statement."
+          "explanation": "The evidence confirms that CrowdStrike's fiscal year ends on January 31. The 10-K filing explicitly references \"fiscal years ended January 31, 2024 and January 31, 2023,\" and the 10-Q filing refers to the \"year ending January 31, 2025.\""
         },
         "stage": "executor"
       },
@@ -222,7 +176,7 @@
     "evidence": [
       {
         "passage_id": "10k_2024_01_31:p115:c2",
-        "quote": "During the fiscal year ended January 31,\n  2023, there were ESPP rollovers because the Company’s closing stock price on the purchase date was lower than the Company’s\n  closing stock price on the first day of the offering periods.",
+        "quote": "Total incremental expense as a result of contribution modifications during the fiscal year ended\n  January 31, 2024 was $7.3 million",
         "filing_id": "10k_2024_01_31",
         "form": "10-K",
         "period_end": "2024-01-31",
@@ -230,40 +184,18 @@
         "pdf_page": 115,
         "source_url": "https://www.sec.gov/Archives/edgar/data/1535527/000153552724000007/crwd-20240131.htm",
         "pdf_sha256": "50dab0e16bc6ca06a34fbb03d965e701ac65c57d1992984e90f684ca0707364c"
-      },
-      {
-        "passage_id": "10q_2024_07_31:p12:c1",
-        "quote": "The results of operations for the three and six months ended July 31, 2024 are not necessarily indicative of the results to be expected for\nthe year ending January 31, 2025 or for any other interim period or for any other future year.",
-        "filing_id": "10q_2024_07_31",
-        "form": "10-Q",
-        "period_end": "2024-07-31",
-        "filed_at": "2024-08-29",
-        "pdf_page": 12,
-        "source_url": "https://ir.crowdstrike.com/static-files/fd6d4b22-9d2d-4e32-a3c6-e1f103248037",
-        "pdf_sha256": "347a00cfa0b5093498da2fb6e58098cd7a420373575757bec2deb5da1294b47a"
-      },
-      {
-        "passage_id": "10q_2024_10_31:p16:c1",
-        "quote": "The results of operations for the three and nine months ended October 31, 2024 are\n  not necessarily indicative of the results to be expected for the year ending January 31, 2025 or for any other interim period or for\n  any other future year.",
-        "filing_id": "10q_2024_10_31",
-        "form": "10-Q",
-        "period_end": "2024-10-31",
-        "filed_at": "2024-11-27",
-        "pdf_page": 16,
-        "source_url": "https://www.sec.gov/Archives/edgar/data/1535527/000153552724000026/crwd-20241031.htm",
-        "pdf_sha256": "5d63ae707036effc2b9caed440663e7ae209c9c11a1effc6e80db1e88670adc3"
       }
     ],
-    "explanation": "CrowdStrike's fiscal year ends on January 31, not December 31. This is confirmed by the 10-K filing for the fiscal year ended January 31, 2024 and the 10-Q filings which reference the fiscal year ending January 31, 2025.",
+    "explanation": "The evidence explicitly states \"fiscal year ended January 31\" for 2024, confirming CrowdStrike's fiscal year ends on January 31, not December 31.",
     "stop_reason": "validated_submission",
     "usage": {
       "model_calls": 3,
       "tool_calls": 4,
-      "input_tokens": 8554,
-      "output_tokens": 550,
+      "input_tokens": 7266,
+      "output_tokens": 469,
       "memory_reads": 0,
       "memory_writes": 0,
-      "elapsed_seconds": 46.491
+      "elapsed_seconds": 34.365
     },
     "memory": {
       "enabled": false,
@@ -294,14 +226,14 @@
       {
         "event": "model_completed",
         "number": 1,
-        "wall_seconds": 8.511,
-        "server_seconds": 8.5091,
+        "wall_seconds": 7.936,
+        "server_seconds": 7.9343,
         "load_seconds": 0.0005,
-        "prompt_seconds": 0.2884,
-        "generation_seconds": 8.2164,
+        "prompt_seconds": 0.3513,
+        "generation_seconds": 7.581,
         "input_tokens": 591,
         "output_tokens": 131,
-        "output_tokens_per_second": 15.94,
+        "output_tokens_per_second": 17.28,
         "stage": "decomposer"
       },
       {
@@ -352,27 +284,35 @@
       {
         "event": "model_completed",
         "number": 1,
-        "wall_seconds": 9.961,
-        "server_seconds": 9.9579,
+        "wall_seconds": 16.545,
+        "server_seconds": 16.5437,
         "load_seconds": 0.0005,
-        "prompt_seconds": 5.8111,
-        "generation_seconds": 4.1403,
-        "input_tokens": 3075,
-        "output_tokens": 33,
-        "output_tokens_per_second": 7.97,
+        "prompt_seconds": 5.5984,
+        "generation_seconds": 10.9411,
+        "input_tokens": 3154,
+        "output_tokens": 182,
+        "output_tokens_per_second": 16.63,
         "stage": "executor"
       },
       {
         "event": "tool_requested",
-        "name": "search_and_read",
+        "name": "submit_verdict",
         "arguments": {
-          "query": "CrowdStrike fiscal year end date reporting period"
+          "evidence": [
+            {
+              "passage_id": "10k_2024_01_31:p115:c2",
+              "quote": "During the fiscal year ended January 31, 2023... Total incremental expense as a result of contribution modifications during the fiscal year ended January 31, 2024 was $7.3 million"
+            }
+          ],
+          "explanation": "The evidence explicitly states \"fiscal year ended January 31\" for both 2023 and 2024, confirming CrowdStrike's fiscal year ends on January 31, not December 31.",
+          "verdict": "CONTRADICTED"
         },
         "stage": "executor"
       },
       {
-        "event": "tool_completed",
-        "name": "search_and_read",
+        "event": "tool_error",
+        "name": "submit_verdict",
+        "error": "Invalid quotation in passage 10k_2024_01_31:p115:c2: The quotation does not occur in the passage. Rejected quotation: 'During the fiscal year ended January 31, 2023... Total incremental expense as a result of contribution modifications during the fiscal year ended January 31, 2024 was $7.3 million'. Use a short, continuous quotation from this passage. Do not combine separate sentences or omit words inside the quotation. Page units need not be joined to a row quote. Continuous excerpt available in this same passage: '. Total incremental expense as a result of contribution modifications during the fiscal year ended January 31, 2024 was $7.3 million'. Use it only if it supports your reasoning.",
         "stage": "executor"
       },
       {
@@ -383,36 +323,28 @@
       {
         "event": "model_completed",
         "number": 2,
-        "wall_seconds": 27.912,
-        "server_seconds": 27.9091,
-        "load_seconds": 0.0006,
-        "prompt_seconds": 6.7215,
-        "generation_seconds": 21.1831,
-        "input_tokens": 4888,
-        "output_tokens": 386,
-        "output_tokens_per_second": 18.22,
+        "wall_seconds": 9.783,
+        "server_seconds": 9.7821,
+        "load_seconds": 0.0015,
+        "prompt_seconds": 1.573,
+        "generation_seconds": 8.2054,
+        "input_tokens": 3521,
+        "output_tokens": 156,
+        "output_tokens_per_second": 19.01,
         "stage": "executor"
       },
       {
         "event": "tool_requested",
         "name": "submit_verdict",
         "arguments": {
-          "verdict": "CONTRADICTED",
-          "explanation": "CrowdStrike's fiscal year ends on January 31, not December 31. This is confirmed by the 10-K filing for the fiscal year ended January 31, 2024 and the 10-Q filings which reference the fiscal year ending January 31, 2025.",
           "evidence": [
             {
               "passage_id": "10k_2024_01_31:p115:c2",
-              "quote": "During the fiscal year ended January 31, 2023, there were ESPP rollovers because the Company's closing stock price on the purchase date was lower than the Company's closing stock price on the first day of the offering periods."
-            },
-            {
-              "passage_id": "10q_2024_07_31:p12:c1",
-              "quote": "The results of operations for the three and six months ended July 31, 2024 are not necessarily indicative of the results to be expected for the year ending January 31, 2025 or for any other interim period or for any other future year."
-            },
-            {
-              "passage_id": "10q_2024_10_31:p16:c1",
-              "quote": "The results of operations for the three and nine months ended October 31, 2024 are not necessarily indicative of the results to be expected for the year ending January 31, 2025 or for any other interim period or for any other future year."
+              "quote": "Total incremental expense as a result of contribution modifications during the fiscal year ended January 31, 2024 was $7.3 million"
             }
-          ]
+          ],
+          "explanation": "The evidence explicitly states \"fiscal year ended January 31\" for 2024, confirming CrowdStrike's fiscal year ends on January 31, not December 31.",
+          "verdict": "CONTRADICTED"
         },
         "stage": "executor"
       },
@@ -449,11 +381,11 @@
     "usage": {
       "model_calls": 2,
       "tool_calls": 3,
-      "input_tokens": 3991,
-      "output_tokens": 312,
+      "input_tokens": 4177,
+      "output_tokens": 324,
       "memory_reads": 0,
       "memory_writes": 0,
-      "elapsed_seconds": 26.054
+      "elapsed_seconds": 25.775
     },
     "memory": {
       "enabled": false,
@@ -484,14 +416,14 @@
       {
         "event": "model_completed",
         "number": 1,
-        "wall_seconds": 9.474,
-        "server_seconds": 9.4719,
+        "wall_seconds": 10.897,
+        "server_seconds": 10.8949,
         "load_seconds": 0.0005,
-        "prompt_seconds": 0.2205,
-        "generation_seconds": 9.2476,
+        "prompt_seconds": 0.2647,
+        "generation_seconds": 10.6281,
         "input_tokens": 604,
-        "output_tokens": 155,
-        "output_tokens_per_second": 16.76,
+        "output_tokens": 167,
+        "output_tokens_per_second": 15.71,
         "stage": "decomposer"
       },
       {
@@ -508,7 +440,8 @@
           ],
           "search_queries": [
             "CrowdStrike full-time employees January 31 2024",
-            "CrowdStrike employee count Q4 2023"
+            "CrowdStrike employee count Q4 2023",
+            "CrowdStrike workforce size 2024"
           ]
         },
         "stage": "decomposer"
@@ -542,14 +475,14 @@
       {
         "event": "model_completed",
         "number": 1,
-        "wall_seconds": 16.509,
-        "server_seconds": 16.5069,
-        "load_seconds": 0.0059,
-        "prompt_seconds": 6.9545,
-        "generation_seconds": 9.5401,
-        "input_tokens": 3387,
+        "wall_seconds": 14.809,
+        "server_seconds": 14.8075,
+        "load_seconds": 0.0007,
+        "prompt_seconds": 6.4447,
+        "generation_seconds": 8.3579,
+        "input_tokens": 3573,
         "output_tokens": 157,
-        "output_tokens_per_second": 16.46,
+        "output_tokens_per_second": 18.78,
         "stage": "executor"
       },
       {
@@ -595,16 +528,16 @@
         "pdf_sha256": "50dab0e16bc6ca06a34fbb03d965e701ac65c57d1992984e90f684ca0707364c"
       }
     ],
-    "explanation": "The claim states CrowdStrike had 9,000 full-time employees as of January 31, 2024. The evidence from the 10-K filing for the period ended January 31, 2024 explicitly states that as of that date, the company had 7,925 full-time employees, which directly contradicts the claim.",
+    "explanation": "The claim states CrowdStrike had 9,000 full-time employees as of January 31, 2024, but the 10-K filing for that period reports 7,925 full-time employees. The evidence directly contradicts the claimed number.",
     "stop_reason": "validated_submission",
     "usage": {
       "model_calls": 3,
       "tool_calls": 4,
-      "input_tokens": 7878,
-      "output_tokens": 563,
+      "input_tokens": 8307,
+      "output_tokens": 533,
       "memory_reads": 0,
       "memory_writes": 0,
-      "elapsed_seconds": 52.42
+      "elapsed_seconds": 35.841
     },
     "memory": {
       "enabled": false,
@@ -635,22 +568,22 @@
       {
         "event": "model_completed",
         "number": 1,
-        "wall_seconds": 11.551,
-        "server_seconds": 11.5494,
-        "load_seconds": 0.0006,
-        "prompt_seconds": 0.3081,
-        "generation_seconds": 11.2383,
+        "wall_seconds": 9.387,
+        "server_seconds": 9.3852,
+        "load_seconds": 0.0004,
+        "prompt_seconds": 0.3157,
+        "generation_seconds": 9.0672,
         "input_tokens": 604,
-        "output_tokens": 173,
-        "output_tokens_per_second": 15.39,
+        "output_tokens": 182,
+        "output_tokens_per_second": 20.07,
         "stage": "decomposer"
       },
       {
         "event": "decomposer_completed",
         "plan": {
           "subject": "CrowdStrike",
-          "relation": "had",
-          "object": "9,000 full-time employees",
+          "relation": "had 9,000 full-time employees as of",
+          "object": "January 31, 2024",
           "attribution": null,
           "time_reference": "January 31, 2024",
           "topics": [
@@ -660,7 +593,7 @@
           "search_queries": [
             "CrowdStrike full-time employees January 31 2024",
             "CrowdStrike employee count Q4 2023",
-            "CrowdStrike headcount as of January 31 2024"
+            "CrowdStrike headcount fiscal year 2024"
           ]
         },
         "stage": "decomposer"
@@ -694,22 +627,21 @@
       {
         "event": "model_completed",
         "number": 1,
-        "wall_seconds": 12.005,
-        "server_seconds": 12.002,
-        "load_seconds": 0.0016,
-        "prompt_seconds": 7.7439,
-        "generation_seconds": 4.2519,
-        "input_tokens": 3278,
-        "output_tokens": 65,
-        "output_tokens_per_second": 15.29,
+        "wall_seconds": 8.676,
+        "server_seconds": 8.6745,
+        "load_seconds": 0.0005,
+        "prompt_seconds": 6.5773,
+        "generation_seconds": 2.0933,
+        "input_tokens": 3444,
+        "output_tokens": 39,
+        "output_tokens_per_second": 18.63,
         "stage": "executor"
       },
       {
         "event": "tool_requested",
         "name": "search_and_read",
         "arguments": {
-          "query": "CrowdStrike full-time employees January 31 2024",
-          "filing_id": "10k_2024_01_31"
+          "query": "CrowdStrike full-time employees January 31 2024"
         },
         "stage": "executor"
       },
@@ -726,28 +658,28 @@
       {
         "event": "model_completed",
         "number": 2,
-        "wall_seconds": 28.745,
-        "server_seconds": 28.7429,
-        "load_seconds": 0.0006,
-        "prompt_seconds": 2.8159,
-        "generation_seconds": 25.9236,
-        "input_tokens": 3996,
-        "output_tokens": 325,
-        "output_tokens_per_second": 12.54,
+        "wall_seconds": 17.698,
+        "server_seconds": 17.6968,
+        "load_seconds": 0.0005,
+        "prompt_seconds": 2.5039,
+        "generation_seconds": 15.1871,
+        "input_tokens": 4259,
+        "output_tokens": 312,
+        "output_tokens_per_second": 20.54,
         "stage": "executor"
       },
       {
         "event": "tool_requested",
         "name": "submit_verdict",
         "arguments": {
+          "verdict": "CONTRADICTED",
+          "explanation": "The claim states CrowdStrike had 9,000 full-time employees as of January 31, 2024, but the 10-K filing for that period reports 7,925 full-time employees. The evidence directly contradicts the claimed number.",
           "evidence": [
             {
               "passage_id": "10k_2024_01_31:p22:c1",
               "quote": "As of January 31, 2024, we had 7,925 full-time employees."
             }
-          ],
-          "explanation": "The claim states CrowdStrike had 9,000 full-time employees as of January 31, 2024. The evidence from the 10-K filing for the period ended January 31, 2024 explicitly states that as of that date, the company had 7,925 full-time employees, which directly contradicts the claim.",
-          "verdict": "CONTRADICTED"
+          ]
         },
         "stage": "executor"
       },
@@ -779,16 +711,16 @@
         "pdf_sha256": "50dab0e16bc6ca06a34fbb03d965e701ac65c57d1992984e90f684ca0707364c"
       }
     ],
-    "explanation": "The statement claims CrowdStrike's total revenue for fiscal 2024 was approximately USD 3.06 billion. The evidence from the 10-K filing for the period ended January 31, 2024, shows total revenue of $3,055,555, which is approximately $3.06 billion when rounded.",
+    "explanation": "The statement claims CrowdStrike's total revenue for fiscal 2024 was approximately USD 3.06 billion. The evidence from the 10-K filing for the period ended January 31, 2024, shows total revenue of $3,055,555 thousand (or $3.055555 billion), which rounds to approximately $3.06 billion.",
     "stop_reason": "validated_submission",
     "usage": {
       "model_calls": 2,
       "tool_calls": 3,
-      "input_tokens": 3783,
-      "output_tokens": 320,
+      "input_tokens": 3965,
+      "output_tokens": 332,
       "memory_reads": 0,
       "memory_writes": 0,
-      "elapsed_seconds": 31.302
+      "elapsed_seconds": 25.813
     },
     "memory": {
       "enabled": false,
@@ -819,14 +751,14 @@
       {
         "event": "model_completed",
         "number": 1,
-        "wall_seconds": 11.548,
-        "server_seconds": 11.542,
-        "load_seconds": 0.0006,
-        "prompt_seconds": 0.9249,
-        "generation_seconds": 10.6127,
+        "wall_seconds": 7.847,
+        "server_seconds": 7.8453,
+        "load_seconds": 0.0003,
+        "prompt_seconds": 0.3091,
+        "generation_seconds": 7.5342,
         "input_tokens": 601,
         "output_tokens": 146,
-        "output_tokens_per_second": 13.76,
+        "output_tokens_per_second": 19.38,
         "stage": "decomposer"
       },
       {
@@ -877,14 +809,14 @@
       {
         "event": "model_completed",
         "number": 1,
-        "wall_seconds": 19.669,
-        "server_seconds": 19.6633,
+        "wall_seconds": 17.863,
+        "server_seconds": 17.8579,
         "load_seconds": 0.0006,
-        "prompt_seconds": 6.7888,
-        "generation_seconds": 12.8676,
-        "input_tokens": 3182,
-        "output_tokens": 174,
-        "output_tokens_per_second": 13.52,
+        "prompt_seconds": 6.0054,
+        "generation_seconds": 11.8479,
+        "input_tokens": 3364,
+        "output_tokens": 186,
+        "output_tokens_per_second": 15.7,
         "stage": "executor"
       },
       {
@@ -897,7 +829,7 @@
               "quote": "Total revenue $ 3,055,555"
             }
           ],
-          "explanation": "The statement claims CrowdStrike's total revenue for fiscal 2024 was approximately USD 3.06 billion. The evidence from the 10-K filing for the period ended January 31, 2024, shows total revenue of $3,055,555, which is approximately $3.06 billion when rounded.",
+          "explanation": "The statement claims CrowdStrike's total revenue for fiscal 2024 was approximately USD 3.06 billion. The evidence from the 10-K filing for the period ended January 31, 2024, shows total revenue of $3,055,555 thousand (or $3.055555 billion), which rounds to approximately $3.06 billion.",
           "verdict": "SUPPORTED"
         },
         "stage": "executor"
@@ -920,7 +852,18 @@
     "evidence": [
       {
         "passage_id": "10k_2024_01_31:p70:c2",
-        "quote": "Subscription                                          $   2,870,557  $   2,111,660  $    758,897           36 %\n   Professional services                                            184,998        129,576         55,422           43 %\n       Total revenue                                      $   3,055,555  $   2,241,236  $    814,319           36 %",
+        "quote": "Subscription                                          $   2,870,557",
+        "filing_id": "10k_2024_01_31",
+        "form": "10-K",
+        "period_end": "2024-01-31",
+        "filed_at": "2024-03-07",
+        "pdf_page": 70,
+        "source_url": "https://www.sec.gov/Archives/edgar/data/1535527/000153552724000007/crwd-20240131.htm",
+        "pdf_sha256": "50dab0e16bc6ca06a34fbb03d965e701ac65c57d1992984e90f684ca0707364c"
+      },
+      {
+        "passage_id": "10k_2024_01_31:p70:c2",
+        "quote": "Total revenue                                      $   3,055,555",
         "filing_id": "10k_2024_01_31",
         "form": "10-K",
         "period_end": "2024-01-31",
@@ -930,16 +873,16 @@
         "pdf_sha256": "50dab0e16bc6ca06a34fbb03d965e701ac65c57d1992984e90f684ca0707364c"
       }
     ],
-    "explanation": "The statement claims CrowdStrike's subscription revenue for fiscal 2024 was USD 3,055,555,000. The evidence from the 10-K filing for the year ended January 31, 2024 shows that Total Revenue was $3,055,555 (in thousands), while Subscription Revenue was $2,870,557 (in thousands). Therefore, the total revenue figure matches the claim, but it is not the subscription revenue. The subscription revenue was actually $2,870,557,000.",
+    "explanation": "The statement claims CrowdStrike's subscription revenue for fiscal 2024 was USD 3,055,555,000. The evidence shows that total revenue for fiscal 2024 was $3,055,555 (in thousands), while subscription revenue was $2,870,557 (in thousands). Therefore, the statement incorrectly attributes the total revenue figure to subscription revenue.",
     "stop_reason": "validated_submission",
     "usage": {
       "model_calls": 2,
       "tool_calls": 3,
-      "input_tokens": 3733,
-      "output_tokens": 484,
+      "input_tokens": 3900,
+      "output_tokens": 396,
       "memory_reads": 0,
       "memory_writes": 0,
-      "elapsed_seconds": 41.238
+      "elapsed_seconds": 26.617
     },
     "memory": {
       "enabled": false,
@@ -980,14 +923,14 @@
       {
         "event": "model_completed",
         "number": 1,
-        "wall_seconds": 10.929,
-        "server_seconds": 10.9262,
+        "wall_seconds": 7.799,
+        "server_seconds": 7.7977,
         "load_seconds": 0.0005,
-        "prompt_seconds": 0.3564,
-        "generation_seconds": 10.5662,
+        "prompt_seconds": 0.4624,
+        "generation_seconds": 7.3332,
         "input_tokens": 608,
         "output_tokens": 160,
-        "output_tokens_per_second": 15.14,
+        "output_tokens_per_second": 21.82,
         "stage": "decomposer"
       },
       {
@@ -1038,14 +981,14 @@
       {
         "event": "model_completed",
         "number": 1,
-        "wall_seconds": 30.231,
-        "server_seconds": 30.2282,
-        "load_seconds": 0.0014,
-        "prompt_seconds": 7.595,
-        "generation_seconds": 22.6261,
-        "input_tokens": 3125,
-        "output_tokens": 324,
-        "output_tokens_per_second": 14.32,
+        "wall_seconds": 18.728,
+        "server_seconds": 18.7263,
+        "load_seconds": 0.0011,
+        "prompt_seconds": 5.8085,
+        "generation_seconds": 12.9124,
+        "input_tokens": 3292,
+        "output_tokens": 236,
+        "output_tokens_per_second": 18.28,
         "stage": "executor"
       },
       {
@@ -1055,10 +998,14 @@
           "evidence": [
             {
               "passage_id": "10k_2024_01_31:p70:c2",
-              "quote": "Subscription $ 2,870,557 $ 2,111,660 $ 758,897 36 %\nProfessional services 184,998 129,576 55,422 43 %\nTotal revenue $ 3,055,555 $ 2,241,236 $ 814,319 36 %"
+              "quote": "Subscription $ 2,870,557"
+            },
+            {
+              "passage_id": "10k_2024_01_31:p70:c2",
+              "quote": "Total revenue $ 3,055,555"
             }
           ],
-          "explanation": "The statement claims CrowdStrike's subscription revenue for fiscal 2024 was USD 3,055,555,000. The evidence from the 10-K filing for the year ended January 31, 2024 shows that Total Revenue was $3,055,555 (in thousands), while Subscription Revenue was $2,870,557 (in thousands). Therefore, the total revenue figure matches the claim, but it is not the subscription revenue. The subscription revenue was actually $2,870,557,000.",
+          "explanation": "The statement claims CrowdStrike's subscription revenue for fiscal 2024 was USD 3,055,555,000. The evidence shows that total revenue for fiscal 2024 was $3,055,555 (in thousands), while subscription revenue was $2,870,557 (in thousands). Therefore, the statement incorrectly attributes the total revenue figure to subscription revenue.",
           "verdict": "CONTRADICTED"
         },
         "stage": "executor"
@@ -1096,11 +1043,11 @@
     "usage": {
       "model_calls": 2,
       "tool_calls": 3,
-      "input_tokens": 3784,
+      "input_tokens": 3966,
       "output_tokens": 311,
       "memory_reads": 0,
       "memory_writes": 0,
-      "elapsed_seconds": 35.463
+      "elapsed_seconds": 23.04
     },
     "memory": {
       "enabled": false,
@@ -1131,14 +1078,14 @@
       {
         "event": "model_completed",
         "number": 1,
-        "wall_seconds": 11.777,
-        "server_seconds": 11.7739,
-        "load_seconds": 0.0006,
-        "prompt_seconds": 2.4295,
-        "generation_seconds": 9.3411,
+        "wall_seconds": 8.161,
+        "server_seconds": 8.1592,
+        "load_seconds": 0.0005,
+        "prompt_seconds": 0.2468,
+        "generation_seconds": 7.9105,
         "input_tokens": 600,
         "output_tokens": 149,
-        "output_tokens_per_second": 15.95,
+        "output_tokens_per_second": 18.84,
         "stage": "decomposer"
       },
       {
@@ -1189,14 +1136,14 @@
       {
         "event": "model_completed",
         "number": 1,
-        "wall_seconds": 23.605,
-        "server_seconds": 23.5988,
+        "wall_seconds": 14.789,
+        "server_seconds": 14.7878,
         "load_seconds": 0.0005,
-        "prompt_seconds": 12.5304,
-        "generation_seconds": 11.0647,
-        "input_tokens": 3184,
+        "prompt_seconds": 5.7476,
+        "generation_seconds": 9.0353,
+        "input_tokens": 3366,
         "output_tokens": 162,
-        "output_tokens_per_second": 14.64,
+        "output_tokens_per_second": 17.93,
         "stage": "executor"
       },
       {
@@ -1242,16 +1189,16 @@
         "pdf_sha256": "50dab0e16bc6ca06a34fbb03d965e701ac65c57d1992984e90f684ca0707364c"
       }
     ],
-    "explanation": "The statement claims professional services accounted for 94% of CrowdStrike's total revenue in fiscal 2024, but the evidence shows that subscription revenue accounted for 94% and professional services accounted for 6%.",
+    "explanation": "The statement claims professional services accounted for 94% of CrowdStrike's total revenue in fiscal 2024, but the evidence shows that professional services accounted for only 6% of total revenue in fiscal 2024. Subscription revenue accounted for 94%.",
     "stop_reason": "validated_submission",
     "usage": {
       "model_calls": 2,
       "tool_calls": 3,
-      "input_tokens": 3783,
-      "output_tokens": 309,
+      "input_tokens": 3967,
+      "output_tokens": 322,
       "memory_reads": 0,
       "memory_writes": 0,
-      "elapsed_seconds": 32.19
+      "elapsed_seconds": 24.614
     },
     "memory": {
       "enabled": false,
@@ -1292,14 +1239,14 @@
       {
         "event": "model_completed",
         "number": 1,
-        "wall_seconds": 11.637,
-        "server_seconds": 11.6353,
-        "load_seconds": 0.0026,
-        "prompt_seconds": 0.2517,
-        "generation_seconds": 11.3773,
+        "wall_seconds": 8.658,
+        "server_seconds": 8.6568,
+        "load_seconds": 0.0004,
+        "prompt_seconds": 0.2609,
+        "generation_seconds": 8.394,
         "input_tokens": 600,
-        "output_tokens": 148,
-        "output_tokens_per_second": 13.01,
+        "output_tokens": 150,
+        "output_tokens_per_second": 17.87,
         "stage": "decomposer"
       },
       {
@@ -1311,8 +1258,8 @@
           "attribution": "CrowdStrike",
           "time_reference": "fiscal 2024",
           "topics": [
-            "revenue",
-            "professional services"
+            "Revenue by segment",
+            "Professional services revenue"
           ],
           "search_queries": [
             "CrowdStrike fiscal 2024 revenue breakdown",
@@ -1350,14 +1297,14 @@
       {
         "event": "model_completed",
         "number": 1,
-        "wall_seconds": 20.477,
-        "server_seconds": 20.4739,
-        "load_seconds": 0.0022,
-        "prompt_seconds": 7.8493,
-        "generation_seconds": 12.617,
-        "input_tokens": 3183,
-        "output_tokens": 161,
-        "output_tokens_per_second": 12.76,
+        "wall_seconds": 15.853,
+        "server_seconds": 15.8516,
+        "load_seconds": 0.0005,
+        "prompt_seconds": 5.3808,
+        "generation_seconds": 10.4667,
+        "input_tokens": 3367,
+        "output_tokens": 172,
+        "output_tokens_per_second": 16.43,
         "stage": "executor"
       },
       {
@@ -1370,7 +1317,7 @@
               "quote": "Professional services revenue accounted for 6% of our total revenue in both fiscal 2024 and fiscal 2023."
             }
           ],
-          "explanation": "The statement claims professional services accounted for 94% of CrowdStrike's total revenue in fiscal 2024, but the evidence shows that subscription revenue accounted for 94% and professional services accounted for 6%.",
+          "explanation": "The statement claims professional services accounted for 94% of CrowdStrike's total revenue in fiscal 2024, but the evidence shows that professional services accounted for only 6% of total revenue in fiscal 2024. Subscription revenue accounted for 94%.",
           "verdict": "CONTRADICTED"
         },
         "stage": "executor"
@@ -1414,16 +1361,16 @@
         "pdf_sha256": "5d63ae707036effc2b9caed440663e7ae209c9c11a1effc6e80db1e88670adc3"
       }
     ],
-    "explanation": "The statement is an explicit historical claim about the July 19, 2024 incident. The evidence from both the July and October 2024 filings confirms that the content configuration update released on that date resulted in system crashes for certain Windows systems.",
+    "explanation": "The statement is supported by multiple filings which explicitly state that the July 19, 2024 Falcon content configuration update caused system crashes for certain Windows systems.",
     "stop_reason": "validated_submission",
     "usage": {
       "model_calls": 2,
       "tool_calls": 3,
-      "input_tokens": 3711,
-      "output_tokens": 520,
+      "input_tokens": 3853,
+      "output_tokens": 406,
       "memory_reads": 0,
       "memory_writes": 0,
-      "elapsed_seconds": 49.055
+      "elapsed_seconds": 29.88
     },
     "memory": {
       "enabled": false,
@@ -1454,14 +1401,14 @@
       {
         "event": "model_completed",
         "number": 1,
-        "wall_seconds": 13.049,
-        "server_seconds": 13.0466,
-        "load_seconds": 0.0005,
-        "prompt_seconds": 0.2768,
-        "generation_seconds": 12.7648,
+        "wall_seconds": 10.931,
+        "server_seconds": 10.9297,
+        "load_seconds": 0.0004,
+        "prompt_seconds": 0.1901,
+        "generation_seconds": 10.7362,
         "input_tokens": 601,
         "output_tokens": 172,
-        "output_tokens_per_second": 13.47,
+        "output_tokens_per_second": 16.02,
         "stage": "decomposer"
       },
       {
@@ -1515,14 +1462,14 @@
       {
         "event": "model_completed",
         "number": 1,
-        "wall_seconds": 35.904,
-        "server_seconds": 35.9009,
-        "load_seconds": 0.0022,
-        "prompt_seconds": 6.5926,
-        "generation_seconds": 29.3008,
-        "input_tokens": 3110,
-        "output_tokens": 348,
-        "output_tokens_per_second": 11.88,
+        "wall_seconds": 18.829,
+        "server_seconds": 18.8248,
+        "load_seconds": 0.0012,
+        "prompt_seconds": 5.3319,
+        "generation_seconds": 13.485,
+        "input_tokens": 3252,
+        "output_tokens": 234,
+        "output_tokens_per_second": 17.35,
         "stage": "executor"
       },
       {
@@ -1539,7 +1486,7 @@
               "quote": "On July 19, 2024, the Company released a content configuration update for its Falcon sensor that resulted in system crashes for certain Windows systems (the “July 19 Incident”)."
             }
           ],
-          "explanation": "The statement is an explicit historical claim about the July 19, 2024 incident. The evidence from both the July and October 2024 filings confirms that the content configuration update released on that date resulted in system crashes for certain Windows systems.",
+          "explanation": "The statement is supported by multiple filings which explicitly state that the July 19, 2024 Falcon content configuration update caused system crashes for certain Windows systems.",
           "verdict": "SUPPORTED"
         },
         "stage": "executor"
@@ -1588,11 +1535,11 @@
     "usage": {
       "model_calls": 2,
       "tool_calls": 3,
-      "input_tokens": 3704,
-      "output_tokens": 475,
+      "input_tokens": 3849,
+      "output_tokens": 424,
       "memory_reads": 0,
       "memory_writes": 0,
-      "elapsed_seconds": 43.3
+      "elapsed_seconds": 31.379
     },
     "memory": {
       "enabled": false,
@@ -1623,14 +1570,14 @@
       {
         "event": "model_completed",
         "number": 1,
-        "wall_seconds": 11.915,
-        "server_seconds": 11.9127,
-        "load_seconds": 0.0013,
-        "prompt_seconds": 0.222,
-        "generation_seconds": 11.6864,
+        "wall_seconds": 9.797,
+        "server_seconds": 9.7954,
+        "load_seconds": 0.0004,
+        "prompt_seconds": 0.2296,
+        "generation_seconds": 9.5639,
         "input_tokens": 600,
-        "output_tokens": 165,
-        "output_tokens_per_second": 14.12,
+        "output_tokens": 170,
+        "output_tokens_per_second": 17.78,
         "stage": "decomposer"
       },
       {
@@ -1642,13 +1589,15 @@
           "attribution": null,
           "time_reference": "July 19, 2024",
           "topics": [
-            "Falcon content configuration update",
-            "Windows system crashes"
+            "Falcon",
+            "content configuration update",
+            "Windows",
+            "system crashes"
           ],
           "search_queries": [
             "Falcon content configuration update July 19 2024",
-            "Falcon update Windows crash",
-            "Falcon content configuration stability"
+            "Falcon update Windows system crash",
+            "Falcon configuration change stability"
           ]
         },
         "stage": "decomposer"
@@ -1682,14 +1631,14 @@
       {
         "event": "model_completed",
         "number": 1,
-        "wall_seconds": 31.299,
-        "server_seconds": 31.2914,
-        "load_seconds": 0.0007,
-        "prompt_seconds": 8.3487,
-        "generation_seconds": 22.9354,
-        "input_tokens": 3104,
-        "output_tokens": 310,
-        "output_tokens_per_second": 13.52,
+        "wall_seconds": 21.492,
+        "server_seconds": 21.4903,
+        "load_seconds": 0.0019,
+        "prompt_seconds": 5.293,
+        "generation_seconds": 16.1922,
+        "input_tokens": 3249,
+        "output_tokens": 254,
+        "output_tokens_per_second": 15.69,
         "stage": "executor"
       },
       {
@@ -1706,8 +1655,8 @@
               "quote": "On July 19, 2024, the Company released a content configuration update for its Falcon sensor that resulted in system crashes for certain Windows systems (the “July 19 Incident”)."
             }
           ],
-          "explanation": "The statement claims the July 19, 2024 Falcon content configuration update did not cause Windows system crashes. However, multiple filings explicitly state that this update resulted in system crashes for certain Windows systems. The evidence directly contradicts the claim.",
-          "verdict": "CONTRADICTED"
+          "verdict": "CONTRADICTED",
+          "explanation": "The statement claims the July 19, 2024 Falcon content configuration update did not cause Windows system crashes. However, multiple filings explicitly state that this update resulted in system crashes for certain Windows systems. The evidence directly contradicts the claim."
         },
         "stage": "executor"
       },
@@ -1739,16 +1688,16 @@
         "pdf_sha256": "50dab0e16bc6ca06a34fbb03d965e701ac65c57d1992984e90f684ca0707364c"
       }
     ],
-    "explanation": "The 10-K filing for the fiscal year ended January 31, 2024 explicitly states that no channel partners or direct customers represented 10% or more of CrowdStrike's total revenue during fiscal 2024. This directly supports the statement.",
+    "explanation": "The statement is supported by the 10-K for the fiscal year ended January 31, 2024, which explicitly states that no channel partners or direct customers represented 10% or more of CrowdStrike's total revenue during fiscal 2024.",
     "stop_reason": "validated_submission",
     "usage": {
       "model_calls": 2,
       "tool_calls": 3,
-      "input_tokens": 3828,
-      "output_tokens": 579,
+      "input_tokens": 3992,
+      "output_tokens": 378,
       "memory_reads": 0,
       "memory_writes": 0,
-      "elapsed_seconds": 43.583
+      "elapsed_seconds": 31.104
     },
     "memory": {
       "enabled": false,
@@ -1779,14 +1728,14 @@
       {
         "event": "model_completed",
         "number": 1,
-        "wall_seconds": 12.542,
-        "server_seconds": 12.5392,
-        "load_seconds": 0.0009,
-        "prompt_seconds": 0.5016,
-        "generation_seconds": 12.0299,
+        "wall_seconds": 14.109,
+        "server_seconds": 14.1071,
+        "load_seconds": 0.0005,
+        "prompt_seconds": 0.3747,
+        "generation_seconds": 13.7247,
         "input_tokens": 605,
-        "output_tokens": 188,
-        "output_tokens_per_second": 15.63,
+        "output_tokens": 176,
+        "output_tokens_per_second": 12.82,
         "stage": "decomposer"
       },
       {
@@ -1804,8 +1753,7 @@
           ],
           "search_queries": [
             "CrowdStrike fiscal 2024 revenue concentration channel partners direct customers",
-            "CrowdStrike largest customer percentage fiscal 2024",
-            "CrowdStrike top channel partner revenue share fiscal 2024"
+            "CrowdStrike segment reporting top customers top channel partners fiscal 2024"
           ]
         },
         "stage": "decomposer"
@@ -1839,14 +1787,14 @@
       {
         "event": "model_completed",
         "number": 1,
-        "wall_seconds": 30.936,
-        "server_seconds": 30.9331,
-        "load_seconds": 0.0012,
-        "prompt_seconds": 8.1515,
-        "generation_seconds": 22.7729,
-        "input_tokens": 3223,
-        "output_tokens": 391,
-        "output_tokens_per_second": 17.17,
+        "wall_seconds": 16.887,
+        "server_seconds": 16.8846,
+        "load_seconds": 0.0007,
+        "prompt_seconds": 5.7011,
+        "generation_seconds": 11.1787,
+        "input_tokens": 3387,
+        "output_tokens": 202,
+        "output_tokens_per_second": 18.07,
         "stage": "executor"
       },
       {
@@ -1859,7 +1807,7 @@
               "quote": "There were no channel partners or direct customers who represented 10% or more of the Company’s total revenue during the fiscal years ended January 31, 2024, January 31, 2023, and January 31, 2022."
             }
           ],
-          "explanation": "The 10-K filing for the fiscal year ended January 31, 2024 explicitly states that no channel partners or direct customers represented 10% or more of CrowdStrike's total revenue during fiscal 2024. This directly supports the statement.",
+          "explanation": "The statement is supported by the 10-K for the fiscal year ended January 31, 2024, which explicitly states that no channel partners or direct customers represented 10% or more of CrowdStrike's total revenue during fiscal 2024.",
           "verdict": "SUPPORTED"
         },
         "stage": "executor"
@@ -1892,16 +1840,16 @@
         "pdf_sha256": "50dab0e16bc6ca06a34fbb03d965e701ac65c57d1992984e90f684ca0707364c"
       }
     ],
-    "explanation": "The evidence explicitly states that no channel partners or direct customers represented 10% or more of CrowdStrike's accounts receivable as of January 31, 2024. This directly contradicts the claim that at least one such entity did represent 10% or more.",
+    "explanation": "The statement is contradicted by evidence from the 10-K filing for the period ended January 31, 2024, which explicitly states that no channel partners or direct customers represented 10% or more of CrowdStrike's accounts receivable as of that date.",
     "stop_reason": "validated_submission",
     "usage": {
       "model_calls": 2,
       "tool_calls": 3,
-      "input_tokens": 3830,
-      "output_tokens": 368,
+      "input_tokens": 4005,
+      "output_tokens": 367,
       "memory_reads": 0,
       "memory_writes": 0,
-      "elapsed_seconds": 29.445
+      "elapsed_seconds": 33.483
     },
     "memory": {
       "enabled": false,
@@ -1932,14 +1880,14 @@
       {
         "event": "model_completed",
         "number": 1,
-        "wall_seconds": 10.799,
-        "server_seconds": 10.7972,
-        "load_seconds": 0.0018,
-        "prompt_seconds": 0.3859,
-        "generation_seconds": 10.4069,
+        "wall_seconds": 11.946,
+        "server_seconds": 11.9441,
+        "load_seconds": 0.0193,
+        "prompt_seconds": 0.6991,
+        "generation_seconds": 11.2241,
         "input_tokens": 613,
         "output_tokens": 175,
-        "output_tokens_per_second": 16.82,
+        "output_tokens_per_second": 15.59,
         "stage": "decomposer"
       },
       {
@@ -1993,14 +1941,14 @@
       {
         "event": "model_completed",
         "number": 1,
-        "wall_seconds": 18.565,
-        "server_seconds": 18.5613,
-        "load_seconds": 0.0005,
-        "prompt_seconds": 8.1686,
-        "generation_seconds": 10.3883,
-        "input_tokens": 3217,
-        "output_tokens": 193,
-        "output_tokens_per_second": 18.58,
+        "wall_seconds": 21.407,
+        "server_seconds": 21.4051,
+        "load_seconds": 0.0009,
+        "prompt_seconds": 7.2282,
+        "generation_seconds": 14.1725,
+        "input_tokens": 3392,
+        "output_tokens": 192,
+        "output_tokens_per_second": 13.55,
         "stage": "executor"
       },
       {
@@ -2013,8 +1961,8 @@
               "quote": "There were no channel partners or direct customers who represented 10% or more of the Company’s accounts receivable as of January 31, 2024 and January 31, 2023."
             }
           ],
-          "verdict": "CONTRADICTED",
-          "explanation": "The evidence explicitly states that no channel partners or direct customers represented 10% or more of CrowdStrike's accounts receivable as of January 31, 2024. This directly contradicts the claim that at least one such entity did represent 10% or more."
+          "explanation": "The statement is contradicted by evidence from the 10-K filing for the period ended January 31, 2024, which explicitly states that no channel partners or direct customers represented 10% or more of CrowdStrike's accounts receivable as of that date.",
+          "verdict": "CONTRADICTED"
         },
         "stage": "executor"
       },
@@ -2046,16 +1994,16 @@
         "pdf_sha256": "5d63ae707036effc2b9caed440663e7ae209c9c11a1effc6e80db1e88670adc3"
       }
     ],
-    "explanation": "The statement is supported by the Condensed Consolidated Balance Sheets in the October 31, 2024 filing, which reports Cash and cash equivalents as $4,260,324 (in thousands), equivalent to USD 4,260,324,000.",
+    "explanation": "The Condensed Consolidated Balance Sheets in the October 31, 2024 filing report Cash and cash equivalents as $4,260,324 (in thousands), which equals USD 4,260,324,000. This matches the claim exactly.",
     "stop_reason": "validated_submission",
     "usage": {
       "model_calls": 2,
       "tool_calls": 3,
-      "input_tokens": 3529,
-      "output_tokens": 505,
+      "input_tokens": 3707,
+      "output_tokens": 521,
       "memory_reads": 0,
       "memory_writes": 0,
-      "elapsed_seconds": 37.265
+      "elapsed_seconds": 37.175
     },
     "memory": {
       "enabled": false,
@@ -2086,14 +2034,14 @@
       {
         "event": "model_completed",
         "number": 1,
-        "wall_seconds": 10.923,
-        "server_seconds": 10.9199,
-        "load_seconds": 0.0158,
-        "prompt_seconds": 0.4119,
-        "generation_seconds": 10.4882,
+        "wall_seconds": 8.485,
+        "server_seconds": 8.4825,
+        "load_seconds": 0.0007,
+        "prompt_seconds": 0.3681,
+        "generation_seconds": 8.1083,
         "input_tokens": 615,
         "output_tokens": 171,
-        "output_tokens_per_second": 16.3,
+        "output_tokens_per_second": 21.09,
         "stage": "decomposer"
       },
       {
@@ -2144,14 +2092,14 @@
       {
         "event": "model_completed",
         "number": 1,
-        "wall_seconds": 26.273,
-        "server_seconds": 26.2663,
-        "load_seconds": 0.0005,
-        "prompt_seconds": 5.6937,
-        "generation_seconds": 20.5623,
-        "input_tokens": 2914,
-        "output_tokens": 334,
-        "output_tokens_per_second": 16.24,
+        "wall_seconds": 28.597,
+        "server_seconds": 28.5886,
+        "load_seconds": 0.0006,
+        "prompt_seconds": 6.4264,
+        "generation_seconds": 22.152,
+        "input_tokens": 3092,
+        "output_tokens": 350,
+        "output_tokens_per_second": 15.8,
         "stage": "executor"
       },
       {
@@ -2164,7 +2112,7 @@
               "quote": "Cash and cash equivalents $ 4,260,324"
             }
           ],
-          "explanation": "The statement is supported by the Condensed Consolidated Balance Sheets in the October 31, 2024 filing, which reports Cash and cash equivalents as $4,260,324 (in thousands), equivalent to USD 4,260,324,000.",
+          "explanation": "The Condensed Consolidated Balance Sheets in the October 31, 2024 filing report Cash and cash equivalents as $4,260,324 (in thousands), which equals USD 4,260,324,000. This matches the claim exactly.",
           "verdict": "SUPPORTED"
         },
         "stage": "executor"
@@ -2197,16 +2145,16 @@
         "pdf_sha256": "5d63ae707036effc2b9caed440663e7ae209c9c11a1effc6e80db1e88670adc3"
       }
     ],
-    "explanation": "The filing states cash and cash equivalents were $4,260,324 (in thousands) as of October 31, 2024, which equals USD 4,260,324,000. The claim of USD 4,260,324 is off by a factor of 1,000 and contradicts the actual reported figure.",
+    "explanation": "The statement is contradicted because the table in the October 31, 2024 filing is presented in thousands. The value shown for Cash and cash equivalents as of October 31, 2024 is $4,260,324 (in thousands), which equals USD 4,260,324,000, not USD 4,260,324 as claimed.",
     "stop_reason": "validated_submission",
     "usage": {
-      "model_calls": 2,
-      "tool_calls": 3,
-      "input_tokens": 3515,
-      "output_tokens": 1852,
+      "model_calls": 4,
+      "tool_calls": 5,
+      "input_tokens": 11439,
+      "output_tokens": 1010,
       "memory_reads": 0,
       "memory_writes": 0,
-      "elapsed_seconds": 121.829
+      "elapsed_seconds": 74.527
     },
     "memory": {
       "enabled": false,
@@ -2237,14 +2185,14 @@
       {
         "event": "model_completed",
         "number": 1,
-        "wall_seconds": 9.676,
-        "server_seconds": 9.6747,
-        "load_seconds": 0.0004,
-        "prompt_seconds": 0.3934,
-        "generation_seconds": 9.2785,
+        "wall_seconds": 9.875,
+        "server_seconds": 9.8734,
+        "load_seconds": 0.0005,
+        "prompt_seconds": 0.5765,
+        "generation_seconds": 9.2903,
         "input_tokens": 611,
         "output_tokens": 165,
-        "output_tokens_per_second": 17.78,
+        "output_tokens_per_second": 17.76,
         "stage": "decomposer"
       },
       {
@@ -2295,14 +2243,14 @@
       {
         "event": "model_completed",
         "number": 1,
-        "wall_seconds": 112.086,
-        "server_seconds": 112.0783,
-        "load_seconds": 0.0005,
-        "prompt_seconds": 5.3019,
-        "generation_seconds": 106.773,
-        "input_tokens": 2904,
-        "output_tokens": 1687,
-        "output_tokens_per_second": 15.8,
+        "wall_seconds": 31.954,
+        "server_seconds": 31.9523,
+        "load_seconds": 0.0006,
+        "prompt_seconds": 5.8369,
+        "generation_seconds": 26.1108,
+        "input_tokens": 3082,
+        "output_tokens": 375,
+        "output_tokens_per_second": 14.36,
         "stage": "executor"
       },
       {
@@ -2315,7 +2263,77 @@
               "quote": "Cash and cash equivalents $ 4,260,324"
             }
           ],
-          "explanation": "The filing states cash and cash equivalents were $4,260,324 (in thousands) as of October 31, 2024, which equals USD 4,260,324,000. The claim of USD 4,260,324 is off by a factor of 1,000 and contradicts the actual reported figure.",
+          "explanation": "The statement is supported by the Condensed Consolidated Balance Sheets in the October 31, 2024 filing, which explicitly lists Cash and cash equivalents as $4,260,324 (in thousands) for that period.",
+          "verdict": "SUPPORTED"
+        },
+        "stage": "executor"
+      },
+      {
+        "event": "tool_error",
+        "name": "submit_verdict",
+        "error": "The cited numeric row, after applying the page's table units, does not match the claimed dollar amount USD 4,260,324. For the statement's requested period, the source table resolves to: USD 4,260,324,000 (filing 10q_2024_10_31, PDF page 9, numeric column 1). Use the column for the requested year/date, not an adjacent comparative year or change column. Recheck the row, period and scale.",
+        "stage": "executor"
+      },
+      {
+        "event": "model_call",
+        "number": 2,
+        "stage": "executor"
+      },
+      {
+        "event": "model_completed",
+        "number": 2,
+        "wall_seconds": 10.42,
+        "server_seconds": 10.4184,
+        "load_seconds": 0.0006,
+        "prompt_seconds": 1.7527,
+        "generation_seconds": 8.6618,
+        "input_tokens": 3589,
+        "output_tokens": 135,
+        "output_tokens_per_second": 15.59,
+        "stage": "executor"
+      },
+      {
+        "event": "tool_requested",
+        "name": "read_passage",
+        "arguments": {
+          "passage_id": "10q_2024_10_31:p9:c0"
+        },
+        "stage": "executor"
+      },
+      {
+        "event": "tool_completed",
+        "name": "read_passage",
+        "stage": "executor"
+      },
+      {
+        "event": "model_call",
+        "number": 3,
+        "stage": "executor"
+      },
+      {
+        "event": "model_completed",
+        "number": 3,
+        "wall_seconds": 22.162,
+        "server_seconds": 22.1602,
+        "load_seconds": 0.0194,
+        "prompt_seconds": 2.2835,
+        "generation_seconds": 19.8546,
+        "input_tokens": 4157,
+        "output_tokens": 335,
+        "output_tokens_per_second": 16.87,
+        "stage": "executor"
+      },
+      {
+        "event": "tool_requested",
+        "name": "submit_verdict",
+        "arguments": {
+          "evidence": [
+            {
+              "passage_id": "10q_2024_10_31:p9:c0",
+              "quote": "Cash and cash equivalents $ 4,260,324"
+            }
+          ],
+          "explanation": "The statement is contradicted because the table in the October 31, 2024 filing is presented in thousands. The value shown for Cash and cash equivalents as of October 31, 2024 is $4,260,324 (in thousands), which equals USD 4,260,324,000, not USD 4,260,324 as claimed.",
           "verdict": "CONTRADICTED"
         },
         "stage": "executor"
@@ -2359,16 +2377,16 @@
         "pdf_sha256": "347a00cfa0b5093498da2fb6e58098cd7a420373575757bec2deb5da1294b47a"
       }
     ],
-    "explanation": "The most recently reported filing (10-Q for period ending October 31, 2024) shows cash and cash equivalents of $4,260,324,000, not $4,038,536,000. The claimed amount matches the July 31, 2024 period but has been superseded by the more recent October 31, 2024 reporting.",
+    "explanation": "The most recently reported filing (10-Q for October 31, 2024, filed November 27, 2024) shows cash and cash equivalents of $4,260,324 thousand, not $4,038,536 thousand. The claimed amount corresponds to the earlier July 31, 2024 quarter, which was superseded by the more recent October 31, 2024 report.",
     "stop_reason": "validated_submission",
     "usage": {
       "model_calls": 2,
       "tool_calls": 3,
-      "input_tokens": 3299,
-      "output_tokens": 791,
+      "input_tokens": 3473,
+      "output_tokens": 793,
       "memory_reads": 0,
       "memory_writes": 0,
-      "elapsed_seconds": 45.495
+      "elapsed_seconds": 55.951
     },
     "memory": {
       "enabled": false,
@@ -2409,14 +2427,14 @@
       {
         "event": "model_completed",
         "number": 1,
-        "wall_seconds": 7.546,
-        "server_seconds": 7.5442,
-        "load_seconds": 0.0006,
-        "prompt_seconds": 0.4301,
-        "generation_seconds": 7.111,
+        "wall_seconds": 11.132,
+        "server_seconds": 11.1307,
+        "load_seconds": 0.0004,
+        "prompt_seconds": 0.3987,
+        "generation_seconds": 10.73,
         "input_tokens": 606,
-        "output_tokens": 156,
-        "output_tokens_per_second": 21.94,
+        "output_tokens": 155,
+        "output_tokens_per_second": 14.45,
         "stage": "decomposer"
       },
       {
@@ -2433,7 +2451,7 @@
           ],
           "search_queries": [
             "CrowdStrike cash and cash equivalents balance sheet",
-            "CrowdStrike most recent cash and cash equivalents"
+            "CrowdStrike most recent quarterly report cash"
           ]
         },
         "stage": "decomposer"
@@ -2467,14 +2485,14 @@
       {
         "event": "model_completed",
         "number": 1,
-        "wall_seconds": 37.894,
-        "server_seconds": 37.8904,
+        "wall_seconds": 44.732,
+        "server_seconds": 44.7252,
         "load_seconds": 0.0005,
-        "prompt_seconds": 4.3692,
-        "generation_seconds": 33.5155,
-        "input_tokens": 2693,
-        "output_tokens": 635,
-        "output_tokens_per_second": 18.95,
+        "prompt_seconds": 4.7723,
+        "generation_seconds": 39.948,
+        "input_tokens": 2867,
+        "output_tokens": 638,
+        "output_tokens_per_second": 15.97,
         "stage": "executor"
       },
       {
@@ -2491,7 +2509,7 @@
               "quote": "Cash and cash equivalents $ 4,038,536"
             }
           ],
-          "explanation": "The most recently reported filing (10-Q for period ending October 31, 2024) shows cash and cash equivalents of $4,260,324,000, not $4,038,536,000. The claimed amount matches the July 31, 2024 period but has been superseded by the more recent October 31, 2024 reporting.",
+          "explanation": "The most recently reported filing (10-Q for October 31, 2024, filed November 27, 2024) shows cash and cash equivalents of $4,260,324 thousand, not $4,038,536 thousand. The claimed amount corresponds to the earlier July 31, 2024 quarter, which was superseded by the more recent October 31, 2024 report.",
           "verdict": "OUTDATED"
         },
         "stage": "executor"
@@ -2535,16 +2553,16 @@
         "pdf_sha256": "50dab0e16bc6ca06a34fbb03d965e701ac65c57d1992984e90f684ca0707364c"
       }
     ],
-    "explanation": "The most recently reported total assets (from the 10q_2024_10_31 filing filed 2024-11-27) are USD 7,782,958,000, not USD 6,646,520,000. The figure USD 6,646,520,000 corresponds to the earlier 10k_2024_01_31 filing filed 2024-03-07, which has been superseded by later filings.",
+    "explanation": "The most recently reported total assets are USD 7,782,958,000 from the October 31, 2024 filing (filed November 27, 2024), not USD 6,646,520,000 which was reported in the January 31, 2024 annual filing. The claim is outdated because a later filing reports different total assets.",
     "stop_reason": "validated_submission",
     "usage": {
       "model_calls": 2,
       "tool_calls": 3,
-      "input_tokens": 3378,
-      "output_tokens": 864,
+      "input_tokens": 3554,
+      "output_tokens": 877,
       "memory_reads": 0,
       "memory_writes": 0,
-      "elapsed_seconds": 46.668
+      "elapsed_seconds": 53.778
     },
     "memory": {
       "enabled": false,
@@ -2585,21 +2603,21 @@
       {
         "event": "model_completed",
         "number": 1,
-        "wall_seconds": 7.234,
-        "server_seconds": 7.2315,
-        "load_seconds": 0.0006,
-        "prompt_seconds": 0.3797,
-        "generation_seconds": 6.8453,
+        "wall_seconds": 7.411,
+        "server_seconds": 7.4098,
+        "load_seconds": 0.0005,
+        "prompt_seconds": 0.3199,
+        "generation_seconds": 7.0867,
         "input_tokens": 604,
-        "output_tokens": 140,
-        "output_tokens_per_second": 20.45,
+        "output_tokens": 141,
+        "output_tokens_per_second": 19.9,
         "stage": "decomposer"
       },
       {
         "event": "decomposer_completed",
         "plan": {
           "subject": "CrowdStrike",
-          "relation": "most recently reported total assets equal",
+          "relation": "has most recently reported total assets of",
           "object": "USD 6,646,520,000",
           "attribution": null,
           "time_reference": null,
@@ -2643,14 +2661,14 @@
       {
         "event": "model_completed",
         "number": 1,
-        "wall_seconds": 39.371,
-        "server_seconds": 39.3701,
-        "load_seconds": 0.0006,
-        "prompt_seconds": 4.3243,
-        "generation_seconds": 35.0412,
-        "input_tokens": 2774,
-        "output_tokens": 724,
-        "output_tokens_per_second": 20.66,
+        "wall_seconds": 46.28,
+        "server_seconds": 46.2765,
+        "load_seconds": 0.0005,
+        "prompt_seconds": 4.6884,
+        "generation_seconds": 41.584,
+        "input_tokens": 2950,
+        "output_tokens": 736,
+        "output_tokens_per_second": 17.7,
         "stage": "executor"
       },
       {
@@ -2667,7 +2685,7 @@
               "quote": "Total assets $ 6,646,520 $ 5,026,540"
             }
           ],
-          "explanation": "The most recently reported total assets (from the 10q_2024_10_31 filing filed 2024-11-27) are USD 7,782,958,000, not USD 6,646,520,000. The figure USD 6,646,520,000 corresponds to the earlier 10k_2024_01_31 filing filed 2024-03-07, which has been superseded by later filings.",
+          "explanation": "The most recently reported total assets are USD 7,782,958,000 from the October 31, 2024 filing (filed November 27, 2024), not USD 6,646,520,000 which was reported in the January 31, 2024 annual filing. The claim is outdated because a later filing reports different total assets.",
           "verdict": "OUTDATED"
         },
         "stage": "executor"
@@ -2689,19 +2707,8 @@
     "correct": true,
     "evidence": [
       {
-        "passage_id": "10q_2024_10_31:p9:c2",
-        "quote": "Total current liabilities                                                                                 3,000,380          2,697,279",
-        "filing_id": "10q_2024_10_31",
-        "form": "10-Q",
-        "period_end": "2024-10-31",
-        "filed_at": "2024-11-27",
-        "pdf_page": 9,
-        "source_url": "https://www.sec.gov/Archives/edgar/data/1535527/000153552724000026/crwd-20241031.htm",
-        "pdf_sha256": "5d63ae707036effc2b9caed440663e7ae209c9c11a1effc6e80db1e88670adc3"
-      },
-      {
         "passage_id": "10q_2024_07_31:p6:c2",
-        "quote": "Total current liabilities                                                                                                      2,728,319              2,697,279",
+        "quote": "Total current liabilities                                                                                                      2,728,319",
         "filing_id": "10q_2024_07_31",
         "form": "10-Q",
         "period_end": "2024-07-31",
@@ -2709,18 +2716,29 @@
         "pdf_page": 6,
         "source_url": "https://ir.crowdstrike.com/static-files/fd6d4b22-9d2d-4e32-a3c6-e1f103248037",
         "pdf_sha256": "347a00cfa0b5093498da2fb6e58098cd7a420373575757bec2deb5da1294b47a"
+      },
+      {
+        "passage_id": "10q_2024_10_31:p9:c2",
+        "quote": "Total current liabilities                                                                                 3,000,380",
+        "filing_id": "10q_2024_10_31",
+        "form": "10-Q",
+        "period_end": "2024-10-31",
+        "filed_at": "2024-11-27",
+        "pdf_page": 9,
+        "source_url": "https://www.sec.gov/Archives/edgar/data/1535527/000153552724000026/crwd-20241031.htm",
+        "pdf_sha256": "5d63ae707036effc2b9caed440663e7ae209c9c11a1effc6e80db1e88670adc3"
       }
     ],
-    "explanation": "The most recently reported filing (10q_2024_10_31) shows total current liabilities of $3,000,380,000, not $2,728,319,000. The figure $2,728,319,000 corresponds to the earlier 10q_2024_07_31 filing.",
+    "explanation": "The claim cites USD 2,728,319,000, which matches the total current liabilities reported in the Q2 filing (period ending July 31, 2024). However, the most recently reported figure comes from the Q3 filing (period ending October 31, 2024), which reports total current liabilities of USD 3,000,380,000. Since a later filing supersedes the earlier one for the \"most recently reported\" metric, the claim is outdated.",
     "stop_reason": "validated_submission",
     "usage": {
       "model_calls": 2,
       "tool_calls": 3,
-      "input_tokens": 3413,
-      "output_tokens": 864,
+      "input_tokens": 3588,
+      "output_tokens": 1230,
       "memory_reads": 0,
       "memory_writes": 0,
-      "elapsed_seconds": 49.565
+      "elapsed_seconds": 77.226
     },
     "memory": {
       "enabled": false,
@@ -2761,14 +2779,14 @@
       {
         "event": "model_completed",
         "number": 1,
-        "wall_seconds": 7.979,
-        "server_seconds": 7.9781,
-        "load_seconds": 0.0004,
-        "prompt_seconds": 0.2667,
-        "generation_seconds": 7.7095,
+        "wall_seconds": 7.913,
+        "server_seconds": 7.9107,
+        "load_seconds": 0.0005,
+        "prompt_seconds": 0.3482,
+        "generation_seconds": 7.5602,
         "input_tokens": 605,
         "output_tokens": 148,
-        "output_tokens_per_second": 19.2,
+        "output_tokens_per_second": 19.58,
         "stage": "decomposer"
       },
       {
@@ -2819,14 +2837,14 @@
       {
         "event": "model_completed",
         "number": 1,
-        "wall_seconds": 41.513,
-        "server_seconds": 41.512,
-        "load_seconds": 0.0007,
-        "prompt_seconds": 4.4079,
-        "generation_seconds": 37.0996,
-        "input_tokens": 2808,
-        "output_tokens": 716,
-        "output_tokens_per_second": 19.3,
+        "wall_seconds": 69.233,
+        "server_seconds": 69.2272,
+        "load_seconds": 0.0005,
+        "prompt_seconds": 5.4351,
+        "generation_seconds": 63.7855,
+        "input_tokens": 2983,
+        "output_tokens": 1082,
+        "output_tokens_per_second": 16.96,
         "stage": "executor"
       },
       {
@@ -2835,15 +2853,15 @@
         "arguments": {
           "evidence": [
             {
-              "passage_id": "10q_2024_10_31:p9:c2",
-              "quote": "Total current liabilities 3,000,380 2,697,279"
+              "passage_id": "10q_2024_07_31:p6:c2",
+              "quote": "Total current liabilities 2,728,319"
             },
             {
-              "passage_id": "10q_2024_07_31:p6:c2",
-              "quote": "Total current liabilities 2,728,319 2,697,279"
+              "passage_id": "10q_2024_10_31:p9:c2",
+              "quote": "Total current liabilities 3,000,380"
             }
           ],
-          "explanation": "The most recently reported filing (10q_2024_10_31) shows total current liabilities of $3,000,380,000, not $2,728,319,000. The figure $2,728,319,000 corresponds to the earlier 10q_2024_07_31 filing.",
+          "explanation": "The claim cites USD 2,728,319,000, which matches the total current liabilities reported in the Q2 filing (period ending July 31, 2024). However, the most recently reported figure comes from the Q3 filing (period ending October 31, 2024), which reports total current liabilities of USD 3,000,380,000. Since a later filing supersedes the earlier one for the \"most recently reported\" metric, the claim is outdated.",
           "verdict": "OUTDATED"
         },
         "stage": "executor"
@@ -2876,16 +2894,16 @@
         "pdf_sha256": "50dab0e16bc6ca06a34fbb03d965e701ac65c57d1992984e90f684ca0707364c"
       }
     ],
-    "explanation": "The statement claims exactly 5,000 US-based full-time employees as of January 31, 2024. The evidence shows CrowdStrike had 7,925 total full-time employees (company-wide) as of that date, but the filings do not disclose a geographic breakdown of where these employees were located. Without disclosure of regional employee counts, the specific US-based number cannot be verified or contradicted.",
+    "explanation": "The filing discloses 7,925 total full-time employees as of January 31, 2024, but does not provide a breakdown by geographic location. The statement claims exactly 5,000 US-based employees, which cannot be verified from the available evidence since no location-specific employee count is disclosed.",
     "stop_reason": "validated_submission",
     "usage": {
       "model_calls": 7,
       "tool_calls": 8,
-      "input_tokens": 42805,
-      "output_tokens": 1322,
+      "input_tokens": 31989,
+      "output_tokens": 1755,
       "memory_reads": 0,
       "memory_writes": 0,
-      "elapsed_seconds": 107.423
+      "elapsed_seconds": 139.823
     },
     "memory": {
       "enabled": false,
@@ -2916,14 +2934,14 @@
       {
         "event": "model_completed",
         "number": 1,
-        "wall_seconds": 9.537,
-        "server_seconds": 9.5352,
-        "load_seconds": 0.0005,
-        "prompt_seconds": 0.3924,
-        "generation_seconds": 9.1408,
+        "wall_seconds": 13.288,
+        "server_seconds": 13.2816,
+        "load_seconds": 0.0008,
+        "prompt_seconds": 0.4337,
+        "generation_seconds": 12.8421,
         "input_tokens": 607,
         "output_tokens": 175,
-        "output_tokens_per_second": 19.14,
+        "output_tokens_per_second": 13.63,
         "stage": "decomposer"
       },
       {
@@ -2957,21 +2975,22 @@
       {
         "event": "model_completed",
         "number": 1,
-        "wall_seconds": 12.631,
-        "server_seconds": 12.6298,
-        "load_seconds": 0.0004,
-        "prompt_seconds": 6.3119,
-        "generation_seconds": 6.3131,
-        "input_tokens": 3356,
-        "output_tokens": 103,
-        "output_tokens_per_second": 16.32,
+        "wall_seconds": 21.287,
+        "server_seconds": 21.2828,
+        "load_seconds": 0.001,
+        "prompt_seconds": 6.6689,
+        "generation_seconds": 14.6033,
+        "input_tokens": 3430,
+        "output_tokens": 227,
+        "output_tokens_per_second": 15.54,
         "stage": "executor"
       },
       {
         "event": "tool_requested",
         "name": "search_and_read",
         "arguments": {
-          "query": "full-time employees United States"
+          "query": "full-time employees US-based January 31 2024",
+          "filing_id": "10k_2024_01_31"
         },
         "stage": "executor"
       },
@@ -2988,60 +3007,22 @@
       {
         "event": "model_completed",
         "number": 2,
-        "wall_seconds": 28.621,
-        "server_seconds": 28.6189,
-        "load_seconds": 0.0012,
-        "prompt_seconds": 5.7143,
-        "generation_seconds": 22.9005,
-        "input_tokens": 5286,
-        "output_tokens": 439,
-        "output_tokens_per_second": 19.17,
-        "stage": "executor"
-      },
-      {
-        "event": "tool_requested",
-        "name": "submit_verdict",
-        "arguments": {
-          "evidence": [
-            {
-              "passage_id": "10k_2024_01_31:p22:c1",
-              "quote": "As of January 31, 2024, we had 7,925 full-time employees."
-            }
-          ],
-          "explanation": "The statement claims exactly 5,000 US-based full-time employees as of January 31, 2024, but the evidence shows CrowdStrike had 7,925 total full-time employees (not just US-based) as of that date. The number and scope both contradict the claim.",
-          "verdict": "CONTRADICTED"
-        },
-        "stage": "executor"
-      },
-      {
-        "event": "tool_error",
-        "name": "submit_verdict",
-        "error": "The claim specifies a regional employee population, but these quotations report an unqualified/company-wide total. That total alone cannot establish the regional count or contradict a smaller regional subset. Look for region-specific evidence; if the filings do not disclose it, use NOT_ENOUGH_INFO rather than inferring a count.",
-        "stage": "executor"
-      },
-      {
-        "event": "model_call",
-        "number": 3,
-        "stage": "executor"
-      },
-      {
-        "event": "model_completed",
-        "number": 3,
-        "wall_seconds": 6.183,
-        "server_seconds": 6.1815,
-        "load_seconds": 0.0004,
-        "prompt_seconds": 1.7661,
-        "generation_seconds": 4.4118,
-        "input_tokens": 5801,
-        "output_tokens": 72,
-        "output_tokens_per_second": 16.32,
+        "wall_seconds": 13.771,
+        "server_seconds": 13.769,
+        "load_seconds": 0.0006,
+        "prompt_seconds": 2.7298,
+        "generation_seconds": 11.0349,
+        "input_tokens": 4323,
+        "output_tokens": 188,
+        "output_tokens_per_second": 17.04,
         "stage": "executor"
       },
       {
         "event": "tool_requested",
         "name": "search_and_read",
         "arguments": {
-          "query": "United States employees"
+          "query": "US employees United States location",
+          "filing_id": "10k_2024_01_31"
         },
         "stage": "executor"
       },
@@ -3052,27 +3033,60 @@
       },
       {
         "event": "model_call",
-        "number": 4,
+        "number": 3,
         "stage": "executor"
       },
       {
         "event": "model_completed",
-        "number": 4,
-        "wall_seconds": 9.339,
-        "server_seconds": 9.3375,
+        "number": 3,
+        "wall_seconds": 7.979,
+        "server_seconds": 7.9767,
         "load_seconds": 0.0005,
-        "prompt_seconds": 4.9,
-        "generation_seconds": 4.4335,
-        "input_tokens": 7427,
-        "output_tokens": 62,
-        "output_tokens_per_second": 13.98,
+        "prompt_seconds": 2.488,
+        "generation_seconds": 5.4855,
+        "input_tokens": 5096,
+        "output_tokens": 80,
+        "output_tokens_per_second": 14.58,
         "stage": "executor"
       },
       {
         "event": "tool_requested",
         "name": "search_and_read",
         "arguments": {
-          "query": "employees by location or region"
+          "query": "employees by location region country United States",
+          "filing_id": "10k_2024_01_31"
+        },
+        "stage": "executor"
+      },
+      {
+        "event": "tool_completed",
+        "name": "search_and_read",
+        "stage": "executor"
+      },
+      {
+        "event": "model_call",
+        "number": 4,
+        "stage": "executor"
+      },
+      {
+        "event": "model_completed",
+        "number": 4,
+        "wall_seconds": 10.702,
+        "server_seconds": 10.7,
+        "load_seconds": 0.0155,
+        "prompt_seconds": 2.5692,
+        "generation_seconds": 8.1121,
+        "input_tokens": 5785,
+        "output_tokens": 85,
+        "output_tokens_per_second": 10.48,
+        "stage": "executor"
+      },
+      {
+        "event": "tool_requested",
+        "name": "search_and_read",
+        "arguments": {
+          "query": "employees full-time temporary consultants table",
+          "filing_id": "10k_2024_01_31"
         },
         "stage": "executor"
       },
@@ -3089,21 +3103,22 @@
       {
         "event": "model_completed",
         "number": 5,
-        "wall_seconds": 12.033,
-        "server_seconds": 12.0272,
-        "load_seconds": 0.0004,
-        "prompt_seconds": 6.5931,
-        "generation_seconds": 5.4285,
-        "input_tokens": 9282,
-        "output_tokens": 62,
-        "output_tokens_per_second": 11.42,
+        "wall_seconds": 18.197,
+        "server_seconds": 18.1944,
+        "load_seconds": 0.0263,
+        "prompt_seconds": 1.1811,
+        "generation_seconds": 16.9818,
+        "input_tokens": 6033,
+        "output_tokens": 292,
+        "output_tokens_per_second": 17.19,
         "stage": "executor"
       },
       {
         "event": "tool_requested",
         "name": "search_and_read",
         "arguments": {
-          "query": "US employees number count"
+          "query": "United States employees headcount workforce",
+          "filing_id": "10k_2024_01_31"
         },
         "stage": "executor"
       },
@@ -3120,14 +3135,14 @@
       {
         "event": "model_completed",
         "number": 6,
-        "wall_seconds": 28.871,
-        "server_seconds": 28.8657,
-        "load_seconds": 0.0306,
-        "prompt_seconds": 5.2052,
-        "generation_seconds": 23.6222,
-        "input_tokens": 11046,
-        "output_tokens": 409,
-        "output_tokens_per_second": 17.31,
+        "wall_seconds": 54.398,
+        "server_seconds": 54.3916,
+        "load_seconds": 0.0005,
+        "prompt_seconds": 2.6206,
+        "generation_seconds": 51.7666,
+        "input_tokens": 6715,
+        "output_tokens": 708,
+        "output_tokens_per_second": 13.68,
         "stage": "executor"
       },
       {
@@ -3140,7 +3155,7 @@
               "quote": "As of January 31, 2024, we had 7,925 full-time employees."
             }
           ],
-          "explanation": "The statement claims exactly 5,000 US-based full-time employees as of January 31, 2024. The evidence shows CrowdStrike had 7,925 total full-time employees (company-wide) as of that date, but the filings do not disclose a geographic breakdown of where these employees were located. Without disclosure of regional employee counts, the specific US-based number cannot be verified or contradicted.",
+          "explanation": "The filing discloses 7,925 total full-time employees as of January 31, 2024, but does not provide a breakdown by geographic location. The statement claims exactly 5,000 US-based employees, which cannot be verified from the available evidence since no location-specific employee count is disclosed.",
           "verdict": "NOT_ENOUGH_INFO"
         },
         "stage": "executor"
@@ -3161,16 +3176,16 @@
     "status": "complete",
     "correct": true,
     "evidence": [],
-    "explanation": "The provided CrowdStrike filings do not contain information about voluntary employee attrition rate or turnover rate for fiscal 2024. The passages discuss headcount growth, customer attrition rates (for goodwill impairment), and financial metrics, but no employee turnover or attrition rate data is available in the searched documents.",
+    "explanation": "The supplied CrowdStrike filings do not contain any information about voluntary employee attrition rate or turnover rate for fiscal 2024. Multiple searches returned passages discussing headcount growth, cost of revenue, and other metrics, but none mention the specific voluntary attrition rate claimed in the statement.",
     "stop_reason": "validated_submission",
     "usage": {
-      "model_calls": 7,
-      "tool_calls": 8,
-      "input_tokens": 47238,
-      "output_tokens": 927,
+      "model_calls": 5,
+      "tool_calls": 6,
+      "input_tokens": 24281,
+      "output_tokens": 1163,
       "memory_reads": 0,
       "memory_writes": 0,
-      "elapsed_seconds": 93.544
+      "elapsed_seconds": 92.71
     },
     "memory": {
       "enabled": false,
@@ -3201,14 +3216,14 @@
       {
         "event": "model_completed",
         "number": 1,
-        "wall_seconds": 6.935,
-        "server_seconds": 6.9325,
-        "load_seconds": 0.0014,
-        "prompt_seconds": 0.2411,
-        "generation_seconds": 6.6863,
+        "wall_seconds": 9.055,
+        "server_seconds": 9.0535,
+        "load_seconds": 0.0004,
+        "prompt_seconds": 0.2635,
+        "generation_seconds": 8.7879,
         "input_tokens": 599,
         "output_tokens": 153,
-        "output_tokens_per_second": 22.88,
+        "output_tokens_per_second": 17.41,
         "stage": "decomposer"
       },
       {
@@ -3259,114 +3274,21 @@
       {
         "event": "model_completed",
         "number": 1,
-        "wall_seconds": 14.566,
-        "server_seconds": 14.5632,
-        "load_seconds": 0.0016,
-        "prompt_seconds": 4.9662,
-        "generation_seconds": 9.5843,
-        "input_tokens": 3103,
-        "output_tokens": 116,
-        "output_tokens_per_second": 12.1,
-        "stage": "executor"
-      },
-      {
-        "event": "tool_requested",
-        "name": "search_and_read",
-        "arguments": {
-          "query": "CrowdStrike voluntary attrition rate turnover fiscal 2024"
-        },
-        "stage": "executor"
-      },
-      {
-        "event": "tool_completed",
-        "name": "search_and_read",
-        "stage": "executor"
-      },
-      {
-        "event": "model_call",
-        "number": 2,
-        "stage": "executor"
-      },
-      {
-        "event": "model_completed",
-        "number": 2,
-        "wall_seconds": 14.463,
-        "server_seconds": 14.4598,
-        "load_seconds": 0.0528,
-        "prompt_seconds": 7.5817,
-        "generation_seconds": 6.8185,
-        "input_tokens": 4955,
-        "output_tokens": 90,
-        "output_tokens_per_second": 13.2,
-        "stage": "executor"
-      },
-      {
-        "event": "tool_requested",
-        "name": "search_and_read",
-        "arguments": {
-          "query": "CrowdStrike employee turnover attrition rate"
-        },
-        "stage": "executor"
-      },
-      {
-        "event": "tool_completed",
-        "name": "search_and_read",
-        "stage": "executor"
-      },
-      {
-        "event": "model_call",
-        "number": 3,
-        "stage": "executor"
-      },
-      {
-        "event": "model_completed",
-        "number": 3,
-        "wall_seconds": 13.003,
-        "server_seconds": 13.0008,
-        "load_seconds": 0.0332,
-        "prompt_seconds": 5.561,
-        "generation_seconds": 7.3967,
-        "input_tokens": 6790,
-        "output_tokens": 111,
-        "output_tokens_per_second": 15.01,
-        "stage": "executor"
-      },
-      {
-        "event": "tool_requested",
-        "name": "search_and_read",
-        "arguments": {
-          "query": "CrowdStrike voluntary attrition rate fiscal 2024 headcount"
-        },
-        "stage": "executor"
-      },
-      {
-        "event": "tool_completed",
-        "name": "search_and_read",
-        "stage": "executor"
-      },
-      {
-        "event": "model_call",
-        "number": 4,
-        "stage": "executor"
-      },
-      {
-        "event": "model_completed",
-        "number": 4,
-        "wall_seconds": 13.432,
-        "server_seconds": 13.4305,
+        "wall_seconds": 20.575,
+        "server_seconds": 20.5718,
         "load_seconds": 0.0005,
-        "prompt_seconds": 5.5612,
-        "generation_seconds": 7.8645,
-        "input_tokens": 8775,
-        "output_tokens": 107,
-        "output_tokens_per_second": 13.61,
+        "prompt_seconds": 6.1692,
+        "generation_seconds": 14.3991,
+        "input_tokens": 3217,
+        "output_tokens": 203,
+        "output_tokens_per_second": 14.1,
         "stage": "executor"
       },
       {
         "event": "tool_requested",
         "name": "search_and_read",
         "arguments": {
-          "query": "CrowdStrike voluntary attrition rate fiscal year 2024"
+          "query": "CrowdStrike voluntary employee attrition rate turnover fiscal 2024"
         },
         "stage": "executor"
       },
@@ -3377,27 +3299,27 @@
       },
       {
         "event": "model_call",
-        "number": 5,
+        "number": 2,
         "stage": "executor"
       },
       {
         "event": "model_completed",
-        "number": 5,
-        "wall_seconds": 10.642,
-        "server_seconds": 10.6406,
-        "load_seconds": 0.0013,
-        "prompt_seconds": 4.9204,
-        "generation_seconds": 5.7117,
-        "input_tokens": 10539,
-        "output_tokens": 101,
-        "output_tokens_per_second": 17.68,
+        "number": 2,
+        "wall_seconds": 19.03,
+        "server_seconds": 19.0283,
+        "load_seconds": 0.0024,
+        "prompt_seconds": 6.4406,
+        "generation_seconds": 12.5818,
+        "input_tokens": 5254,
+        "output_tokens": 238,
+        "output_tokens_per_second": 18.92,
         "stage": "executor"
       },
       {
         "event": "tool_requested",
         "name": "search_and_read",
         "arguments": {
-          "query": "CrowdStrike turnover rate employee"
+          "query": "CrowdStrike employee turnover rate attrition fiscal 2024 headcount"
         },
         "stage": "executor"
       },
@@ -3408,20 +3330,51 @@
       },
       {
         "event": "model_call",
-        "number": 6,
+        "number": 3,
         "stage": "executor"
       },
       {
         "event": "model_completed",
-        "number": 6,
-        "wall_seconds": 20.262,
-        "server_seconds": 20.2603,
+        "number": 3,
+        "wall_seconds": 19.666,
+        "server_seconds": 19.6634,
+        "load_seconds": 0.0009,
+        "prompt_seconds": 4.8766,
+        "generation_seconds": 14.7818,
+        "input_tokens": 6848,
+        "output_tokens": 283,
+        "output_tokens_per_second": 19.15,
+        "stage": "executor"
+      },
+      {
+        "event": "tool_requested",
+        "name": "search_and_read",
+        "arguments": {
+          "query": "CrowdStrike voluntary attrition turnover rate percentage"
+        },
+        "stage": "executor"
+      },
+      {
+        "event": "tool_completed",
+        "name": "search_and_read",
+        "stage": "executor"
+      },
+      {
+        "event": "model_call",
+        "number": 4,
+        "stage": "executor"
+      },
+      {
+        "event": "model_completed",
+        "number": 4,
+        "wall_seconds": 24.261,
+        "server_seconds": 24.2543,
         "load_seconds": 0.0006,
-        "prompt_seconds": 5.5714,
-        "generation_seconds": 14.6785,
-        "input_tokens": 12477,
-        "output_tokens": 249,
-        "output_tokens_per_second": 16.96,
+        "prompt_seconds": 5.599,
+        "generation_seconds": 18.6503,
+        "input_tokens": 8363,
+        "output_tokens": 286,
+        "output_tokens_per_second": 15.33,
         "stage": "executor"
       },
       {
@@ -3429,7 +3382,7 @@
         "name": "submit_verdict",
         "arguments": {
           "verdict": "NOT_ENOUGH_INFO",
-          "explanation": "The provided CrowdStrike filings do not contain information about voluntary employee attrition rate or turnover rate for fiscal 2024. The passages discuss headcount growth, customer attrition rates (for goodwill impairment), and financial metrics, but no employee turnover or attrition rate data is available in the searched documents."
+          "explanation": "The supplied CrowdStrike filings do not contain any information about voluntary employee attrition rate or turnover rate for fiscal 2024. Multiple searches returned passages discussing headcount growth, cost of revenue, and other metrics, but none mention the specific voluntary attrition rate claimed in the statement."
         },
         "stage": "executor"
       },
@@ -3449,16 +3402,16 @@
     "status": "complete",
     "correct": true,
     "evidence": [],
-    "explanation": "The statement claims CrowdStrike forecasts total revenue of USD 20 billion for fiscal 2030. The available evidence from the provided filings (10-K and 10-Qs) contains no mention of a revenue forecast for fiscal 2030. The filings discuss historical revenues (e.g., $3,055,178 thousand for the year ended Jan 31, 2024) and debt obligations due in fiscal 2030, but do not provide any forward-looking revenue guidance or forecast extending to fiscal 2030. Therefore, there is insufficient evidence to support the claim.",
+    "explanation": "The provided filings (10-K for fiscal 2024 and 10-Qs for Q3 and Q4 of fiscal 2025) contain historical revenue data and forward-looking information regarding amortization expenses, purchase obligations, and debt maturities. However, none of the loaded passages include a specific revenue forecast or guidance for fiscal year 2030. The evidence does not support or contradict the claim that CrowdStrike forecasts total revenue of USD 20 billion for fiscal 2030.",
     "stop_reason": "validated_submission",
     "usage": {
       "model_calls": 8,
       "tool_calls": 9,
-      "input_tokens": 61458,
-      "output_tokens": 549,
+      "input_tokens": 43278,
+      "output_tokens": 578,
       "memory_reads": 0,
       "memory_writes": 0,
-      "elapsed_seconds": 108.807
+      "elapsed_seconds": 79.763
     },
     "memory": {
       "enabled": false,
@@ -3489,14 +3442,14 @@
       {
         "event": "model_completed",
         "number": 1,
-        "wall_seconds": 8.17,
-        "server_seconds": 8.1685,
+        "wall_seconds": 7.916,
+        "server_seconds": 7.9143,
         "load_seconds": 0.0004,
-        "prompt_seconds": 0.2529,
-        "generation_seconds": 7.9137,
+        "prompt_seconds": 0.2625,
+        "generation_seconds": 7.6499,
         "input_tokens": 598,
         "output_tokens": 159,
-        "output_tokens_per_second": 20.09,
+        "output_tokens_per_second": 20.78,
         "stage": "decomposer"
       },
       {
@@ -3547,14 +3500,14 @@
       {
         "event": "model_completed",
         "number": 1,
-        "wall_seconds": 7.728,
-        "server_seconds": 7.726,
+        "wall_seconds": 8.306,
+        "server_seconds": 8.305,
         "load_seconds": 0.0004,
-        "prompt_seconds": 5.9636,
-        "generation_seconds": 1.759,
-        "input_tokens": 3193,
+        "prompt_seconds": 6.3145,
+        "generation_seconds": 1.9867,
+        "input_tokens": 3368,
         "output_tokens": 35,
-        "output_tokens_per_second": 19.9,
+        "output_tokens_per_second": 17.62,
         "stage": "executor"
       },
       {
@@ -3578,14 +3531,107 @@
       {
         "event": "model_completed",
         "number": 2,
-        "wall_seconds": 9.422,
-        "server_seconds": 9.4184,
+        "wall_seconds": 5.079,
+        "server_seconds": 5.0777,
         "load_seconds": 0.0005,
-        "prompt_seconds": 5.9517,
-        "generation_seconds": 3.4627,
-        "input_tokens": 4967,
+        "prompt_seconds": 2.7227,
+        "generation_seconds": 2.3514,
+        "input_tokens": 4165,
+        "output_tokens": 46,
+        "output_tokens_per_second": 19.56,
+        "stage": "executor"
+      },
+      {
+        "event": "tool_requested",
+        "name": "read_passage",
+        "arguments": {
+          "passage_id": "10k_2024_01_31:p79:c2"
+        },
+        "stage": "executor"
+      },
+      {
+        "event": "tool_completed",
+        "name": "read_passage",
+        "stage": "executor"
+      },
+      {
+        "event": "model_call",
+        "number": 3,
+        "stage": "executor"
+      },
+      {
+        "event": "model_completed",
+        "number": 3,
+        "wall_seconds": 3.65,
+        "server_seconds": 3.6475,
+        "load_seconds": 0.0005,
+        "prompt_seconds": 2.0175,
+        "generation_seconds": 1.6268,
+        "input_tokens": 4775,
         "output_tokens": 35,
-        "output_tokens_per_second": 10.11,
+        "output_tokens_per_second": 21.51,
+        "stage": "executor"
+      },
+      {
+        "event": "tool_requested",
+        "name": "search_and_read",
+        "arguments": {
+          "query": "CrowdStrike revenue forecast 2030 guidance"
+        },
+        "stage": "executor"
+      },
+      {
+        "event": "tool_completed",
+        "name": "search_and_read",
+        "stage": "executor"
+      },
+      {
+        "event": "model_call",
+        "number": 4,
+        "stage": "executor"
+      },
+      {
+        "event": "model_completed",
+        "number": 4,
+        "wall_seconds": 9.04,
+        "server_seconds": 9.0348,
+        "load_seconds": 0.0005,
+        "prompt_seconds": 4.68,
+        "generation_seconds": 4.35,
+        "input_tokens": 6141,
+        "output_tokens": 59,
+        "output_tokens_per_second": 13.56,
+        "stage": "executor"
+      },
+      {
+        "event": "tool_requested",
+        "name": "search_and_read",
+        "arguments": {
+          "query": "CrowdStrike revenue guidance 2025 2026 2027 2028 2029 2030"
+        },
+        "stage": "executor"
+      },
+      {
+        "event": "tool_completed",
+        "name": "search_and_read",
+        "stage": "executor"
+      },
+      {
+        "event": "model_call",
+        "number": 5,
+        "stage": "executor"
+      },
+      {
+        "event": "model_completed",
+        "number": 5,
+        "wall_seconds": 8.246,
+        "server_seconds": 8.2436,
+        "load_seconds": 0.0006,
+        "prompt_seconds": 6.1366,
+        "generation_seconds": 2.102,
+        "input_tokens": 7699,
+        "output_tokens": 35,
+        "output_tokens_per_second": 16.65,
         "stage": "executor"
       },
       {
@@ -3603,126 +3649,33 @@
       },
       {
         "event": "model_call",
-        "number": 3,
-        "stage": "executor"
-      },
-      {
-        "event": "model_completed",
-        "number": 3,
-        "wall_seconds": 8.514,
-        "server_seconds": 8.5082,
-        "load_seconds": 0.0011,
-        "prompt_seconds": 5.2842,
-        "generation_seconds": 3.2156,
-        "input_tokens": 6812,
-        "output_tokens": 36,
-        "output_tokens_per_second": 11.2,
-        "stage": "executor"
-      },
-      {
-        "event": "tool_requested",
-        "name": "search_and_read",
-        "arguments": {
-          "query": "CrowdStrike revenue guidance 2030 fiscal year"
-        },
-        "stage": "executor"
-      },
-      {
-        "event": "tool_completed",
-        "name": "search_and_read",
-        "stage": "executor"
-      },
-      {
-        "event": "model_call",
-        "number": 4,
-        "stage": "executor"
-      },
-      {
-        "event": "model_completed",
-        "number": 4,
-        "wall_seconds": 7.103,
-        "server_seconds": 7.1005,
-        "load_seconds": 0.0007,
-        "prompt_seconds": 5.1928,
-        "generation_seconds": 1.9017,
-        "input_tokens": 8680,
-        "output_tokens": 36,
-        "output_tokens_per_second": 18.93,
-        "stage": "executor"
-      },
-      {
-        "event": "tool_requested",
-        "name": "search_and_read",
-        "arguments": {
-          "query": "CrowdStrike revenue guidance 2030 fiscal year"
-        },
-        "stage": "executor"
-      },
-      {
-        "event": "tool_completed",
-        "name": "search_and_read",
-        "stage": "executor"
-      },
-      {
-        "event": "model_call",
-        "number": 5,
-        "stage": "executor"
-      },
-      {
-        "event": "model_completed",
-        "number": 5,
-        "wall_seconds": 8.643,
-        "server_seconds": 8.6417,
-        "load_seconds": 0.0017,
-        "prompt_seconds": 6.0934,
-        "generation_seconds": 2.54,
-        "input_tokens": 10548,
-        "output_tokens": 36,
-        "output_tokens_per_second": 14.17,
-        "stage": "executor"
-      },
-      {
-        "event": "tool_requested",
-        "name": "search_and_read",
-        "arguments": {
-          "query": "CrowdStrike revenue guidance 2030 fiscal year"
-        },
-        "stage": "executor"
-      },
-      {
-        "event": "tool_completed",
-        "name": "search_and_read",
-        "stage": "executor"
-      },
-      {
-        "event": "model_call",
         "number": 6,
         "stage": "executor"
       },
       {
         "event": "model_completed",
         "number": 6,
-        "wall_seconds": 7.87,
-        "server_seconds": 7.8678,
-        "load_seconds": 0.0006,
-        "prompt_seconds": 6.1769,
-        "generation_seconds": 1.6835,
-        "input_tokens": 12451,
-        "output_tokens": 36,
-        "output_tokens_per_second": 21.38,
+        "wall_seconds": 3.842,
+        "server_seconds": 3.84,
+        "load_seconds": 0.0009,
+        "prompt_seconds": 1.3921,
+        "generation_seconds": 2.4428,
+        "input_tokens": 8058,
+        "output_tokens": 47,
+        "output_tokens_per_second": 19.24,
         "stage": "executor"
       },
       {
         "event": "tool_requested",
-        "name": "search_and_read",
+        "name": "read_passage",
         "arguments": {
-          "query": "CrowdStrike revenue guidance 2030 fiscal year"
+          "passage_id": "10k_2024_01_31:p101:c1"
         },
         "stage": "executor"
       },
       {
         "event": "tool_completed",
-        "name": "search_and_read",
+        "name": "read_passage",
         "stage": "executor"
       },
       {
@@ -3737,22 +3690,23 @@
       {
         "event": "model_completed",
         "number": 7,
-        "wall_seconds": 51.169,
-        "server_seconds": 51.1667,
-        "load_seconds": 0.0006,
-        "prompt_seconds": 39.6796,
-        "generation_seconds": 11.4791,
-        "input_tokens": 14209,
-        "output_tokens": 176,
-        "output_tokens_per_second": 15.33,
+        "wall_seconds": 33.501,
+        "server_seconds": 33.497,
+        "load_seconds": 0.0092,
+        "prompt_seconds": 24.6239,
+        "generation_seconds": 8.8598,
+        "input_tokens": 8474,
+        "output_tokens": 162,
+        "output_tokens_per_second": 18.28,
         "stage": "executor"
       },
       {
         "event": "tool_requested",
         "name": "submit_verdict",
         "arguments": {
-          "explanation": "The statement claims CrowdStrike forecasts total revenue of USD 20 billion for fiscal 2030. The available evidence from the provided filings (10-K and 10-Qs) contains no mention of a revenue forecast for fiscal 2030. The filings discuss historical revenues (e.g., $3,055,178 thousand for the year ended Jan 31, 2024) and debt obligations due in fiscal 2030, but do not provide any forward-looking revenue guidance or forecast extending to fiscal 2030. Therefore, there is insufficient evidence to support the claim.",
-          "verdict": "NOT_ENOUGH_INFO"
+          "verdict": "NOT_ENOUGH_INFO",
+          "evidence": [],
+          "explanation": "The provided filings (10-K for fiscal 2024 and 10-Qs for Q3 and Q4 of fiscal 2025) contain historical revenue data and forward-looking information regarding amortization expenses, purchase obligations, and debt maturities. However, none of the loaded passages include a specific revenue forecast or guidance for fiscal year 2030. The evidence does not support or contradict the claim that CrowdStrike forecasts total revenue of USD 20 billion for fiscal 2030."
         },
         "stage": "executor"
       },

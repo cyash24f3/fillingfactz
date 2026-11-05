@@ -20,20 +20,28 @@ reviewer interface.
 | Twenty labelled statements and references | `data/test_statements.json` |
 | Benchmark protocol | [Evaluation](docs/EVALUATION.md) |
 | Complete benchmark predictions and metrics | `results/benchmark/` |
+| Baseline comparison | `results/baseline/` |
+| Live API validation | `results/api_validation/`, [Validation](docs/VALIDATION.md) |
+| Requirements map | [Requirements](docs/REQUIREMENTS.md) |
 | Focused diagnostic predictions and metrics | `results/diagnostic/` |
 | Automated tests | `tests/` |
 | Dependencies | `pyproject.toml`, `requirements-lock.txt` |
 
 ## Verification status
 
-- 59 automated code checks pass without model inference.
-- All 20 labelled cases and their 17 shared source references validate against
-  the included PDFs.
-- The checked-in four-case diagnostic completes with all four verdicts matching
-  the expected labels.
-- The complete 60-run benchmark is included: full 85%, memory-off 100%, and
-  Decomposer-off 100%, with completion, usage, evidence, and per-case traces.
+- **60/60 benchmark runs pass:** twenty statements in each of three configurations,
+  with complete status, matching verdicts, source evidence, traces, and usage.
+- **92 automated tests pass**, including a fresh installation from pinned dependencies.
+- All twenty labelled cases and their seventeen shared source references validate
+  against the included PDFs.
+- **12/12 additional live API checks pass** with completed SSE streams.
+- FastAPI, Swagger requests, Streamlit single and batch reviews, and JSON report
+  downloads were exercised successfully.
+- GitHub Actions runs automated tests and source-reference validation on Python 3.12.
 
-The full comparison records the evaluated source snapshot. Focused diagnostics
-and follow-up changes are documented separately; no memory savings are claimed
-for this baseline run.
+The [evaluation report](docs/EVALUATION.md) compares accuracy, calls, tokens,
+elapsed time, memory operations, and the unchanged original baseline. Results
+identify the evaluated source hashes and local model environment.
+
+The presentation/demo remains deferred; the runnable application, architecture,
+documentation, test statements, and measured results are included.

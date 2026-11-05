@@ -62,43 +62,88 @@ Only selected configurations receive prediction files. Run metadata records the
 model, budgets, case order, corpus fingerprint, dataset hash, and source-code hashes.
 Predictions are written after each case, so partial runs remain inspectable.
 
-## Checked-in results
+## Final 60-run comparison
 
-[The completed diagnostic](../results/diagnostic/summary.md) checks T15–T18:
-three temporal claims and one regional-headcount claim. It completed **4/4** with
-matching verdicts. This is a **four-statement subset**, not a full-dataset accuracy
-claim or a three-configuration comparison.
+The [final benchmark](../results/benchmark/summary.md), run
+`20261105T163921Z_96e9b031`, completed **60/60 correct runs**, with no errors or
+incomplete results. Source hashes match the application in commit `d6a7e14`.
 
-## Complete 60-run comparison
+| Configuration | Accuracy | Completed | Model calls | Tool calls | Tokens | Seconds | Memory reads/writes |
+|---|---:|---:|---:|---:|---:|---:|---:|
+| Full | 100% | 20/20 | 54 | 74 | 191,196 | 839.5 | 20/18 |
+| Memory disabled | 100% | 20/20 | 58 | 78 | 192,919 | 963.1 | 0/0 |
+| Decomposer disabled | 100% | 20/20 | 35 | 54 | 158,559 | 772.2 | 20/18 |
 
-The [benchmark report](../results/benchmark/summary.md) contains all three
-20-statement configurations from run `20261105T132118Z_6c5a757e`.
+Memory reads/writes count persistence operations, not the number of recalled
+passages. Predictions include recalled passage IDs and saved-passage counts.
 
-| Configuration | Accuracy | Completed | Model calls | Tool calls | Tokens | Seconds |
-|---|---:|---:|---:|---:|---:|---:|
-| Full | 85% | 18/20 | 61 | 81 | 266,260 | 1,017.1 |
-| Memory disabled | 100% | 20/20 | 59 | 79 | 240,716 | 1,086.8 |
-| Decomposer disabled | 100% | 20/20 | 38 | 58 | 228,157 | 708.9 |
+## Original baseline and improvements
 
-The full configuration got 17 labels correct with complete status. T09 and T20
-exhausted the model-call budget; T18 incorrectly contradicted a regional-headcount
-claim using company-wide headcount evidence. T20's fallback label matches its
-expected label but is scored incorrect because the run is incomplete.
+The [unchanged original baseline](../results/baseline/summary.md), run
+`20261105T132118Z_6c5a757e`, evaluated the application in commit `25edfb1`.
+Full-workflow accuracy was 85% with eighteen completed cases; the other two
+configurations scored 100%. T09 and T20 exhausted their budgets; T18 incorrectly
+used global headcount to refute a smaller regional count. T20's matching fallback
+label was scored incorrect because its status was incomplete.
 
-Memory-on used two additional model calls, two additional tool calls, and 10.6%
-more tokens than memory-off. The single-agent configuration used 37.7% fewer model
-calls and took 30.3% less elapsed time than the full configuration. This small
-single-run comparison supports keeping the simpler configuration available; it
-does not establish universal superiority or a memory-efficiency gain.
+| Configuration | Baseline accuracy | Final accuracy | Token reduction | Elapsed-time change |
+|---|---:|---:|---:|---:|
+| Full | 85% | 100% | 28.2% | 17.5% lower |
+| Memory disabled | 100% | 100% | 19.9% | 11.4% lower |
+| Decomposer disabled | 100% | 100% | 30.5% | 8.9% higher |
 
-The three observed failure paths are quotation styling, insufficient population-
-scope checks, and repeated retrieval inflating message history. Source hashes in
-`run.json` preserve the evaluated implementation. Follow-up code changes and
-regression checks are separate; these baseline predictions remain unchanged.
+The changes filter weak memory matches, avoid repeated source text in model
+history, and finalize searches that add no new evidence. Validation now handles
+quotation styles, direct population scope, wrapped unit disclosures, monetary
+precision, comparative year/date columns, and missing annual-period disclosures.
+Numerical rejection feedback includes the resolved source value and column so
+the model can correct an error instead of repeating the same submission.
+
+## Ablation findings
+
+With memory enabled, the full workflow used
+**4 fewer model calls** and
+**4 fewer tool calls** than memory-off in this run.
+Token use was 0.9% lower and elapsed time was
+12.8% lower. Evidence recall still adds
+context; memory benefits depend on statement order and relevance, and a recalled
+passage alone is not an efficiency gain.
+
+The Decomposer-disabled configuration used 35 model calls versus
+54 for the full workflow, with the same 100% development-set accuracy.
+It is available through CLI and UI settings. The full multi-agent workflow remains
+the default; the comparison makes its planning overhead explicit.
+
+## Additional validation
+
+[Live API results](../results/api_validation/README.md) record twelve additional
+statements, all correct and complete, through the actual streaming HTTP endpoint.
+These cover paraphrases, metrics, scaling, historical/current balances, regional
+scope, forecasts, annual coverage, and comparative financial columns. Labels and
+references stay in the evaluation client and are not sent to the service.
+
+[Automated and browser validation](VALIDATION.md) covers 92 tests, a clean
+installation, Swagger HTTP 200 responses, single/batch review, and JSON downloads.
+The [earlier four-case diagnostic](../results/diagnostic/summary.md) is retained
+as a separate selected-subset result.
 
 ## Interpretation
 
-The dataset is a development benchmark used during iteration rather than a held-out
-test set. Calls and tokens should be compared alongside accuracy and completion;
-lower usage alone does not establish a better verifier. Model/backend behavior,
-memory reuse, statement order, and local hardware can affect latency and outcomes.
+These statements form a development benchmark used during iteration, rather than
+a held-out test set. All final predictions come from real local model inference;
+there is no answer cache or case-ID routing. Corpus and dataset hashes are fixed,
+and expected labels are used only for scoring. An incomplete result never earns
+accuracy credit.
+
+Elapsed times are single-run measurements on the recorded Apple M5 / 24 GiB
+environment with a warm local model, not hardware-independent latency guarantees.
+The full workflow used 28.2% fewer tokens and
+17.5% less elapsed time than its original baseline while
+improving completion and accuracy. This comparison includes implementation changes,
+not merely a change to memory settings.
+
+Keyword retrieval, text extraction, and model judgments have practical limits.
+Exact citations establish provenance; they do not alone prove semantic entailment
+or corpus-wide absence. Optional semantic reranking, OCR, and independent compound-
+claim splitting are outside the current implementation. The presentation/demo is
+deferred.

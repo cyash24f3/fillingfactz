@@ -15,3 +15,5 @@ dist/
 results/*/
 !results/diagnostic/
 !results/benchmark/
+!results/api_validation/
+!results/baseline/

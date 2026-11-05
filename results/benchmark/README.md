@@ -1,13 +1,16 @@
 # Complete benchmark snapshot
 
-Run: `20261105T132118Z_6c5a757e`.
+Run: `20261105T163921Z_96e9b031`.
 
-This directory is an unchanged copy of the completed 60-run evaluation. The source
-hashes recorded in `run.json` match the application code in commit
-`25edfb1915d76e5ec8fb53f9171f97a18e4766db`. Documentation-only changes do not affect
-that correspondence.
+All twenty statements completed with matching verdicts in all three configurations:
+**60/60 correct verification runs**. This directory preserves the evaluator's
+unmodified predictions, configuration metadata, and summaries.
 
-All 20 statements were evaluated sequentially in each configuration, with isolated
-memory namespaces and the same eight-model-call/sixteen-tool-call budgets.
-Predictions include failures and incomplete runs. Follow-up implementation changes
-must be evaluated separately and must not overwrite these measurements.
+Application-source hashes in `run.json` match commit `d6a7e14`. Documentation and
+result publication do not change the evaluated application files. The earlier
+baseline remains separate under `../baseline/`.
+
+Each configuration started with an isolated empty evidence-memory namespace,
+used the same ordered statements, and retained budgets of eight model calls and
+sixteen tool calls. Expected labels were used for scoring only. The reference
+environment and model digest are recorded in `environment.json`.

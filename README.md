@@ -85,19 +85,26 @@ The benchmark contains **20 labelled statements evaluated in three configuration
 and Decomposer disabled. Results include predictions, accuracy, calls, tokens, and
 elapsed time.
 
-[The complete 60-run benchmark](results/benchmark/summary.md) is included, with
-predictions and evidence for all three configurations.
+[The complete benchmark](results/benchmark/summary.md) records **60/60 correct,
+complete runs** on the included development dataset.
 
-| Configuration | Accuracy | Completed | Model calls | Tokens |
-|---|---:|---:|---:|---:|
-| Full | 85% | 18/20 | 61 | 266,260 |
-| Memory disabled | 100% | 20/20 | 59 | 240,716 |
-| Decomposer disabled | 100% | 20/20 | 38 | 228,157 |
+| Configuration | Accuracy | Completed | Model calls | Tool calls | Tokens | Seconds | Memory reads/writes |
+|---|---:|---:|---:|---:|---:|---:|---:|
+| Full | 100% | 20/20 | 54 | 74 | 191,196 | 839.5 | 20/18 |
+| Memory disabled | 100% | 20/20 | 58 | 78 | 192,919 | 963.1 | 0/0 |
+| Decomposer disabled | 100% | 20/20 | 35 | 54 | 158,559 | 772.2 | 20/18 |
 
-These are development-benchmark results for the recorded code snapshot. This run
-favours the single-agent configuration; memory did not reduce calls or tokens.
-[Evaluation](docs/EVALUATION.md) covers the protocol and analysis. Follow-up fixes
-and diagnostic runs are reported separately from this unchanged baseline.
+Against the [original baseline](results/baseline/summary.md), the full workflow
+improved from 85% to 100% accuracy while using
+28.2% fewer tokens,
+11.5% fewer model calls,
+and 17.5% less elapsed time.
+These are measured local results for the recorded snapshots.
+
+The project also passes **92 automated tests** and **12 additional live API checks**.
+See [Validation](docs/VALIDATION.md) and [Evaluation](docs/EVALUATION.md) for evidence,
+protocol, ablations, and practical limits. The benchmark environment is Apple M5,
+24 GiB RAM, Python 3.12, and local Qwen through Ollama.
 
 ## Project guide
 
@@ -106,6 +113,8 @@ and diagnostic runs are reported separately from this unchanged baseline.
 - [Design decisions and MERMAID adaptation](docs/DESIGN.md)
 - [Evaluation protocol and results](docs/EVALUATION.md)
 - [Labelled statements and source references](data/test_statements.json)
+- [Requirements checklist](docs/REQUIREMENTS.md)
+- [Interface and automated validation](docs/VALIDATION.md)
 - [Saved diagnostic predictions](results/diagnostic/full/predictions.json)
 
 PDF page numbers refer to the included PDF copies. Keyword retrieval and table
