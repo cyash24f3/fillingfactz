@@ -1,0 +1,945 @@
+[
+  {
+    "id": "T15",
+    "configuration": "full",
+    "statement": "CrowdStrike's most recently reported cash and cash equivalents are USD 4,038,536,000.",
+    "expected_verdict": "OUTDATED",
+    "system_verdict": "OUTDATED",
+    "status": "complete",
+    "correct": true,
+    "evidence": [
+      {
+        "passage_id": "10q_2024_07_31:p6:c0",
+        "quote": "Cash and cash equivalents                                                                                $          4,038,536",
+        "filing_id": "10q_2024_07_31",
+        "form": "10-Q",
+        "period_end": "2024-07-31",
+        "filed_at": "2024-08-29",
+        "pdf_page": 6,
+        "source_url": "https://ir.crowdstrike.com/static-files/fd6d4b22-9d2d-4e32-a3c6-e1f103248037",
+        "pdf_sha256": "347a00cfa0b5093498da2fb6e58098cd7a420373575757bec2deb5da1294b47a"
+      },
+      {
+        "passage_id": "10q_2024_10_31:p9:c0",
+        "quote": "Cash and cash equivalents                                                                $       4,260,324",
+        "filing_id": "10q_2024_10_31",
+        "form": "10-Q",
+        "period_end": "2024-10-31",
+        "filed_at": "2024-11-27",
+        "pdf_page": 9,
+        "source_url": "https://www.sec.gov/Archives/edgar/data/1535527/000153552724000026/crwd-20241031.htm",
+        "pdf_sha256": "5d63ae707036effc2b9caed440663e7ae209c9c11a1effc6e80db1e88670adc3"
+      }
+    ],
+    "explanation": "The most recently reported cash and cash equivalents are USD 4,260,324,000 (from the October 31, 2024 period), not USD 4,038,536,000. The claim corresponds to the July 31, 2024 period, which is superseded by the later October 31, 2024 filing.",
+    "stop_reason": "validated_submission",
+    "usage": {
+      "model_calls": 2,
+      "tool_calls": 3,
+      "input_tokens": 3299,
+      "output_tokens": 788,
+      "memory_reads": 1,
+      "memory_writes": 1,
+      "elapsed_seconds": 24.072
+    },
+    "memory": {
+      "enabled": true,
+      "namespace": "eval_20261105T131412Z_b232e132_full",
+      "recalled_passage_ids": [],
+      "saved_passages": 2,
+      "recall_calls": 1,
+      "write_calls": 1
+    },
+    "expected_evidence": [
+      {
+        "passage_id": "10q_2024_07_31:p6:c0",
+        "filing_id": "10q_2024_07_31",
+        "pdf_page": 6,
+        "quote": "Cash and cash equivalents                                                                                $          4,038,536  $          3,375,069",
+        "filed_at": "2024-08-29",
+        "source_url": "https://ir.crowdstrike.com/static-files/fd6d4b22-9d2d-4e32-a3c6-e1f103248037",
+        "pdf_sha256": "347a00cfa0b5093498da2fb6e58098cd7a420373575757bec2deb5da1294b47a",
+        "role": "earlier"
+      },
+      {
+        "passage_id": "10q_2024_10_31:p9:c0",
+        "filing_id": "10q_2024_10_31",
+        "pdf_page": 9,
+        "quote": "Cash and cash equivalents                                                                $       4,260,324  $       3,375,069",
+        "filed_at": "2024-11-27",
+        "source_url": "https://www.sec.gov/Archives/edgar/data/1535527/000153552724000026/crwd-20241031.htm",
+        "pdf_sha256": "5d63ae707036effc2b9caed440663e7ae209c9c11a1effc6e80db1e88670adc3",
+        "role": "later"
+      }
+    ],
+    "label_rationale": "The July balance sheet supports this earlier amount; the October balance sheet updates it to USD 4,260,324,000. Latest means latest within the supplied filings.",
+    "trace": [
+      {
+        "event": "decomposer_started",
+        "stage": "decomposer"
+      },
+      {
+        "event": "model_completed",
+        "number": 1,
+        "wall_seconds": 3.838,
+        "server_seconds": 3.835,
+        "load_seconds": 0.0018,
+        "prompt_seconds": 0.0992,
+        "generation_seconds": 3.7275,
+        "input_tokens": 606,
+        "output_tokens": 156,
+        "output_tokens_per_second": 41.85,
+        "stage": "decomposer"
+      },
+      {
+        "event": "decomposer_completed",
+        "plan": {
+          "subject": "CrowdStrike",
+          "relation": "has most recently reported cash and cash equivalents equal to",
+          "object": "USD 4,038,536,000",
+          "attribution": null,
+          "time_reference": "most recently reported",
+          "topics": [
+            "cash and cash equivalents",
+            "financial statements"
+          ],
+          "search_queries": [
+            "CrowdStrike cash and cash equivalents balance sheet",
+            "CrowdStrike most recent cash and cash equivalents"
+          ]
+        },
+        "stage": "decomposer"
+      },
+      {
+        "event": "memory_recalled",
+        "stage": "memory",
+        "hits": 0,
+        "passage_ids": []
+      },
+      {
+        "event": "tool_requested",
+        "name": "search_and_read",
+        "arguments": {
+          "query": "CrowdStrike cash and cash equivalents balance sheet",
+          "per_filing": 1,
+          "additional_queries": [
+            "CrowdStrike's most recently reported cash and cash equivalents are USD 4,038,536,000."
+          ]
+        },
+        "automatic": true,
+        "stage": "executor"
+      },
+      {
+        "event": "tool_completed",
+        "name": "search_and_read",
+        "automatic": true,
+        "filings_searched": 3,
+        "passages_loaded": 3,
+        "stage": "executor"
+      },
+      {
+        "event": "model_call",
+        "number": 1,
+        "stage": "executor"
+      },
+      {
+        "event": "model_completed",
+        "number": 1,
+        "wall_seconds": 20.176,
+        "server_seconds": 20.1748,
+        "load_seconds": 0.0004,
+        "prompt_seconds": 4.2614,
+        "generation_seconds": 15.9111,
+        "input_tokens": 2693,
+        "output_tokens": 632,
+        "output_tokens_per_second": 39.72,
+        "stage": "executor"
+      },
+      {
+        "event": "tool_requested",
+        "name": "submit_verdict",
+        "arguments": {
+          "evidence": [
+            {
+              "passage_id": "10q_2024_07_31:p6:c0",
+              "quote": "Cash and cash equivalents $ 4,038,536"
+            },
+            {
+              "passage_id": "10q_2024_10_31:p9:c0",
+              "quote": "Cash and cash equivalents $ 4,260,324"
+            }
+          ],
+          "explanation": "The most recently reported cash and cash equivalents are USD 4,260,324,000 (from the October 31, 2024 period), not USD 4,038,536,000. The claim corresponds to the July 31, 2024 period, which is superseded by the later October 31, 2024 filing.",
+          "verdict": "OUTDATED"
+        },
+        "stage": "executor"
+      },
+      {
+        "event": "verdict_accepted",
+        "verdict": "OUTDATED",
+        "stage": "executor"
+      },
+      {
+        "event": "memory_saved",
+        "stage": "memory",
+        "passages": 2
+      }
+    ]
+  },
+  {
+    "id": "T16",
+    "configuration": "full",
+    "statement": "CrowdStrike's most recently reported total assets are USD 6,646,520,000.",
+    "expected_verdict": "OUTDATED",
+    "system_verdict": "OUTDATED",
+    "status": "complete",
+    "correct": true,
+    "evidence": [
+      {
+        "passage_id": "10q_2024_10_31:p9:c1",
+        "quote": "Total assets                                                                          $       7,782,958  $       6,646,520",
+        "filing_id": "10q_2024_10_31",
+        "form": "10-Q",
+        "period_end": "2024-10-31",
+        "filed_at": "2024-11-27",
+        "pdf_page": 9,
+        "source_url": "https://www.sec.gov/Archives/edgar/data/1535527/000153552724000026/crwd-20241031.htm",
+        "pdf_sha256": "5d63ae707036effc2b9caed440663e7ae209c9c11a1effc6e80db1e88670adc3"
+      },
+      {
+        "passage_id": "10k_2024_01_31:p86:c1",
+        "quote": "Total assets                                                                                         $       6,646,520   $       5,026,540",
+        "filing_id": "10k_2024_01_31",
+        "form": "10-K",
+        "period_end": "2024-01-31",
+        "filed_at": "2024-03-07",
+        "pdf_page": 86,
+        "source_url": "https://www.sec.gov/Archives/edgar/data/1535527/000153552724000007/crwd-20240131.htm",
+        "pdf_sha256": "50dab0e16bc6ca06a34fbb03d965e701ac65c57d1992984e90f684ca0707364c"
+      }
+    ],
+    "explanation": "The most recently reported total assets are USD 7,782,958,000 from the October 31, 2024 filing. The figure USD 6,646,520,000 corresponds to the January 31, 2024 period end, which is an earlier reporting period.",
+    "stop_reason": "validated_submission",
+    "usage": {
+      "model_calls": 2,
+      "tool_calls": 3,
+      "input_tokens": 4105,
+      "output_tokens": 749,
+      "memory_reads": 1,
+      "memory_writes": 1,
+      "elapsed_seconds": 23.69
+    },
+    "memory": {
+      "enabled": true,
+      "namespace": "eval_20261105T131412Z_b232e132_full",
+      "recalled_passage_ids": [
+        "10q_2024_07_31:p6:c0",
+        "10q_2024_10_31:p9:c0"
+      ],
+      "saved_passages": 2,
+      "recall_calls": 1,
+      "write_calls": 1
+    },
+    "expected_evidence": [
+      {
+        "passage_id": "10k_2024_01_31:p86:c1",
+        "filing_id": "10k_2024_01_31",
+        "pdf_page": 86,
+        "quote": "Total assets                                                                                         $       6,646,520   $       5,026,540",
+        "filed_at": "2024-03-07",
+        "source_url": "https://www.sec.gov/Archives/edgar/data/1535527/000153552724000007/crwd-20240131.htm",
+        "pdf_sha256": "50dab0e16bc6ca06a34fbb03d965e701ac65c57d1992984e90f684ca0707364c",
+        "role": "earlier"
+      },
+      {
+        "passage_id": "10q_2024_10_31:p9:c1",
+        "filing_id": "10q_2024_10_31",
+        "pdf_page": 9,
+        "quote": "Total assets                                                                          $       7,782,958  $       6,646,520",
+        "filed_at": "2024-11-27",
+        "source_url": "https://www.sec.gov/Archives/edgar/data/1535527/000153552724000026/crwd-20241031.htm",
+        "pdf_sha256": "5d63ae707036effc2b9caed440663e7ae209c9c11a1effc6e80db1e88670adc3",
+        "role": "later"
+      }
+    ],
+    "label_rationale": "The January balance sheet supports this earlier amount; the October 31 balance is USD 7,782,958,000. Read the current column rather than January comparative figures.",
+    "trace": [
+      {
+        "event": "decomposer_started",
+        "stage": "decomposer"
+      },
+      {
+        "event": "model_completed",
+        "number": 1,
+        "wall_seconds": 3.563,
+        "server_seconds": 3.5611,
+        "load_seconds": 0.0004,
+        "prompt_seconds": 0.0,
+        "generation_seconds": 3.5592,
+        "input_tokens": 604,
+        "output_tokens": 140,
+        "output_tokens_per_second": 39.33,
+        "stage": "decomposer"
+      },
+      {
+        "event": "decomposer_completed",
+        "plan": {
+          "subject": "CrowdStrike",
+          "relation": "most recently reported total assets equal",
+          "object": "USD 6,646,520,000",
+          "attribution": null,
+          "time_reference": null,
+          "topics": [
+            "total assets",
+            "balance sheet"
+          ],
+          "search_queries": [
+            "CrowdStrike total assets",
+            "CrowdStrike balance sheet"
+          ]
+        },
+        "stage": "decomposer"
+      },
+      {
+        "event": "memory_recalled",
+        "stage": "memory",
+        "hits": 2,
+        "passage_ids": [
+          "10q_2024_07_31:p6:c0",
+          "10q_2024_10_31:p9:c0"
+        ]
+      },
+      {
+        "event": "tool_requested",
+        "name": "search_and_read",
+        "arguments": {
+          "query": "CrowdStrike total assets",
+          "per_filing": 1,
+          "additional_queries": [
+            "CrowdStrike's most recently reported total assets are USD 6,646,520,000."
+          ]
+        },
+        "automatic": true,
+        "stage": "executor"
+      },
+      {
+        "event": "tool_completed",
+        "name": "search_and_read",
+        "automatic": true,
+        "filings_searched": 3,
+        "passages_loaded": 3,
+        "stage": "executor"
+      },
+      {
+        "event": "model_call",
+        "number": 1,
+        "stage": "executor"
+      },
+      {
+        "event": "model_completed",
+        "number": 1,
+        "wall_seconds": 20.047,
+        "server_seconds": 20.0455,
+        "load_seconds": 0.0015,
+        "prompt_seconds": 3.754,
+        "generation_seconds": 16.2825,
+        "input_tokens": 3501,
+        "output_tokens": 609,
+        "output_tokens_per_second": 37.4,
+        "stage": "executor"
+      },
+      {
+        "event": "tool_requested",
+        "name": "submit_verdict",
+        "arguments": {
+          "evidence": [
+            {
+              "passage_id": "10q_2024_10_31:p9:c1",
+              "quote": "Total assets $ 7,782,958 $ 6,646,520"
+            },
+            {
+              "passage_id": "10k_2024_01_31:p86:c1",
+              "quote": "Total assets $ 6,646,520 $ 5,026,540"
+            }
+          ],
+          "explanation": "The most recently reported total assets are USD 7,782,958,000 from the October 31, 2024 filing. The figure USD 6,646,520,000 corresponds to the January 31, 2024 period end, which is an earlier reporting period.",
+          "verdict": "OUTDATED"
+        },
+        "stage": "executor"
+      },
+      {
+        "event": "verdict_accepted",
+        "verdict": "OUTDATED",
+        "stage": "executor"
+      },
+      {
+        "event": "memory_saved",
+        "stage": "memory",
+        "passages": 2
+      }
+    ]
+  },
+  {
+    "id": "T17",
+    "configuration": "full",
+    "statement": "CrowdStrike's most recently reported total current liabilities are USD 2,728,319,000.",
+    "expected_verdict": "OUTDATED",
+    "system_verdict": "OUTDATED",
+    "status": "complete",
+    "correct": true,
+    "evidence": [
+      {
+        "passage_id": "10q_2024_07_31:p6:c2",
+        "quote": "Total current liabilities                                                                                                      2,728,319              2,697,279",
+        "filing_id": "10q_2024_07_31",
+        "form": "10-Q",
+        "period_end": "2024-07-31",
+        "filed_at": "2024-08-29",
+        "pdf_page": 6,
+        "source_url": "https://ir.crowdstrike.com/static-files/fd6d4b22-9d2d-4e32-a3c6-e1f103248037",
+        "pdf_sha256": "347a00cfa0b5093498da2fb6e58098cd7a420373575757bec2deb5da1294b47a"
+      },
+      {
+        "passage_id": "10q_2024_10_31:p9:c2",
+        "quote": "Total current liabilities                                                                                 3,000,380          2,697,279",
+        "filing_id": "10q_2024_10_31",
+        "form": "10-Q",
+        "period_end": "2024-10-31",
+        "filed_at": "2024-11-27",
+        "pdf_page": 9,
+        "source_url": "https://www.sec.gov/Archives/edgar/data/1535527/000153552724000026/crwd-20241031.htm",
+        "pdf_sha256": "5d63ae707036effc2b9caed440663e7ae209c9c11a1effc6e80db1e88670adc3"
+      }
+    ],
+    "explanation": "The statement claims USD 2,728,319,000 as the most recently reported total current liabilities. This figure matches the July 31, 2024 period (filing 10q_2024_07_31), but a later filing (10q_2024_10_31) reports USD 3,000,380,000 for the October 31, 2024 period. For a current/latest claim, when an earlier-supported figure is superseded by a later filing, the verdict is OUTDATED.",
+    "stop_reason": "validated_submission",
+    "usage": {
+      "model_calls": 3,
+      "tool_calls": 4,
+      "input_tokens": 9231,
+      "output_tokens": 1089,
+      "memory_reads": 1,
+      "memory_writes": 1,
+      "elapsed_seconds": 38.438
+    },
+    "memory": {
+      "enabled": true,
+      "namespace": "eval_20261105T131412Z_b232e132_full",
+      "recalled_passage_ids": [
+        "10q_2024_10_31:p9:c1",
+        "10k_2024_01_31:p86:c1",
+        "10q_2024_07_31:p6:c0"
+      ],
+      "saved_passages": 2,
+      "recall_calls": 1,
+      "write_calls": 1
+    },
+    "expected_evidence": [
+      {
+        "passage_id": "10q_2024_07_31:p6:c2",
+        "filing_id": "10q_2024_07_31",
+        "pdf_page": 6,
+        "quote": "Total current liabilities                                                                                                      2,728,319              2,697,279",
+        "filed_at": "2024-08-29",
+        "source_url": "https://ir.crowdstrike.com/static-files/fd6d4b22-9d2d-4e32-a3c6-e1f103248037",
+        "pdf_sha256": "347a00cfa0b5093498da2fb6e58098cd7a420373575757bec2deb5da1294b47a",
+        "role": "earlier"
+      },
+      {
+        "passage_id": "10q_2024_10_31:p9:c2",
+        "filing_id": "10q_2024_10_31",
+        "pdf_page": 9,
+        "quote": "Total current liabilities                                                                                 3,000,380          2,697,279",
+        "filed_at": "2024-11-27",
+        "source_url": "https://www.sec.gov/Archives/edgar/data/1535527/000153552724000026/crwd-20241031.htm",
+        "pdf_sha256": "5d63ae707036effc2b9caed440663e7ae209c9c11a1effc6e80db1e88670adc3",
+        "role": "later"
+      }
+    ],
+    "label_rationale": "The July balance sheet supports this earlier amount; the October balance sheet updates it to USD 3,000,380,000.",
+    "trace": [
+      {
+        "event": "decomposer_started",
+        "stage": "decomposer"
+      },
+      {
+        "event": "model_completed",
+        "number": 1,
+        "wall_seconds": 3.852,
+        "server_seconds": 3.8502,
+        "load_seconds": 0.0004,
+        "prompt_seconds": 0.0459,
+        "generation_seconds": 3.802,
+        "input_tokens": 605,
+        "output_tokens": 148,
+        "output_tokens_per_second": 38.93,
+        "stage": "decomposer"
+      },
+      {
+        "event": "decomposer_completed",
+        "plan": {
+          "subject": "CrowdStrike",
+          "relation": "has most recently reported total current liabilities of",
+          "object": "USD 2,728,319,000",
+          "attribution": null,
+          "time_reference": "most recently reported",
+          "topics": [
+            "total current liabilities",
+            "financial statements"
+          ],
+          "search_queries": [
+            "CrowdStrike total current liabilities",
+            "CrowdStrike balance sheet current liabilities"
+          ]
+        },
+        "stage": "decomposer"
+      },
+      {
+        "event": "memory_recalled",
+        "stage": "memory",
+        "hits": 3,
+        "passage_ids": [
+          "10q_2024_10_31:p9:c1",
+          "10k_2024_01_31:p86:c1",
+          "10q_2024_07_31:p6:c0"
+        ]
+      },
+      {
+        "event": "tool_requested",
+        "name": "search_and_read",
+        "arguments": {
+          "query": "CrowdStrike total current liabilities",
+          "per_filing": 1,
+          "additional_queries": [
+            "CrowdStrike's most recently reported total current liabilities are USD 2,728,319,000."
+          ]
+        },
+        "automatic": true,
+        "stage": "executor"
+      },
+      {
+        "event": "tool_completed",
+        "name": "search_and_read",
+        "automatic": true,
+        "filings_searched": 3,
+        "passages_loaded": 3,
+        "stage": "executor"
+      },
+      {
+        "event": "model_call",
+        "number": 1,
+        "stage": "executor"
+      },
+      {
+        "event": "model_completed",
+        "number": 1,
+        "wall_seconds": 23.044,
+        "server_seconds": 23.0429,
+        "load_seconds": 0.0014,
+        "prompt_seconds": 4.2432,
+        "generation_seconds": 18.7897,
+        "input_tokens": 3955,
+        "output_tokens": 652,
+        "output_tokens_per_second": 34.7,
+        "stage": "executor"
+      },
+      {
+        "event": "tool_requested",
+        "name": "submit_verdict",
+        "arguments": {
+          "evidence": [
+            {
+              "passage_id": "10q_2024_10_31:p9:c2",
+              "quote": "Total current liabilities 3,000,380 2,697,279"
+            },
+            {
+              "passage_id": "10q_2024_07_31:p6:c2",
+              "quote": "Total current liabilities 2,728,319 2,697,279"
+            }
+          ],
+          "explanation": "The most recently reported total current liabilities (from the October 31, 2024 period in filing 10q_2024_10_31) are USD 3,000,380,000 (3,000,380 in thousands), not USD 2,728,319,000. The figure USD 2,728,319,000 corresponds to the July 31, 2024 period, which is an earlier reporting period.",
+          "verdict": "CONTRADICTED"
+        },
+        "stage": "executor"
+      },
+      {
+        "event": "tool_error",
+        "name": "submit_verdict",
+        "error": "An earlier loaded row matches the claimed amount, and a later filing changes the same metric. For this current/latest claim, the verdict policy calls for OUTDATED rather than CONTRADICTED. Verify the periods, cite both filings, and submit a consistent classification.",
+        "stage": "executor"
+      },
+      {
+        "event": "model_call",
+        "number": 2,
+        "stage": "executor"
+      },
+      {
+        "event": "model_completed",
+        "number": 2,
+        "wall_seconds": 11.437,
+        "server_seconds": 11.4357,
+        "load_seconds": 0.0005,
+        "prompt_seconds": 1.6271,
+        "generation_seconds": 9.8057,
+        "input_tokens": 4671,
+        "output_tokens": 289,
+        "output_tokens_per_second": 29.47,
+        "stage": "executor"
+      },
+      {
+        "event": "tool_requested",
+        "name": "submit_verdict",
+        "arguments": {
+          "evidence": [
+            {
+              "passage_id": "10q_2024_07_31:p6:c2",
+              "quote": "Total current liabilities 2,728,319 2,697,279"
+            },
+            {
+              "passage_id": "10q_2024_10_31:p9:c2",
+              "quote": "Total current liabilities 3,000,380 2,697,279"
+            }
+          ],
+          "explanation": "The statement claims USD 2,728,319,000 as the most recently reported total current liabilities. This figure matches the July 31, 2024 period (filing 10q_2024_07_31), but a later filing (10q_2024_10_31) reports USD 3,000,380,000 for the October 31, 2024 period. For a current/latest claim, when an earlier-supported figure is superseded by a later filing, the verdict is OUTDATED.",
+          "verdict": "OUTDATED"
+        },
+        "stage": "executor"
+      },
+      {
+        "event": "verdict_accepted",
+        "verdict": "OUTDATED",
+        "stage": "executor"
+      },
+      {
+        "event": "memory_saved",
+        "stage": "memory",
+        "passages": 2
+      }
+    ]
+  },
+  {
+    "id": "T18",
+    "configuration": "full",
+    "statement": "CrowdStrike had exactly 5,000 US-based full-time employees as of January 31, 2024.",
+    "expected_verdict": "NOT_ENOUGH_INFO",
+    "system_verdict": "NOT_ENOUGH_INFO",
+    "status": "complete",
+    "correct": true,
+    "evidence": [],
+    "explanation": "The evidence shows CrowdStrike had 7,925 full-time employees as of January 31, 2024 (from 10k_2024_01_31:p22:c1), but does not provide a breakdown by geographic location. The claim specifies \"US-based\" employees with exactly 5,000, which cannot be verified or contradicted from the available evidence that only provides total global employee count.",
+    "stop_reason": "validated_submission",
+    "usage": {
+      "model_calls": 8,
+      "tool_calls": 9,
+      "input_tokens": 49290,
+      "output_tokens": 1077,
+      "memory_reads": 1,
+      "memory_writes": 0,
+      "elapsed_seconds": 137.051
+    },
+    "memory": {
+      "enabled": true,
+      "namespace": "eval_20261105T131412Z_b232e132_full",
+      "recalled_passage_ids": [
+        "10q_2024_10_31:p9:c2",
+        "10k_2024_01_31:p86:c1",
+        "10q_2024_10_31:p9:c1"
+      ],
+      "saved_passages": 0,
+      "recall_calls": 1,
+      "write_calls": 0
+    },
+    "expected_evidence": [
+      {
+        "passage_id": "10k_2024_01_31:p22:c1",
+        "filing_id": "10k_2024_01_31",
+        "pdf_page": 22,
+        "quote": "As of January 31, 2024, we had 7,925 full-time employees.",
+        "filed_at": "2024-03-07",
+        "source_url": "https://www.sec.gov/Archives/edgar/data/1535527/000153552724000007/crwd-20240131.htm",
+        "pdf_sha256": "50dab0e16bc6ca06a34fbb03d965e701ac65c57d1992984e90f684ca0707364c",
+        "role": "context"
+      }
+    ],
+    "label_rationale": "The headcount disclosure gives a global total, not this US-specific count. The reference is context, not proof of absence; review Human Capital Resources and the supplied filings for country-specific headcounts.",
+    "trace": [
+      {
+        "event": "decomposer_started",
+        "stage": "decomposer"
+      },
+      {
+        "event": "model_completed",
+        "number": 1,
+        "wall_seconds": 8.135,
+        "server_seconds": 8.1335,
+        "load_seconds": 0.0003,
+        "prompt_seconds": 0.0815,
+        "generation_seconds": 8.0501,
+        "input_tokens": 607,
+        "output_tokens": 175,
+        "output_tokens_per_second": 21.74,
+        "stage": "decomposer"
+      },
+      {
+        "event": "decomposer_fallback",
+        "error": "1 validation error for ClaimPlan\nobject\n  String should have at least 1 character [type=string_too_short, input_value='', input_type=str]\n    For further information visit https://errors.pydantic.dev/2.14/v/string_too_short",
+        "stage": "decomposer"
+      },
+      {
+        "event": "memory_recalled",
+        "stage": "memory",
+        "hits": 3,
+        "passage_ids": [
+          "10q_2024_10_31:p9:c2",
+          "10k_2024_01_31:p86:c1",
+          "10q_2024_10_31:p9:c1"
+        ]
+      },
+      {
+        "event": "tool_requested",
+        "name": "search_and_read",
+        "arguments": {
+          "query": "CrowdStrike had exactly 5,000 US-based full-time employees as of January 31, 2024.",
+          "per_filing": 1
+        },
+        "automatic": true,
+        "stage": "executor"
+      },
+      {
+        "event": "tool_completed",
+        "name": "search_and_read",
+        "automatic": true,
+        "filings_searched": 3,
+        "passages_loaded": 3,
+        "stage": "executor"
+      },
+      {
+        "event": "model_call",
+        "number": 1,
+        "stage": "executor"
+      },
+      {
+        "event": "model_completed",
+        "number": 1,
+        "wall_seconds": 17.088,
+        "server_seconds": 17.0865,
+        "load_seconds": 0.0005,
+        "prompt_seconds": 10.0603,
+        "generation_seconds": 7.0226,
+        "input_tokens": 4607,
+        "output_tokens": 120,
+        "output_tokens_per_second": 17.09,
+        "stage": "executor"
+      },
+      {
+        "event": "tool_requested",
+        "name": "search_and_read",
+        "arguments": {
+          "query": "full-time employees United States US based",
+          "filing_id": "10k_2024_01_31"
+        },
+        "stage": "executor"
+      },
+      {
+        "event": "tool_completed",
+        "name": "search_and_read",
+        "stage": "executor"
+      },
+      {
+        "event": "model_call",
+        "number": 2,
+        "stage": "executor"
+      },
+      {
+        "event": "model_completed",
+        "number": 2,
+        "wall_seconds": 17.151,
+        "server_seconds": 17.149,
+        "load_seconds": 0.0143,
+        "prompt_seconds": 2.757,
+        "generation_seconds": 14.3743,
+        "input_tokens": 5368,
+        "output_tokens": 187,
+        "output_tokens_per_second": 13.01,
+        "stage": "executor"
+      },
+      {
+        "event": "tool_requested",
+        "name": "search_and_read",
+        "arguments": {
+          "query": "US based employees United States location geographic distribution",
+          "filing_id": "10k_2024_01_31"
+        },
+        "stage": "executor"
+      },
+      {
+        "event": "tool_completed",
+        "name": "search_and_read",
+        "stage": "executor"
+      },
+      {
+        "event": "model_call",
+        "number": 3,
+        "stage": "executor"
+      },
+      {
+        "event": "model_completed",
+        "number": 3,
+        "wall_seconds": 12.803,
+        "server_seconds": 12.8008,
+        "load_seconds": 0.0522,
+        "prompt_seconds": 3.8338,
+        "generation_seconds": 8.9086,
+        "input_tokens": 6137,
+        "output_tokens": 79,
+        "output_tokens_per_second": 8.87,
+        "stage": "executor"
+      },
+      {
+        "event": "tool_requested",
+        "name": "search_and_read",
+        "arguments": {
+          "query": "employees United States US based location headquarters",
+          "filing_id": "10k_2024_01_31"
+        },
+        "stage": "executor"
+      },
+      {
+        "event": "tool_completed",
+        "name": "search_and_read",
+        "stage": "executor"
+      },
+      {
+        "event": "model_call",
+        "number": 4,
+        "stage": "executor"
+      },
+      {
+        "event": "model_completed",
+        "number": 4,
+        "wall_seconds": 11.814,
+        "server_seconds": 11.8077,
+        "load_seconds": 0.002,
+        "prompt_seconds": 3.8047,
+        "generation_seconds": 7.9938,
+        "input_tokens": 6796,
+        "output_tokens": 83,
+        "output_tokens_per_second": 10.38,
+        "stage": "executor"
+      },
+      {
+        "event": "tool_requested",
+        "name": "search_and_read",
+        "arguments": {
+          "query": "employees by location country United States",
+          "filing_id": "10k_2024_01_31"
+        },
+        "stage": "executor"
+      },
+      {
+        "event": "tool_completed",
+        "name": "search_and_read",
+        "stage": "executor"
+      },
+      {
+        "event": "model_call",
+        "number": 5,
+        "stage": "executor"
+      },
+      {
+        "event": "model_completed",
+        "number": 5,
+        "wall_seconds": 10.614,
+        "server_seconds": 10.6096,
+        "load_seconds": 0.0017,
+        "prompt_seconds": 2.6667,
+        "generation_seconds": 7.9308,
+        "input_tokens": 7477,
+        "output_tokens": 88,
+        "output_tokens_per_second": 11.1,
+        "stage": "executor"
+      },
+      {
+        "event": "tool_requested",
+        "name": "search_and_read",
+        "arguments": {
+          "query": "employees United States based headcount number of employees",
+          "filing_id": "10k_2024_01_31"
+        },
+        "stage": "executor"
+      },
+      {
+        "event": "tool_completed",
+        "name": "search_and_read",
+        "stage": "executor"
+      },
+      {
+        "event": "model_call",
+        "number": 6,
+        "stage": "executor"
+      },
+      {
+        "event": "model_completed",
+        "number": 6,
+        "wall_seconds": 20.803,
+        "server_seconds": 20.7996,
+        "load_seconds": 0.0007,
+        "prompt_seconds": 3.3567,
+        "generation_seconds": 17.4369,
+        "input_tokens": 8214,
+        "output_tokens": 206,
+        "output_tokens_per_second": 11.81,
+        "stage": "executor"
+      },
+      {
+        "event": "tool_requested",
+        "name": "search_and_read",
+        "arguments": {
+          "query": "employees United States based location geographic distribution headcount"
+        },
+        "stage": "executor"
+      },
+      {
+        "event": "tool_completed",
+        "name": "search_and_read",
+        "stage": "executor"
+      },
+      {
+        "event": "model_call",
+        "number": 7,
+        "stage": "executor"
+      },
+      {
+        "event": "finalization_started",
+        "stage": "executor"
+      },
+      {
+        "event": "model_completed",
+        "number": 7,
+        "wall_seconds": 38.381,
+        "server_seconds": 38.3789,
+        "load_seconds": 0.0205,
+        "prompt_seconds": 27.9319,
+        "generation_seconds": 10.4208,
+        "input_tokens": 10084,
+        "output_tokens": 139,
+        "output_tokens_per_second": 13.34,
+        "stage": "executor"
+      },
+      {
+        "event": "tool_requested",
+        "name": "submit_verdict",
+        "arguments": {
+          "explanation": "The evidence shows CrowdStrike had 7,925 full-time employees as of January 31, 2024 (from 10k_2024_01_31:p22:c1), but does not provide a breakdown by geographic location. The claim specifies \"US-based\" employees with exactly 5,000, which cannot be verified or contradicted from the available evidence that only provides total global employee count.",
+          "verdict": "NOT_ENOUGH_INFO"
+        },
+        "stage": "executor"
+      },
+      {
+        "event": "verdict_accepted",
+        "verdict": "NOT_ENOUGH_INFO",
+        "stage": "executor"
+      }
+    ]
+  }
+]

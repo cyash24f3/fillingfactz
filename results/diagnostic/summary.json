@@ -1,0 +1,19 @@
+{
+  "full": {
+    "cases": 4,
+    "dataset_size": 20,
+    "full_dataset": false,
+    "accuracy": 1.0,
+    "completed": 4,
+    "incomplete": 0,
+    "errors": 0,
+    "model_calls": 15,
+    "tool_calls": 19,
+    "input_tokens": 65925,
+    "output_tokens": 3703,
+    "total_tokens": 69628,
+    "elapsed_seconds": 223.25099999999998,
+    "memory_reads": 4,
+    "memory_writes": 3
+  }
+}

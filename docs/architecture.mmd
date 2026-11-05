@@ -1,0 +1,25 @@
+flowchart TD
+    PDFs[Reference PDFs and filing manifest] --> Ingest[PyMuPDF extraction and page-aware chunks]
+    Ingest --> Corpus[(SQLite FTS5 corpus)]
+    UI[Streamlit reviewer] --> API[FastAPI and SSE]
+    API --> Init[Initialize LangGraph workflow]
+    CLI[CLI] --> Init
+    Init --> Plan[Optional Decomposer]
+    Plan --> Recall[Optional evidence recall]
+    Memory[(Persistent evidence memory)] --> Recall
+    Recall --> Bootstrap[Initial retrieval and query fusion]
+    Corpus --> Bootstrap
+    Bootstrap --> Executor[Executor]
+    Executor -->|Evidence gap| Tools[Search and read tools]
+    Corpus --> Tools
+    Tools -->|Evidence or error feedback| Executor
+    Executor -->|Submit| Validation[Schema and source validation]
+    Validation -->|Retry within budget| Executor
+    Validation -->|Accepted| Report[Structured report]
+    Executor -->|Failure or exhausted budget| Incomplete[Incomplete report and stop reason]
+    Report --> Save[Save accepted source evidence]
+    Save --> Memory
+    Report --> API
+    Incomplete --> API
+    Ollama[Local Qwen through Ollama] -.-> Plan
+    Ollama -.-> Executor
