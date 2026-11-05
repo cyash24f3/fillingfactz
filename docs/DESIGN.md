@@ -51,7 +51,7 @@ submits a verdict. Python handles parsing, retrieval, persistence, usage account
 budgets, schema validation, and quotation authentication.
 
 Additional checks cover named metric labels, simple dollar amounts in explicitly
-scaled numeric rows, earlier matching balances already loaded into state, selected
+scaled numeric rows, comparative year/date columns, earlier matching balances already loaded into state, selected
 employee-scope comparisons requiring a direct quantitative relationship, and disagreement between a verdict and an explicit
 conclusion in its explanation. Rejected submissions produce feedback; the model
 must resubmit a consistent result within the remaining budget.
@@ -61,7 +61,9 @@ must resubmit a consistent result within the remaining budget.
 Default budgets are eight model calls and sixteen tool calls across the workflow.
 Planning submissions, final submissions, automatic retrieval, and rejected tool
 attempts count toward usage. Memory operations are reported separately. The last
-available model request is reserved for finalization.
+available model request is reserved for finalization. Two consecutive searches
+without new passages also trigger a submission request, leaving the remaining
+budget available to correct validation errors.
 
 Malformed submissions and tool errors are returned as feedback. Repeated unstructured
 output, model failure, or exhausted budgets produce `status: incomplete` and a
@@ -73,11 +75,11 @@ specific stop reason. An incomplete result is not credited as a completed
 The included PDFs preserve benchmark pagination. Page context carries headings
 and table-unit disclosures into later chunks. Source matching tolerates whitespace
 and external quotation-style differences while preserving internal apostrophes
-and without joining nonadjacent text. The report restores the original source punctuation.
+without joining nonadjacent text. The report restores the original source punctuation.
 
 The system uses lexical retrieval and text extraction, with no OCR or dedicated
 cross-page table reconstruction. Numeric checks apply to supported simple formats
-and assume the first numeric table column is the reported period. Compound claims
+and bind comparative values to explicit year/date headings when unambiguous. Compound claims
 are not independently split. Exact citations establish provenance; semantic and
 financial interpretation still require model judgment and reviewer inspection.
 
@@ -89,6 +91,11 @@ refute a finer approximation when their precision intervals overlap; the agent
 must obtain a more precise table row. Matching table values likewise cannot
 support a numerical contradiction. Inequalities and negated monetary claims are
 left to semantic judgment rather than treated as equality comparisons.
+
+Monetary actuals for annual periods ending after the latest supplied filing date
+require a missing-information judgment; earlier annual results and interim figures
+cannot refute an undisclosed completed-year result. Explicit forecasts are evaluated
+as forecasts rather than rejected by this actuals check.
 
 The model receives the latest filing date and latest annual reporting period
 from the supplied manifest. Interim results and future guidance are distinguished

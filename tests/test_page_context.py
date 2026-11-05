@@ -7,13 +7,14 @@ from types import SimpleNamespace
 from unittest.mock import patch
 
 from filing_checker.models import Passage
-from filing_checker.retrieval import read_page_context, read_passage
+from filing_checker.retrieval import read_page_context, read_passage, read_page_text
 
 
 class PageBoundaryTests(unittest.TestCase):
     def setUp(self):
         folder = self.enterContext(tempfile.TemporaryDirectory())
         database = Path(folder) / "corpus.sqlite"
+        self.database_path = database
         self.enterContext(patch("filing_checker.retrieval.DATABASE_PATH", database))
         self.enterContext(patch("filing_checker.retrieval.load_filings",
                                 return_value=[SimpleNamespace(filing_id="annual")]))
@@ -48,6 +49,22 @@ class PageBoundaryTests(unittest.TestCase):
             read_page_context("annual", 9)
         with self.assertRaisesRegex(ValueError, "Unknown filing"):
             read_page_context("missing", 1)
+
+    def test_full_page_reconstruction_removes_overlap_without_changing_source(self):
+        original = "Column heading\nCash and cash equivalents 1,500 1,200\n"
+        first = read_passage("annual:p1:c0").model_copy(update={
+            "text": original[:35], "page_start": 0, "page_end": 35})
+        second = read_passage("annual:p1:c1").model_copy(update={
+            "text": original[25:], "page_start": 25, "page_end": len(original)})
+        with sqlite3.connect(self.database_path) as database:
+            for passage in (first, second):
+                database.execute("UPDATE passages SET payload = ? WHERE passage_id = ?",
+                                 (passage.model_dump_json(), passage.passage_id))
+        self.assertEqual(read_page_text("annual", 1), original)
+
+    def test_full_page_reconstruction_rejects_missing_text(self):
+        with self.assertRaisesRegex(ValueError, "text gap"):
+            read_page_text("annual", 1)
 
 
 if __name__ == "__main__":

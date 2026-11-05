@@ -60,12 +60,12 @@ table units. Final quotations are recovered from the original passage text.
 | `tools.py` | Validated tool registry and query fusion |
 | `decomposer.py` | Structured claim plan and search cues |
 | `agent.py`, `graph.py` | Executor loop and outer LangGraph workflow |
-| `evidence.py`, `models.py` | Schemas, quote matching, and consistency checks |
+| `evidence.py`, `periods.py`, `models.py` | Schemas, quote matching, period binding, and consistency checks |
 | `memory.py` | Persistent evidence recall and storage |
 | `llm.py` | Local Ollama client and usage measurement |
 | `service.py`, `api.py` | Async verification and streamed API events |
 | `ui_client.py`, `streamlit_app.py` | Reviewer interface and stream consumption |
-| `evaluate.py` | Benchmark validation, configuration comparison, and saved reports |
+| `evaluate.py`, `api_evaluate.py` | Benchmark comparison, additional live API checks, and saved reports |
 
 The API serializes verification within one process for the local model. Separate
 CLI processes operate independently. The application does not checkpoint or resume
